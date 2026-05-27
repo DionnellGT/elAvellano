@@ -21,7 +21,7 @@ export const Testimonios = () => {
       {/* Imagen de fondo */}
       <div
         className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/testimonials_bg.webp')" }}
+        style={{ backgroundImage: "url('/FondoTestimonios.png')" }}
       />
       {/* Overlay oscuro */}
       <div className="absolute inset-0 bg-black/10" />
