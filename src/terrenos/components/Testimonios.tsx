@@ -5,13 +5,13 @@ export const Testimonios = () => {
   const [current, setCurrent] = useState(0);
   const [flipping, setFlipping] = useState(false);
 
-  const goTo = (i: number) => {
-    setFlipping(true);
-    setTimeout(() => {
-      setCurrent(i);
-      setFlipping(false);
-    }, 300);
-  };
+  //const goTo = (i: number) => {
+  //  setFlipping(true);
+  //  setTimeout(() => {
+  //    setCurrent(i);
+  //    setFlipping(false);
+  //  }, 300);
+  //};
 
   return (
     <section
