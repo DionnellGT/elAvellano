@@ -5,6 +5,7 @@ import { NuestrasCaracteristicas } from "../components/NuestrasCaracteristicas";
 import { useProyectoPorSlug } from "../hooks/useProyectos";
 import { Conectividad } from "../components/Conectividad";
 import { GaleriaDeTerrenos } from "../components/GaleriaDeTerrenos";
+import { useIsMobile } from "../hooks/useIsMobile";
 import { useEffect } from "react";
 
 export interface Caracteristica {
@@ -43,6 +44,7 @@ export const caracteristicas: Caracteristica[] = [
 export const ProyectoPage = () => {
   const { idSlug } = useParams();
   const proyecto = useProyectoPorSlug(idSlug);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (proyecto) {
@@ -68,7 +70,7 @@ export const ProyectoPage = () => {
     <div className="bg-white">
       <section
         className="relative overflow-hidden bg-cover bg-center py-24"
-        style={{ backgroundImage: `url(${proyecto.imagenBannerPrincipal})` }}
+        style={{ backgroundImage: isMobile ? `url(${proyecto.imagenBannerPrincipalMobile})` : `url(${proyecto.imagenBannerPrincipal})` }}
       >
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 text-white">
         </div>
@@ -93,7 +95,7 @@ export const ProyectoPage = () => {
                         className="w-full h-full object-contain transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(360deg)]"
                       />
                     </div>
-                    <p className="text-white text-sm font-semibold leading-snug">
+                    <p className="text-white text-md font-semibold leading-snug">
                       {item.titulo}
                     </p>
                   </div>
@@ -157,7 +159,7 @@ export const ProyectoPage = () => {
             <img
               src={proyecto.imagenBaner2}
               alt={`${proyecto.name} banner secundario`}
-              className="w-full h-96 object-cover"
+              className="w-full h-full md:h-96 object-cover"
             />
           </div>
         </div>
