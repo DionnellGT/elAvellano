@@ -1,9 +1,11 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { proyectos } from "@/data/proyectos";
+import { useProyectos } from "../hooks/useProyectos";
+import { Link } from "react-router";
 
 export const Proyectos = () => {
+  const proyectos = useProyectos();
   const [current, setCurrent] = useState(0);
   const total = proyectos.length;
 
@@ -61,9 +63,11 @@ export const Proyectos = () => {
             />
             {/* Botón Ver Proyecto */}
             <div className="absolute bottom-5 left-0 right-0 flex justify-center">
-              <button className="px-6 py-2.5 rounded-full bg-[#a07030] text-white font-semibold text-[14px] tracking-wide hover:bg-[#8a5f28] transition-colors duration-200 shadow-lg">
-                Ver Proyecto
-              </button>
+              <Link to={`/proyectos/${proyectos[current].idSlug}`}>
+                <div className="px-6 py-2.5 rounded-full bg-[#a07030] text-white font-semibold text-[14px] tracking-wide hover:bg-[#8a5f28] transition-colors duration-200 shadow-lg">
+                  Ver Proyecto
+                </div>
+              </Link>
             </div>
           </div>
 

@@ -1,6 +1,7 @@
 import { createHashRouter, Navigate, RouterProvider } from "react-router";
 import { AvellanoLayout } from "./terrenos/layout/AvellanoLayout";
 import { HomePage } from "./terrenos/pages/HomePage";
+import { ProyectoPage } from "./terrenos/pages/ProyectoPage";
 
 
 const appRouter = createHashRouter([
@@ -13,6 +14,10 @@ const appRouter = createHashRouter([
                 index: true,
                 element: <HomePage/>
             },
+            {
+                path: 'proyectos/:idSlug',
+                element: <ProyectoPage/>
+            }
         ]
     },
 
