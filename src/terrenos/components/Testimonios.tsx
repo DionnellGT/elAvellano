@@ -5,13 +5,13 @@ export const Testimonios = () => {
   const [current, setCurrent] = useState(0);
   const [flipping, setFlipping] = useState(false);
 
-  //const goTo = (i: number) => {
-  //  setFlipping(true);
-  //  setTimeout(() => {
-  //    setCurrent(i);
-  //    setFlipping(false);
-  //  }, 300);
-  //};
+  const goTo = (i: number) => {
+    setFlipping(true);
+    setTimeout(() => {
+      setCurrent(i);
+      setFlipping(false);
+    }, 300);
+  };
 
   return (
     <section
@@ -73,7 +73,7 @@ export const Testimonios = () => {
           {testimonios.map((_, i) => (
             <button
               key={i}
-              onClick={() => setCurrent(i)}
+              onClick={() => goTo(i)}
               className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
                 i === current
                   ? "border-white bg-white"
