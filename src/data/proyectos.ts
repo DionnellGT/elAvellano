@@ -30,7 +30,7 @@ export const proyectos: Proyecto[] = [
   {
     id: "1",
     idSlug: "paisajes-del-rio",
-    name: "paisajes del rio",
+    name: "Paisajes del Río",
     imageCarrousel: "/PaisajesDelRio/paisajes.webp",
     imagenBannerPrincipal: "/PaisajesDelRio/Banner-Paisajes-Web.webp",
     imagenBannerPrincipalMobile: "/PaisajesDelRio/Banner-Paisajes-Mobile.webp",
