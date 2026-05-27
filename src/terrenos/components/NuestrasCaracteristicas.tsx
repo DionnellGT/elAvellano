@@ -1,3 +1,4 @@
+
 export const NuestrasCaracteristicas = ({ images }: { images: string[] }) => {
   return (
     <section className="py-16 bg-white">
@@ -25,8 +26,6 @@ export const NuestrasCaracteristicas = ({ images }: { images: string[] }) => {
 
           {/* Contenedor de imágenes con overlap */}
           <div className="relative h-[480px] lg:h-[540px]">
-
-            {/* Imagen grande — ocupa todo el lado derecho */}
             <div className="absolute right-0 top-0 w-[80%] h-full rounded-[2rem] overflow-hidden shadow-2xl">
               <img
                 src={images[0]}
@@ -34,8 +33,6 @@ export const NuestrasCaracteristicas = ({ images }: { images: string[] }) => {
                 className="w-full h-full object-cover"
               />
             </div>
-
-            {/* Imagen pequeña superpuesta — esquina inferior izquierda */}
             <div className="absolute left-0 bottom-8 w-[60%] h-[60%] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white z-10">
               <img
                 src={images[1] ?? images[0]}
@@ -43,7 +40,6 @@ export const NuestrasCaracteristicas = ({ images }: { images: string[] }) => {
                 className="w-full h-full object-cover"
               />
             </div>
-
           </div>
         </div>
       </div>

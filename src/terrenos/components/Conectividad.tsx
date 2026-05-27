@@ -33,7 +33,7 @@ export const Conectividad = ({
             <img
               src={imagenCentrosUrbanos}
               alt="Centros urbanos cercanos"
-              className="w-full h-[520px] object-cover"
+              className="w-full h-[520px] object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
           {/* Badge decorativo */}
@@ -101,7 +101,7 @@ export const Conectividad = ({
             {atraccionesTuristicas.map((atraccion, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between bg-[#f7efe0] rounded-2xl px-5 py-4 hover:bg-stone-100 transition-colors duration-200"
+                className="flex items-center justify-between bg-[#f7efe0] rounded-2xl px-5 py-4 hover:bg-[#f0e4cc] transition-colors duration-200"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center flex-shrink-0">
@@ -130,7 +130,7 @@ export const Conectividad = ({
             <img
               src={imagenAtraccionesTuristicas}
               alt="Atracciones turísticas"
-              className="w-full h-[520px] object-cover"
+              className="w-full h-[520px] object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
           {/* Badge decorativo */}

@@ -7,6 +7,39 @@ import { Conectividad } from "../components/Conectividad";
 import { GaleriaDeTerrenos } from "../components/GaleriaDeTerrenos";
 import { useEffect } from "react";
 
+export interface Caracteristica {
+  icono: string;
+  titulo: string;
+}
+
+export const caracteristicas: Caracteristica[] = [
+  {
+    icono: "/iconoTerrenos.png",
+    titulo: "Terrenos desde los 5.000 m2",
+  },
+  {
+    icono: "/iconoLuz.png",
+    titulo: "Factibilidad de luz",
+  },
+  {
+    icono: "/iconoCaminos.png",
+    titulo: "Aprovechando los caminos existentes",
+  },
+  {
+    icono: "/iconoEnergia.png",
+    titulo: "Apto para Energías Renovables. Cosecha de aguas lluvias",
+  },
+  {
+    icono: "/iconoTopografia.png",
+    titulo: "Topografía Plana y Semi Plana. Hermosas praderas",
+  },
+  {
+    icono: "/iconoSustentabilidad.png",
+    titulo: "Terreno con compromiso de sustentabilidad",
+  },
+];
+
+
 export const ProyectoPage = () => {
   const { idSlug } = useParams();
   const proyecto = useProyectoPorSlug(idSlug);
@@ -43,6 +76,31 @@ export const ProyectoPage = () => {
 
       {/* Características */}
       <NuestrasCaracteristicas images={proyecto.imagenesDeCaracteristicas} />
+
+      {/* Cards de características */}
+      <div className="py-12 bg-stone-900">
+        <div className="max-w-6xl mx-auto px-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {caracteristicas.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center text-center gap-4 bg-black rounded-2xl px-5 py-8 hover:bg-stone-800 transition-colors duration-200 group"
+                  >
+                    <div className="w-14 h-14 flex items-center justify-center flex-shrink-0 [perspective:400px]">
+                      <img
+                        src={item.icono}
+                        alt={item.titulo}
+                        className="w-full h-full object-contain transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(360deg)]"
+                      />
+                    </div>
+                    <p className="text-white text-sm font-semibold leading-snug">
+                      {item.titulo}
+                    </p>
+                  </div>
+                ))}
+            </div>
+        </div>
+      </div>
 
       {/* Galería de terrenos y entorno */}
       <GaleriaDeTerrenos imagenesVistasProyecto={proyecto.imagenesVistasProyecto} />
