@@ -17,7 +17,7 @@ export const VideoSection = () => {
         onClick={() => setOpen(true)}
       >
         <img
-          src="/video.webp"
+          src="/fondoVideo.webp"
           alt="Ver video El Avellano"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />

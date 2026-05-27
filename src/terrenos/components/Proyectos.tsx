@@ -53,11 +53,11 @@ export const Proyectos = () => {
           </div>
 
           {/* Card CENTRAL — grande y destacada */}
-          <div className="relative w-[440px] md:w-[620px] h-[280px] md:h-[420px] rounded-2xl overflow-hidden flex-shrink-0 shadow-2xl z-10">
+          <div className="relative w-[440px] md:w-[620px] h-[280px] md:h-[420px] rounded-2xl overflow-hidden flex-shrink-0 shadow-2xl z-10 group">
             <img
               src={proyectos[current].imageCarrousel}
               alt={proyectos[current].name}
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+              className="absolute inset-0 w-full h-full object-cover transition-all duration-500 brightness-90 group-hover:brightness-110"
             />
             {/* Botón Ver Proyecto */}
             <div className="absolute bottom-5 left-0 right-0 flex justify-center">
