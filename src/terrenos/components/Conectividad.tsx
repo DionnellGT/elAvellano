@@ -33,7 +33,7 @@ export const Conectividad = ({
             <img
               src={imagenCentrosUrbanos}
               alt="Centros urbanos cercanos"
-              className="w-full h-[520px] object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-[520px] object-cover hover:scale-115 transition-transform duration-300"
             />
           </div>
           {/* Badge decorativo */}
@@ -130,7 +130,7 @@ export const Conectividad = ({
             <img
               src={imagenAtraccionesTuristicas}
               alt="Atracciones turísticas"
-              className="w-full h-[520px] object-cover hover:scale-105 transition-transform duration-300"
+              className="w-full h-[520px] object-cover hover:scale-115 transition-transform duration-300"
             />
           </div>
           {/* Badge decorativo */}

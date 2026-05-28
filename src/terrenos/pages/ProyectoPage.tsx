@@ -15,27 +15,27 @@ export interface Caracteristica {
 
 export const caracteristicas: Caracteristica[] = [
   {
-    icono: "/iconoTerrenos.png",
+    icono: "/choose1-icon1.png",
     titulo: "Terrenos desde los 5.000 m2",
   },
   {
-    icono: "/iconoLuz.png",
+    icono: "/choose1-icon2.png",
     titulo: "Factibilidad de luz",
   },
   {
-    icono: "/iconoCaminos.png",
+    icono: "/choose1-icon3.png",
     titulo: "Aprovechando los caminos existentes",
   },
   {
-    icono: "/iconoEnergia.png",
+    icono: "/choose1-icon4.png",
     titulo: "Apto para Energías Renovables. Cosecha de aguas lluvias",
   },
   {
-    icono: "/iconoTopografia.png",
+    icono: "/choose1-icon5.png",
     titulo: "Topografía Plana y Semi Plana. Hermosas praderas",
   },
   {
-    icono: "/iconoSustentabilidad.png",
+    icono: "/choose1-icon6.png",
     titulo: "Terreno con compromiso de sustentabilidad",
   },
 ];
@@ -86,13 +86,30 @@ export const ProyectoPage = () => {
                 {caracteristicas.map((item, index) => (
                   <div
                     key={index}
-                    className="flex flex-col items-center text-center gap-4 bg-black rounded-2xl px-5 py-8 hover:bg-stone-800 transition-colors duration-200 group"
+                    className="flex flex-col items-center text-center gap-4 rounded-2xl px-5 py-8 group transition-all duration-300"
+                    style={{
+                      background: "linear-gradient(145deg, #1c1c1c, #0a0a0a)",
+                      boxShadow: "6px 6px 14px rgba(0,0,0,0.6), -3px -3px 8px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)",
+                    }}
+                    onMouseEnter={e => {
+                      const el = e.currentTarget as HTMLDivElement;
+                      el.style.boxShadow = "8px 8px 20px rgba(0,0,0,0.7), -4px -4px 10px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 1px rgba(160,112,48,0.3)";
+                      el.style.background = "linear-gradient(145deg, #222, #111)";
+                    }}
+                    onMouseLeave={e => {
+                      const el = e.currentTarget as HTMLDivElement;
+                      el.style.boxShadow = "6px 6px 14px rgba(0,0,0,0.6), -3px -3px 8px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)";
+                      el.style.background = "linear-gradient(145deg, #1c1c1c, #0a0a0a)";
+                    }}
                   >
                     <div className="w-14 h-14 flex items-center justify-center flex-shrink-0 [perspective:400px]">
                       <img
                         src={item.icono}
                         alt={item.titulo}
-                        className="w-full h-full object-contain transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(360deg)]"
+                        className="w-full h-full object-contain transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:scale-115"
+                        style={{
+                          filter: "brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(0deg) brightness(0.65)",
+                        }}
                       />
                     </div>
                     <p className="text-white text-md font-semibold leading-snug">
@@ -178,4 +195,4 @@ export const ProyectoPage = () => {
       <Contactenos />
     </div>
   );
-}; 
+};
