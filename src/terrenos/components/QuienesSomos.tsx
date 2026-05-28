@@ -48,7 +48,7 @@ export const QuienesSomos = () => {
 
             {/* home_1.jpg — encima, centrada y más pequeña con borde blanco */}
             <div className="absolute inset-0 flex items-center justify-start pl-0 -translate-x-10  md:-translate-x-16 ">
-              <div className="w-[65%] md:w-[55%] rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+              <div className="w-[70%] md:w-[55%] rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                 <img
                   src="/home_1.jpg"
                   alt="Tu parcela en el sur"
