@@ -17,15 +17,15 @@ export const Proyectos = () => {
   const rightIdx = (current + 1) % total;
 
   return (
-    <section id="proyectos" className="bg-[#f5f0eb] py-20 overflow-hidden">
+    <section id="proyectos" className="bg-[#f5f0eb] py-15 overflow-hidden">
       <div className="max-w-8xl mx-auto px-6">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-5 md:mb-12 ">
           <p className="text-[#a07030] text-[11px] font-semibold tracking-[0.2em] uppercase mb-2">
             Encuentra tu parcela
           </p>
-          <h2 className="font-bold text-stone-900 text-4xl md:text-5xl">
+          <h2 className="font-bold text-stone-900 text-3xl max-sm:text-2xl md:text-5xl">
             Nuestros Proyectos
           </h2>
         </div>
@@ -55,7 +55,7 @@ export const Proyectos = () => {
           </div>
 
           {/* Card CENTRAL — grande y destacada */}
-          <div className="relative max-sm:w-[310px] w-[440px] md:w-[620px] max-sm:w-[180px] h-[280px] md:h-[420px] rounded-2xl overflow-hidden flex-shrink-0 shadow-2xl z-10 group">
+          <div className="relative max-sm:w-[300px] w-[440px] md:w-[620px] max-sm:w-[170px] h-[280px] md:h-[420px] rounded-2xl overflow-hidden flex-shrink-0 shadow-2xl z-10 group">
             <img
               src={proyectos[current].imageCarrousel}
               alt={proyectos[current].name}
