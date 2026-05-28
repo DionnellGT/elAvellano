@@ -8,14 +8,14 @@ export const HomePage = () => {
     <div>
       {/* Hero — pantalla completa, navbar flota encima transparente */}
       <section
-        className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center"
+        className="relative min-h-screen max-sm:min-h-[500px] bg-cover bg-center bg-no-repeat flex items-center"
         style={{ backgroundImage: "url('/slides/banner1v2.webp')" }}
       >
         {/* Overlay sutil para legibilidad del navbar y texto */}
         <div className="absolute inset-0 bg-black/15" />
 
         {/* Contenido hero — alineado a la izquierda como en el diseño */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div className="relative z-10 max-w-7xl max-sm:max-w-md: mx-auto px-6 w-full">
         <div className="flex items-center gap-6">
     
             {/* Línea vertical */}

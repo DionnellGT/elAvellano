@@ -31,7 +31,7 @@ export const Proyectos = () => {
         </div>
 
         {/* Carrusel */}
-        <div className="relative flex items-center justify-center gap-4 h-[420px]">
+        <div className="relative flex items-center justify-center gap-4 max-sm:h-[320px] h-[420px]">
 
           {/* Card IZQUIERDA */}
           <div
@@ -55,7 +55,7 @@ export const Proyectos = () => {
           </div>
 
           {/* Card CENTRAL — grande y destacada */}
-          <div className="relative w-[440px] md:w-[620px] h-[280px] md:h-[420px] rounded-2xl overflow-hidden flex-shrink-0 shadow-2xl z-10 group">
+          <div className="relative max-sm:w-[310px] w-[440px] md:w-[620px] max-sm:w-[180px] h-[280px] md:h-[420px] rounded-2xl overflow-hidden flex-shrink-0 shadow-2xl z-10 group">
             <img
               src={proyectos[current].imageCarrousel}
               alt={proyectos[current].name}
@@ -95,7 +95,7 @@ export const Proyectos = () => {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-5">
           {proyectos.map((_, i) => (
             <button
               key={i}

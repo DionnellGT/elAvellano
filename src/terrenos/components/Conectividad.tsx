@@ -22,13 +22,13 @@ export const Conectividad = ({
   imagenAtraccionesTuristicas,
 }: ConectividadProps) => {
   return (
-    <section className="bg-white py-24 space-y-32">
+    <section className="bg-white py-15 space-y-28">
 
       {/* ── Centros Urbanos: imagen izquierda, info derecha ── */}
       <div className="max-w-6xl mx-auto px-6 grid gap-12 lg:grid-cols-2 items-center">
 
-        {/* Imagen */}
-        <div className="relative">
+        {/* Imagen — order-2 en mobile (aparece después del intro), order-none en lg */}
+        <div className="relative order-2 lg:order-none">
           <div className="overflow-hidden rounded-[2.5rem] shadow-2xl">
             <img
               src={imagenCentrosUrbanos}
@@ -42,19 +42,23 @@ export const Conectividad = ({
           </div>
         </div>
 
-        {/* Info */}
-        <div>
-          <div className="flex items-center gap-2 text-[#a07030] uppercase tracking-[0.2em] text-[11px] font-semibold mb-3">
-            <Sparkles size={16} />
-            Conectividad
+        {/* Info — split en mobile: intro (order-1) + imagen (order-2) + tarjetas (order-3) */}
+        <div className="contents lg:block">
+          {/* Intro: label + título + párrafo — order-1 en mobile */}
+          <div className="order-1 lg:order-none">
+            <div className="flex items-center gap-2 text-[#a07030] uppercase tracking-[0.2em] text-[11px] font-semibold mb-3">
+              <Sparkles size={16} />
+              Conectividad
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-stone-900 leading-tight mb-4">
+              Centros urbanos <span className="text-[#a07030]">cercanos</span>
+            </h2>
+            <p className="text-stone-500 text-base leading-relaxed lg:mb-8">
+              Accede fácilmente a los principales servicios y ciudades desde el proyecto.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 leading-tight mb-4">
-            Centros urbanos <span className="text-[#a07030]">cercanos</span>
-          </h2>
-          <p className="text-stone-500 text-base mb-8 leading-relaxed">
-            Accede fácilmente a los principales servicios y ciudades desde el proyecto.
-          </p>
-          <div className="space-y-3">
+          {/* Tarjetas — order-3 en mobile */}
+          <div className="order-3 lg:order-none space-y-3 mt-8 lg:mt-0">
             {centrosUrbanosCercanos.map((centro, index) => (
               <div
                 key={index}

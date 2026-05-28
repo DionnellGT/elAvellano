@@ -40,13 +40,13 @@ export const Testimonios = () => {
 
         {/* Card testimonio */}
         <div key={current}
-            className={`w-[50vw] mx-auto bg-black/80 rounded-2xl p-8 md:p-10 ${flipping ? "" : "animate-flip"}`}
+            className={`md:w-[50vw] mx-auto bg-black/80 rounded-2xl p-8 md:p-10 ${flipping ? "" : "animate-flip"}`}
             style={{ perspective: "1000px" }}
         >
           <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
 
             {/* Foto + nombre */}
-            <div className="flex flex-col items-center gap-3 flex-shrink-0">
+            <div className="flex flex-col items-center gap-3 flex-shrink-0 max-md:mx-auto">
               <img
                 src={testimonios[current].image}
                 alt={testimonios[current].name}

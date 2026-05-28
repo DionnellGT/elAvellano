@@ -24,7 +24,7 @@ export const Contactenos = () => {
   return (
     <section
       id="contactanos"
-      className="relative py-20 px-6 "
+      className="relative py-15 px-6 "
     >
       <div className="max-w-6xl mx-auto bg-cover bg-center bg-no-repeat rounded-3xl p-10 md:p-16"
         style={{ backgroundImage: "url('/fondoContactenos.jpg')" }}
@@ -52,7 +52,7 @@ export const Contactenos = () => {
               <span className="text-[#a07030]">tu mensaje</span>
             </h3>
 
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
               <div className="flex flex-col gap-1">
                 <input
                   {...register("nombre", { required: true })}
