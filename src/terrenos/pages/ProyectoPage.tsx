@@ -112,7 +112,7 @@ export const ProyectoPage = () => {
                         }}
                       />
                     </div>
-                    <p className="text-white text-md font-semibold leading-snug">
+                    <p className="text-white text-sm md:text-md font-semibold leading-snug">
                       {item.titulo}
                     </p>
                   </div>
