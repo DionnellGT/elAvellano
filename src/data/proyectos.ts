@@ -138,7 +138,7 @@ export const proyectos: Proyecto[] = [
       "/los_muermos/team1-img3.webp",
     ],
     imagenMapaFondo: "/los_muermos/avellanolm_mapa.webp",
-    linkMapa: "https://maps.app.goo.gl/SECnqq15deK5HPTw7",
+    linkMapa: "https://maps.app.goo.gl/HdPcPvZFxGitpppd7",
     imagenBaner2: "/los_muermos/avellanolmBanner.webp",
     centrosUrbanosCercanos: [
       {
