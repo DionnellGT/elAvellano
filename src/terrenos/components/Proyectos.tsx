@@ -63,7 +63,7 @@ export const Proyectos = () => {
             />
             {/* Botón Ver Proyecto */}
             <div className="absolute bottom-5 left-0 right-0 flex justify-center">
-              <Link to={`/proyectos/${proyectos[current].idSlug}`}>
+              <Link to={`/proyectos/${proyectos[current].idSlug}`} onClick={() => window.scrollTo(0, 0)}>
                 <div className="px-6 py-2.5 rounded-full bg-[#a07030] text-white font-semibold text-[14px] tracking-wide hover:bg-[#8a5f28] transition-colors duration-200 shadow-lg">
                   Ver Proyecto
                 </div>
