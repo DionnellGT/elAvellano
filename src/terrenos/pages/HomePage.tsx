@@ -9,7 +9,7 @@ export const HomePage = () => {
       {/* Hero — pantalla completa, navbar flota encima transparente */}
       <section
         className="relative min-h-screen max-sm:min-h-[500px] bg-cover bg-center bg-no-repeat flex items-center"
-        style={{ backgroundImage: "url('/slides/banner1v2.webp')" }}
+        style={{ backgroundImage: "url('/banner1v2.webp')" }}
       >
         {/* Overlay sutil para legibilidad del navbar y texto */}
         <div className="absolute inset-0 bg-black/15" />

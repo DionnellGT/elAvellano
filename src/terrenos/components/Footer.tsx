@@ -22,7 +22,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="opacity-80 hover:opacity-100 transition-opacity duration-200"
             >
-                <img src="/instagram.png" alt="Instagram" className="w-7 h-7 " />
+                <img src="/instagram.webp" alt="Instagram" className="w-7 h-7 " />
             </a>
             <a
                 href="https://www.facebook.com/elavellano"
@@ -30,7 +30,7 @@ export const Footer = () => {
                 rel="noopener noreferrer"
                 className="opacity-80 hover:opacity-100 transition-opacity duration-200"
             >
-                <img src="/facebook.png" alt="Facebook" className="w-7 h-7 invert" />
+                <img src="/facebook.webp" alt="Facebook" className="w-7 h-7 invert" />
             </a>
         </div>
 

@@ -27,7 +27,7 @@ export const Contactenos = () => {
       className="relative py-15 px-6 "
     >
       <div className="max-w-6xl mx-auto bg-cover bg-center bg-no-repeat rounded-3xl p-10 max-sm:p-3 md:p-16"
-        style={{ backgroundImage: "url('/fondoContactenos.jpg')" }}
+        style={{ backgroundImage: "url('/fondoContactenos.webp')" }}
       >
         <div className="grid md:grid-cols-2 gap-10 items-center">
 

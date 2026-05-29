@@ -40,7 +40,7 @@ export const QuienesSomos = () => {
             {/* home_2.jpg — fondo, ocupa toda la columna derecha, recortada */}
             <div className="absolute inset-0 rounded-2xl overflow-hidden">
               <img
-                src="/home_2.jpg"
+                src="/home_2.webp"
                 alt="Paisaje El Avellano"
                 className="w-full h-full object-cover"
               />
@@ -50,7 +50,7 @@ export const QuienesSomos = () => {
             <div className="absolute inset-0 flex items-center justify-start pl-0 -translate-x-10  md:-translate-x-16 ">
               <div className="w-[70%] md:w-[55%] rounded-2xl overflow-hidden shadow-xl border-4 border-white">
                 <img
-                  src="/home_1.jpg"
+                  src="/home_1.webp"
                   alt="Tu parcela en el sur"
                   className="w-full h-[300px] md:h-[340px] object-cover"
                 />
