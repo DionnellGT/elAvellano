@@ -2,7 +2,7 @@ import { VideoSection } from "./VideoSeccion";
 
 export const QuienesSomos = () => {
   return (
-    <section id="somos" className="bg-white py-16 overflow-hidden">
+    <section id="somos" className="bg-white py-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-9 mb-7">
 
         <div className="grid md:grid-cols-2 gap-12 items-center">

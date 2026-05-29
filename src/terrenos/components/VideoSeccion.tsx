@@ -37,7 +37,7 @@ export const VideoSection = () => {
       {/* Modal con video */}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
-            style={{ maxWidth: isMobile ? "80vw" : "60vw", width: isMobile ? "80vw" : "60vw" }} 
+            style={{ maxWidth: isMobile ? "90vw" : "60vw", width: isMobile ? "90vw" : "60vw" }} 
             className=" p-0 bg-black border-none overflow-hidden"
         >
             <div className="relative w-full aspect-video">

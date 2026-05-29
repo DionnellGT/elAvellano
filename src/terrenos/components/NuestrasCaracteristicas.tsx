@@ -25,8 +25,8 @@ export const NuestrasCaracteristicas = ({ images }: { images: string[] }) => {
           </div>
 
           {/* Contenedor de imágenes con overlap */}
-          <div className="relative h-[480px] lg:h-[540px]">
-            <div className="absolute right-0 top-0 w-[80%] h-full rounded-[2rem] overflow-hidden shadow-2xl">
+          <div className="relative h-[340px] md:h-[480px] lg:h-[540px]">
+            <div className="absolute right-0 top-0 w-[85%] md:w-[80%] h-full rounded-[2rem] overflow-hidden shadow-2xl">
               <img
                 src={images[0]}
                 alt="Vista principal del proyecto"

@@ -26,17 +26,17 @@ export const Contactenos = () => {
       id="contactanos"
       className="relative py-15 px-6 "
     >
-      <div className="max-w-6xl mx-auto bg-cover bg-center bg-no-repeat rounded-3xl p-10 md:p-16"
+      <div className="max-w-6xl mx-auto bg-cover bg-center bg-no-repeat rounded-3xl p-10 max-sm:p-3 md:p-16"
         style={{ backgroundImage: "url('/fondoContactenos.jpg')" }}
       >
         <div className="grid md:grid-cols-2 gap-10 items-center">
 
           {/* Columna izquierda — texto */}
           <div>
-            <h2 className="font-bold text-[#a07030] text-4xl md:text-5xl leading-tight mb-6">
+            <h2 className="font-bold text-[#a07030] max-sm:text-xl max-sm:px-3 max-sm:py-1 max-sm:text-center text-4xl md:text-5xl leading-tight mb-6">
               Estamos<br />aquí para ti
             </h2>
-            <p className="text-stone-600 text-[15px] leading-relaxed max-w-sm">
+            <p className="text-stone-600 max-sm:text-[12px] max-sm:px-3 text-[15px] leading-relaxed max-w-sm">
               Queremos ayudarte a hacer realidad tu proyecto.{" "}
               <strong className="text-stone-800">
                 Escríbenos y descubre todo lo que este terreno tiene para
@@ -46,7 +46,7 @@ export const Contactenos = () => {
           </div>
 
           {/* Columna derecha — formulario */}
-          <div className="bg-white rounded-2xl p-8 shadow-md">
+          <div className="bg-white rounded-2xl p-5 md:p-8 shadow-md">
             <h3 className="font-bold text-stone-900 text-xl mb-6">
               Escríbenos{" "}
               <span className="text-[#a07030]">tu mensaje</span>
