@@ -5,11 +5,13 @@ interface ConectividadProps {
     nombre: string;
     distancia: string;
     tiempo: string;
+    linkMaps?: string;
   }[];
   atraccionesTuristicas: {
     nombre: string;
     tiempo: string;
     distancia: string;
+    linkMaps?: string;
   }[];
   imagenCentrosUrbanos: string;
   imagenAtraccionesTuristicas: string;
@@ -64,11 +66,18 @@ export const Conectividad = ({
                 key={index}
                 className="flex items-center justify-between bg-[#f7efe0] rounded-2xl px-5 py-4 hover:bg-[#f0e4cc] transition-colors duration-200"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[#a07030]/15 flex items-center justify-center flex-shrink-0">
-                    <Navigation size={14} className="text-[#a07030]" />
-                  </div>
-                  <span className="font-semibold text-stone-800 text-sm">{centro.nombre}</span>
+                <div className="flex items-center gap-2">
+                  <a 
+                    href={centro.linkMaps}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-[#a07030]/15 flex items-center justify-center flex-shrink-0">
+                      <Navigation size={14} className="text-[#a07030]" />
+                    </div>
+                    <span className="font-semibold text-stone-800 text-sm">{centro.nombre}</span>
+                  </a>
                 </div>
                 <div className="flex items-center gap-4 text-stone-500 text-xs flex-shrink-0 ml-4">
                   <span className="flex items-center gap-1">
@@ -108,10 +117,17 @@ export const Conectividad = ({
                 className="flex items-center justify-between bg-[#f7efe0] rounded-2xl px-5 py-4 hover:bg-[#f0e4cc] transition-colors duration-200"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center flex-shrink-0">
-                    <Sparkles size={14} className="text-[#a07030]" />
-                  </div>
-                  <span className="font-semibold text-stone-800 text-sm">{atraccion.nombre}</span>
+                  <a 
+                    href={atraccion.linkMaps}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center flex-shrink-0">
+                      <Sparkles size={14} className="text-[#a07030]" />
+                    </div>
+                    <span className="font-semibold text-stone-800 text-sm">{atraccion.nombre}</span>
+                  </a>
                 </div>
                 <div className="flex items-center gap-4 text-stone-500 text-xs flex-shrink-0 ml-4">
                   <span className="flex items-center gap-1">
