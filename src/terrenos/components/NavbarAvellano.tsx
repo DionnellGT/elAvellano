@@ -64,8 +64,8 @@ export const NavbarAvellano = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ",
+        isScrolled || isProyectoPage ? "bg-white shadow-md" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
@@ -73,7 +73,7 @@ export const NavbarAvellano = () => {
         {/* Logo */}
         <a href="/" className="flex items-center">
           <img
-            src={isScrolled ? LOGO_STICKY : LOGO_WHITE}
+            src={isScrolled || isProyectoPage ? LOGO_STICKY : LOGO_WHITE}
             alt="El Avellano"
             className="h-12 w-auto transition-all duration-500"
           />
@@ -89,7 +89,7 @@ export const NavbarAvellano = () => {
               className={cn(
                 "relative text-[13px] tracking-[0.06em] uppercase font-medium transition-colors duration-300 hover:font-semibold",
                 "after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full",
-                isScrolled
+                isScrolled || isProyectoPage
                   ? "text-stone-700 hover:text-stone-900 after:bg-stone-900"
                   : "text-white/90 hover:text-white after:bg-white"
               )}
@@ -118,7 +118,7 @@ export const NavbarAvellano = () => {
                 aria-label="Abrir menú"
                 className={cn(
                   "p-2 rounded-md transition-colors",
-                  isScrolled ? "text-stone-800" : "text-white"
+                  isScrolled || isProyectoPage ? "text-stone-800" : "text-white"
                 )}
               >
                 <Menu size={22} />

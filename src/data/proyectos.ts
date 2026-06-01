@@ -16,6 +16,7 @@ export interface Proyecto {
     distancia: string;
     tiempo: string;
     linkMaps?: string;
+    imgCentroUrbano?: string;
   }[];
   imagenCentrosUrbanos: string;
   atraccionesTuristicas: {
@@ -23,6 +24,7 @@ export interface Proyecto {
     tiempo: string;
     distancia: string;
     linkMaps?: string;
+    imgAtraccionTuristica?: string;
   }[];
   imagenAtraccionesTuristicas: string;
 }
@@ -152,19 +154,22 @@ export const proyectos: Proyecto[] = [
         nombre: "Centro de Los Muermos",
         distancia: "10 km",
         tiempo: "10 min",
-        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Los+Muermos,+Los+Lagos/@-41.4147789,-73.4491183,8618m/data=!3m1!1e3!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x9622ab79ba4d330f:0x5cde10c0b33ef4a5!2m2!1d-73.4651433!2d-41.3944267!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Los+Muermos,+Los+Lagos/@-41.4147789,-73.4491183,8618m/data=!3m1!1e3!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x9622ab79ba4d330f:0x5cde10c0b33ef4a5!2m2!1d-73.4651433!2d-41.3944267!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+        imgCentroUrbano: "/los_muermos/avellanolm_centrosurbanos.webp"
       },
       {
         nombre: "Aeropuerto El Tepual Puerto Montt",
         distancia: "35 km",
         tiempo: "30 min",
         linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Aeropuerto+El+Tepual,+5480000+Puerto+Montt,+Los+Lagos/@-41.4297954,-73.3742526,34462m/data=!3m1!1e3!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x9618180d92b8a285:0xe832ce1a3e5d101e!2m2!1d-73.0986775!2d-41.4331342!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+        imgCentroUrbano: "/los_muermos/aeropuerto_El_Tepual.webp"
       },
       {
         nombre: "Centro de Fresia",
         distancia: "43 km",
         tiempo: "45 min",
-        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Fresia,+Los+Lagos/@-41.3036591,-73.6684948,69058m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x9617e2f0bb2f796d:0x4fa5e13ffe3b9783!2m2!1d-73.4217541!2d-41.1524991!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Fresia,+Los+Lagos/@-41.3036591,-73.6684948,69058m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x9617e2f0bb2f796d:0x4fa5e13ffe3b9783!2m2!1d-73.4217541!2d-41.1524991!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+        imgCentroUrbano: "/los_muermos/Fresia.webp"
       }
     ],
     imagenCentrosUrbanos: "/los_muermos/avellanolm_centrosurbanos.webp",
@@ -173,37 +178,43 @@ export const proyectos: Proyecto[] = [
         nombre: "La Pasada Maullin",
         tiempo: "32 min",
         distancia: "32 km",
-        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/La+Pasada,+Maull%C3%ADn,+Los+Lagos/@-41.4957066,-73.604506,34427m/data=!3m1!1e3!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x9622a478391ddd4f:0x46f4e5498dfd90dc!2m2!1d-73.5966719!2d-41.6030817!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/La+Pasada,+Maull%C3%ADn,+Los+Lagos/@-41.4957066,-73.604506,34427m/data=!3m1!1e3!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x9622a478391ddd4f:0x46f4e5498dfd90dc!2m2!1d-73.5966719!2d-41.6030817!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+        imgAtraccionTuristica: "/los_muermos/La_Pasada_Maullin.webp"
       },
       {
         nombre: "Museo Antonio Felmer en Nueva Braunau",
         tiempo: "35 min",
         distancia: "40 km",
-        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Museo+Antonio+Felmer,+camino+a+R%C3%ADo+Fr%C3%ADo+-+Fundo+Bellavista,+km.9,+Nueva+Braunau,+Puerto+Varas,+Chile/@-41.390708,-73.4164634,34483m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x96181f814e3a15ab:0xc917556943935b31!2m2!1d-73.0929117!2d-41.3271123!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Museo+Antonio+Felmer,+camino+a+R%C3%ADo+Fr%C3%ADo+-+Fundo+Bellavista,+km.9,+Nueva+Braunau,+Puerto+Varas,+Chile/@-41.390708,-73.4164634,34483m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x96181f814e3a15ab:0xc917556943935b31!2m2!1d-73.0929117!2d-41.3271123!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+        imgAtraccionTuristica: "/los_muermos/MuseoAntonioFelmer.webp"
       },
       {
         nombre: "Parque Arqueológico Monte Verde",
         tiempo: "39 min",
         distancia: "42.5 km",
-        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Parque+Arqueologico+Monte+Verde+%22Vive+la+Prehistoria%22,+El+Salto+-+Camino+Monte+Verde,+km+8,2,+Puerto+Montt,+Los+Lagos/@-41.4521617,-73.3788308,17225m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x961811214881a71f:0x76cf376ca40f41a3!2m2!1d-73.2008565!2d-41.5075214!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Parque+Arqueologico+Monte+Verde+%22Vive+la+Prehistoria%22,+El+Salto+-+Camino+Monte+Verde,+km+8,2,+Puerto+Montt,+Los+Lagos/@-41.4521617,-73.3788308,17225m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x961811214881a71f:0x76cf376ca40f41a3!2m2!1d-73.2008565!2d-41.5075214!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+        imgAtraccionTuristica: "/los_muermos/MonteVerdePilauco.webp"
       },
       {
         nombre: "Parque Nacional Hornopiren",
         tiempo: "52 min",
         distancia: "48 km",
-        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Parque+Nacional+Hornopiren,+Puerto+Montt,+Los+Lagos/@-41.4563315,-73.3559411,34448m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x96183c792744bce5:0x5b065954c7d8f125!2m2!1d-72.9964316!2d-41.478507!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Parque+Nacional+Hornopiren,+Puerto+Montt,+Los+Lagos/@-41.4563315,-73.3559411,34448m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x96183c792744bce5:0x5b065954c7d8f125!2m2!1d-72.9964316!2d-41.478507!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+        imgAtraccionTuristica: "/los_muermos/AtraccionHornopiren.webp"
       },
       {
         nombre: "Playa Estaquilla",
         tiempo: "57 min",
         distancia: "51 km",
-        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Fin+Pasarelas+Estaquilla,+Los+Muermos,+Los+Lagos/@-41.4232568,-73.7795415,34466m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x963d4aa22012ab8f:0xe6251f3194cb1456!2m2!1d-73.8359779!2d-41.3837526!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/Fin+Pasarelas+Estaquilla,+Los+Muermos,+Los+Lagos/@-41.4232568,-73.7795415,34466m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x963d4aa22012ab8f:0xe6251f3194cb1456!2m2!1d-73.8359779!2d-41.3837526!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+        imgAtraccionTuristica: "/los_muermos/PlayaEstaquilla.webp"
       },
       {
         nombre: "Playa Llico Bajo",
         tiempo: "1h 23 min",
         distancia: "67 km",
-        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/El+Balneario+Llico+Bajo+-+sector+llico+bajo+s%2Fn,+5480000+Los+Muermos,+Los+Lagos/@-41.3455847,-73.7843829,34507m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x963d49428164a389:0xcd1d598b4c922eb9!2m2!1d-73.8404783!2d-41.2866492!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+        linkMaps: "https://www.google.com/maps/dir/41%C2%B026'02.5%22S+73%C2%B023'47.2%22W/El+Balneario+Llico+Bajo+-+sector+llico+bajo+s%2Fn,+5480000+Los+Muermos,+Los+Lagos/@-41.3455847,-73.7843829,34507m/data=!3m2!1e3!4b1!4m12!4m11!1m3!2m2!1d-73.3964444!2d-41.4340278!1m5!1m1!1s0x963d49428164a389:0xcd1d598b4c922eb9!2m2!1d-73.8404783!2d-41.2866492!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D",
+        imgAtraccionTuristica: "/los_muermos/PlayaLlico.webp"
       }
     ],
     imagenAtraccionesTuristicas: "/los_muermos/AtraccionHornopiren.webp",
