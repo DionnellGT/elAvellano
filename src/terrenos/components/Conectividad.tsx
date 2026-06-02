@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useIsMobile } from "../hooks/useIsMobile";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { MapPin, Sparkles, Clock, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface ConectividadProps {
@@ -37,6 +39,8 @@ const CarouselCentros = ({
   fallbackImage: string;
 }) => {
   const [current, setCurrent] = useState<number>(0);
+  const [open, setOpen] = useState(false);
+  const isMobile = useIsMobile();
   const total = centros.length;
 
   const prev = () => setCurrent((i) => (i - 1 + total) % total);
@@ -72,6 +76,7 @@ const CarouselCentros = ({
           <img
             src={(centros[current].imgCentroUrbano || centros[current].imgAtraccionTuristica) ?? fallbackImage}
             alt={centros[current].nombre}
+            onClick={() => setOpen(true)}
             className="absolute inset-0 w-full h-full object-cover transition-all duration-500 brightness-90 group-hover:scale-105"
           />
           {/* Mobile prev/next arrows overlay */}
@@ -97,6 +102,23 @@ const CarouselCentros = ({
             </div>
           </div>
         </div>
+        {/* Modal con imagen */}
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogContent
+              style={{ maxWidth: isMobile ? "90vw" : "60vw", width: isMobile ? "90vw" : "60vw" }} 
+              className=" p-0 bg-black border-none overflow-hidden"
+          >
+            <div className="relative w-full aspect-video">
+              {open && (
+                <img
+                  src={(centros[current].imgCentroUrbano || centros[current].imgAtraccionTuristica) ?? fallbackImage}
+                  alt={centros[current].nombre}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
+            </div>
+          </DialogContent>
+        </Dialog>
 
         {/* Right card — hidden on mobile */}
         <div
@@ -144,40 +166,31 @@ export const Conectividad = ({
       {/* ── Centros Urbanos */}
       <div className="max-w-6xl mx-auto px-6 grid gap-12 lg:grid-cols-1 items-center">
 
-        {/* Info: ahora ocupa todo el ancho en lg */}
-        <div className="contents lg:block">
-          {/* Intro: label + título + párrafo — order-1 en mobile */}
-          <div className="order-1 lg:order-none">
-            <div className="flex items-center gap-2 text-[#a07030] uppercase tracking-[0.2em] text-[11px] font-semibold mb-3">
-              <Sparkles size={16} />
-              Conectividad
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-stone-900 leading-tight mb-4">
-              Centros urbanos <span className="text-[#a07030]">cercanos</span>
-            </h2>
-            <p className="text-stone-500 text-base leading-relaxed lg:mb-8">
-              Accede fácilmente a los principales servicios y ciudades desde el proyecto.
-            </p>
+        {/* Info */}
+        <div>
+          <div className="flex items-center gap-2 text-[#a07030] uppercase tracking-[0.2em] text-[11px] font-semibold mb-3">
+            <Sparkles size={16} />
+            Conectividad
           </div>
-          {/* Carrusel de centros urbanos — reemplaza la lista */}
-          <div className="order-3 lg:order-none mt-8 lg:mt-0">
+          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 leading-tight mb-4">
+            Centros urbanos <span className="text-[#a07030]">cercanos</span>
+          </h2>
+          <p className="text-stone-500 text-base leading-relaxed mb-8">
+            Accede fácilmente a los principales servicios y ciudades desde el proyecto.
+          </p>
+          {/* Carrusel de centros urbanos */}
+          <div className="mt-8 lg:mt-0">
             {centrosUrbanosCercanos.length === 0 ? (
               <div className="text-stone-500">No hay destinos cercanos.</div>
             ) : (
-              (() => {
-                // estado local del carrusel
-                // useState se declara arriba; definir control aquí mediante closure-prop hack
-                return (
-                  <CarouselCentros
-                    centros={centrosUrbanosCercanos}
-                    fallbackImage={imagenCentrosUrbanos}
-                  />
-                );
-              })()
+              <CarouselCentros
+                centros={centrosUrbanosCercanos}
+                fallbackImage={imagenCentrosUrbanos}
+              />
             )}
           </div>
 
-          {/* Badge de cantidad ahora debajo del carrusel, alineada a la derecha */}
+          {/* Badge de cantidad debajo del carrusel, alineada a la derecha */}
           <div className="flex justify-end mt-4 lg:mt-8">
             <div className="bg-[#a07030] text-white rounded-[1.5rem] px-5 py-3 shadow-xl text-sm font-semibold tracking-wide">
               {centrosUrbanosCercanos.length} destinos cercanos
@@ -201,21 +214,15 @@ export const Conectividad = ({
           <p className="text-stone-500 text-base mb-8 leading-relaxed">
             Vive experiencias únicas a pocos minutos del proyecto, rodeado de naturaleza y cultura local.
           </p>
-          {/* Carrusel de atracciones turísticas — reemplaza la lista */}
-          <div className="order-3 lg:order-none mt-8 lg:mt-0">
+          {/* Carrusel de atracciones turísticas */}
+          <div className="mt-8 lg:mt-0">
             {atraccionesTuristicas.length === 0 ? (
               <div className="text-stone-500">No hay atracciones turísticas.</div>
             ) : (
-              (() => {
-                // estado local del carrusel
-                // useState se declara arriba; definir control aquí mediante closure-prop hack
-                return (
-                  <CarouselCentros
-                    centros={atraccionesTuristicas}
-                    fallbackImage={imagenAtraccionesTuristicas}
-                  />
-                );
-              })()
+              <CarouselCentros
+                centros={atraccionesTuristicas}
+                fallbackImage={imagenAtraccionesTuristicas}
+              />
             )}
           </div>
 
