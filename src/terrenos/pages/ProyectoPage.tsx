@@ -19,10 +19,6 @@ export const caracteristicas: Caracteristica[] = [
     titulo: "Terrenos desde los 5.000 m2",
   },
   {
-    icono: "/choose1-icon2.webp",
-    titulo: "Factibilidad de luz",
-  },
-  {
     icono: "/choose1-icon3.webp",
     titulo: "Aprovechando los caminos existentes",
   },
@@ -67,12 +63,17 @@ export const ProyectoPage = () => {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white ">
       <section
-        className="relative overflow-hidden bg-cover bg-center py-24"
-        style={{ backgroundImage: isMobile ? `url(${proyecto.imagenBannerPrincipalMobile})` : `url(${proyecto.imagenBannerPrincipal})` }}
+        className="relative overflow-hidden bg-cover bg-center py-18 vanishing-gradient"
+        //style={{ backgroundImage: isMobile ? `url(${proyecto.imagenBannerPrincipalMobile})` : `url(${proyecto.imagenBannerPrincipal})` }}
       >
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 text-white">
+        <div className="relative z-10 mx-auto text-white overflow-hidden max-w-full shadow-2xl">
+          <img
+              src={isMobile ? proyecto.imagenBannerPrincipalMobile : proyecto.imagenBannerPrincipal}
+              alt={`${proyecto.name} banner secundario`}
+              className="w-full h-11/12 md:h-full object-cover"
+            />
         </div>
       </section>
 
@@ -82,7 +83,7 @@ export const ProyectoPage = () => {
       {/* Cards de características */}
       <div className="py-12 bg-stone-900">
         <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-center">
                 {caracteristicas.map((item, index) => (
                   <div
                     key={index}
@@ -176,7 +177,7 @@ export const ProyectoPage = () => {
             <img
               src={proyecto.imagenBaner2}
               alt={`${proyecto.name} banner secundario`}
-              className="w-full h-full md:h-96 object-cover"
+              className="w-full h-11/12 md:h-full object-cover"
             />
           </div>
         </div>

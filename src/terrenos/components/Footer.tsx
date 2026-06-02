@@ -25,7 +25,7 @@ export const Footer = () => {
                 <img src="/instagram.webp" alt="Instagram" className="w-7 h-7 " />
             </a>
             <a
-                href="https://www.facebook.com/elavellano"
+                href="https://www.facebook.com/profile.php?id=61575818940479"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="opacity-80 hover:opacity-100 transition-opacity duration-200"

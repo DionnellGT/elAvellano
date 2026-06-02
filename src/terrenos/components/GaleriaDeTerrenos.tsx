@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export const GaleriaDeTerrenos = ({ imagenesVistasProyecto }: { imagenesVistasProyecto: string[] }) => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState<"left" | "right" | null>(null);
   const [animating, setAnimating] = useState(false);
   const total = imagenesVistasProyecto.length;
+  const [open, setOpen] = useState(false);
+  const isMobile = useIsMobile();
+  
 
   const navigate = (dir: "left" | "right") => {
     if (animating) return;
@@ -80,9 +85,27 @@ export const GaleriaDeTerrenos = ({ imagenesVistasProyecto }: { imagenesVistasPr
               key={current}
               src={imagenesVistasProyecto[current]}
               alt={`vista ${current + 1}`}
+              onClick={() => setOpen(true)}
               className={`absolute inset-0 w-full h-full object-cover transition-all duration-350 ease-in-out brightness-90 group-hover:brightness-110 ${slideClass}`}
-            />
+            /> 
           </div>
+          {/* Modal con video */}
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogContent
+                style={{ maxWidth: isMobile ? "90vw" : "60vw", width: isMobile ? "90vw" : "60vw" }} 
+                className=" p-0 bg-black border-none overflow-hidden"
+            >
+              <div className="relative w-full aspect-video">
+                {open && (
+                  <img
+                    src={imagenesVistasProyecto[current]}
+                    alt={`vista ${current + 1}`}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                )}
+              </div>
+            </DialogContent>
+          </Dialog>
 
           {/* Card DERECHA */}
           <div

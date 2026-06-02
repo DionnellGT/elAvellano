@@ -1,4 +1,5 @@
-import { MapPin, Sparkles, Clock, Navigation } from "lucide-react"
+import { useState } from "react";
+import { MapPin, Sparkles, Clock, ChevronLeft, ChevronRight } from "lucide-react"
 
 interface ConectividadProps {
   centrosUrbanosCercanos: {
@@ -6,16 +7,130 @@ interface ConectividadProps {
     distancia: string;
     tiempo: string;
     linkMaps?: string;
+    imgCentroUrbano?: string;
   }[];
   atraccionesTuristicas: {
     nombre: string;
     tiempo: string;
     distancia: string;
     linkMaps?: string;
+    imgAtraccionTuristica?: string;
   }[];
   imagenCentrosUrbanos: string;
   imagenAtraccionesTuristicas: string;
 }
+
+interface carrouselItem {
+  nombre: string;
+  distancia: string;
+  tiempo: string;
+  linkMaps?: string;
+  imgCentroUrbano?: string;
+  imgAtraccionTuristica?: string;
+}
+
+const CarouselCentros = ({
+  centros,
+  fallbackImage,
+}: {
+  centros: carrouselItem[];
+  fallbackImage: string;
+}) => {
+  const [current, setCurrent] = useState<number>(0);
+  const total = centros.length;
+
+  const prev = () => setCurrent((i) => (i - 1 + total) % total);
+  const next = () => setCurrent((i) => (i + 1) % total);
+
+  const leftIdx = (current - 1 + total) % total;
+  const rightIdx = (current + 1) % total;
+
+  return (
+    <div className="w-full overflow-hidden">
+      <div className="relative flex items-center justify-center gap-4 h-[220px] md:h-[260px]">
+        {/* Left card — hidden on mobile */}
+        <div
+          className="hidden md:block relative w-[220px] h-[200px] rounded-2xl overflow-hidden flex-shrink-0 cursor-pointer opacity-80 hover:opacity-90 transition-opacity duration-300"
+          onClick={prev}
+        >
+          <img
+            src={(centros[leftIdx].imgCentroUrbano || centros[leftIdx].imgAtraccionTuristica) ?? fallbackImage}
+            alt={centros[leftIdx].nombre}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/30" />
+          <button
+            className="absolute top-1/2 left-3 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center shadow"
+            onClick={(e) => { e.stopPropagation(); prev(); }}
+          >
+            <ChevronLeft size={18} className="text-stone-700" />
+          </button>
+        </div>
+
+        {/* Center card */}
+        <div className="relative w-full max-w-[calc(100vw-48px)] md:w-[520px] md:max-w-none h-[200px] md:h-[260px] rounded-2xl overflow-hidden flex-shrink-0 shadow-2xl z-10 group">
+          <img
+            src={(centros[current].imgCentroUrbano || centros[current].imgAtraccionTuristica) ?? fallbackImage}
+            alt={centros[current].nombre}
+            className="absolute inset-0 w-full h-full object-cover transition-all duration-500 brightness-90 group-hover:scale-105"
+          />
+          {/* Mobile prev/next arrows overlay */}
+          <button
+            className="md:hidden absolute top-1/2 left-3 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 flex items-center justify-center shadow z-20"
+            onClick={prev}
+          >
+            <ChevronLeft size={18} className="text-stone-700" />
+          </button>
+          <button
+            className="md:hidden absolute top-1/2 right-3 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 flex items-center justify-center shadow z-20"
+            onClick={next}
+          >
+            <ChevronRight size={18} className="text-stone-700" />
+          </button>
+          <div className="absolute bottom-4 left-4 text-white rounded-2xl drop-shadow GlassmorphismCarrousel px-2 py-2">
+            <a href={centros[current].linkMaps} target="_blank" rel="noreferrer" className="font-semibold text-sm md:text-lg">
+              {centros[current].nombre}
+            </a>
+            <div className="text-sm text-white/90 mt-1 flex gap-3 items-center">
+              <span className="flex items-center gap-1"><MapPin size={12} className="text-white/90" />{centros[current].distancia}</span>
+              <span className="flex items-center gap-1"><Clock size={12} className="text-white/90" />{centros[current].tiempo}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right card — hidden on mobile */}
+        <div
+          className="hidden md:block relative w-[220px] h-[200px] rounded-2xl overflow-hidden flex-shrink-0 cursor-pointer opacity-80 hover:opacity-90 transition-opacity duration-300"
+          onClick={next}
+        >
+          <img
+            src={(centros[rightIdx].imgCentroUrbano || centros[rightIdx].imgAtraccionTuristica) ?? fallbackImage}
+            alt={centros[rightIdx].nombre}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/30" />
+          <button
+            className="absolute top-1/2 right-3 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center shadow"
+            onClick={(e) => { e.stopPropagation(); next(); }}
+          >
+            <ChevronRight size={18} className="text-stone-700" />
+          </button>
+        </div>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-4">
+        {centros.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === current ? "bg-[#a07030] w-6" : "bg-stone-300"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export const Conectividad = ({
   centrosUrbanosCercanos,
@@ -24,27 +139,12 @@ export const Conectividad = ({
   imagenAtraccionesTuristicas,
 }: ConectividadProps) => {
   return (
-    <section className="bg-white py-15 space-y-28">
+    <section className="bg-white py-10 space-y-20">
 
-      {/* ── Centros Urbanos: imagen izquierda, info derecha ── */}
-      <div className="max-w-6xl mx-auto px-6 grid gap-12 lg:grid-cols-2 items-center">
+      {/* ── Centros Urbanos */}
+      <div className="max-w-6xl mx-auto px-6 grid gap-12 lg:grid-cols-1 items-center">
 
-        {/* Imagen — order-2 en mobile (aparece después del intro), order-none en lg */}
-        <div className="relative order-2 lg:order-none">
-          <div className="overflow-hidden rounded-[2.5rem] shadow-2xl">
-            <img
-              src={imagenCentrosUrbanos}
-              alt="Centros urbanos cercanos"
-              className="w-full h-[350px] md:h-[520px] object-cover hover:scale-115 transition-transform duration-300"
-            />
-          </div>
-          {/* Badge decorativo */}
-          <div className="absolute -bottom-5 -right-5 bg-[#a07030] text-white rounded-[1.5rem] px-5 py-3 shadow-xl text-sm font-semibold tracking-wide">
-            {centrosUrbanosCercanos.length} destinos cercanos
-          </div>
-        </div>
-
-        {/* Info — split en mobile: intro (order-1) + imagen (order-2) + tarjetas (order-3) */}
+        {/* Info: ahora ocupa todo el ancho en lg */}
         <div className="contents lg:block">
           {/* Intro: label + título + párrafo — order-1 en mobile */}
           <div className="order-1 lg:order-none">
@@ -59,44 +159,36 @@ export const Conectividad = ({
               Accede fácilmente a los principales servicios y ciudades desde el proyecto.
             </p>
           </div>
-          {/* Tarjetas — order-3 en mobile */}
-          <div className="order-3 lg:order-none space-y-3 mt-8 lg:mt-0">
-            {centrosUrbanosCercanos.map((centro, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between bg-[#f7efe0] rounded-2xl px-5 py-4 hover:bg-[#f0e4cc] transition-colors duration-200"
-              >
-                <div className="flex items-center gap-2">
-                  <a 
-                    href={centro.linkMaps}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-3"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-[#a07030]/15 flex items-center justify-center flex-shrink-0">
-                      <Navigation size={14} className="text-[#a07030]" />
-                    </div>
-                    <span className="font-semibold text-stone-800 text-sm">{centro.nombre}</span>
-                  </a>
-                </div>
-                <div className="flex items-center gap-4 text-stone-500 text-xs flex-shrink-0 ml-4">
-                  <span className="flex items-center gap-1">
-                    <MapPin size={12} className="text-[#a07030]" />
-                    {centro.distancia}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock size={12} className="text-[#a07030]" />
-                    {centro.tiempo}
-                  </span>
-                </div>
-              </div>
-            ))}
+          {/* Carrusel de centros urbanos — reemplaza la lista */}
+          <div className="order-3 lg:order-none mt-8 lg:mt-0">
+            {centrosUrbanosCercanos.length === 0 ? (
+              <div className="text-stone-500">No hay destinos cercanos.</div>
+            ) : (
+              (() => {
+                const total = centrosUrbanosCercanos.length;
+                // estado local del carrusel
+                // useState se declara arriba; definir control aquí mediante closure-prop hack
+                return (
+                  <CarouselCentros
+                    centros={centrosUrbanosCercanos}
+                    fallbackImage={imagenCentrosUrbanos}
+                  />
+                );
+              })()
+            )}
+          </div>
+
+          {/* Badge de cantidad ahora debajo del carrusel, alineada a la derecha */}
+          <div className="flex justify-end mt-4 lg:mt-8">
+            <div className="bg-[#a07030] text-white rounded-[1.5rem] px-5 py-3 shadow-xl text-sm font-semibold tracking-wide">
+              {centrosUrbanosCercanos.length} destinos cercanos
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ── Atracciones Turísticas: info izquierda, imagen derecha ── */}
-      <div className="max-w-6xl mx-auto px-6 grid gap-12 lg:grid-cols-2 items-center">
+      {/* ── Atracciones Turísticas */}
+      <div className="max-w-6xl mx-auto px-6 grid gap-12 lg:grid-cols-1 items-center">
 
         {/* Info */}
         <div>
@@ -110,52 +202,30 @@ export const Conectividad = ({
           <p className="text-stone-500 text-base mb-8 leading-relaxed">
             Vive experiencias únicas a pocos minutos del proyecto, rodeado de naturaleza y cultura local.
           </p>
-          <div className="space-y-3">
-            {atraccionesTuristicas.map((atraccion, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between bg-[#f7efe0] rounded-2xl px-5 py-4 hover:bg-[#f0e4cc] transition-colors duration-200"
-              >
-                <div className="flex items-center gap-3">
-                  <a 
-                    href={atraccion.linkMaps}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-3"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center flex-shrink-0">
-                      <Sparkles size={14} className="text-[#a07030]" />
-                    </div>
-                    <span className="font-semibold text-stone-800 text-sm">{atraccion.nombre}</span>
-                  </a>
-                </div>
-                <div className="flex items-center gap-4 text-stone-500 text-xs flex-shrink-0 ml-4">
-                  <span className="flex items-center gap-1">
-                    <MapPin size={12} className="text-[#a07030]" />
-                    {atraccion.distancia}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock size={12} className="text-[#a07030]" />
-                    {atraccion.tiempo}
-                  </span>
-                </div>
-              </div>
-            ))}
+          {/* Carrusel de atracciones turísticas — reemplaza la lista */}
+          <div className="order-3 lg:order-none mt-8 lg:mt-0">
+            {atraccionesTuristicas.length === 0 ? (
+              <div className="text-stone-500">No hay atracciones turísticas.</div>
+            ) : (
+              (() => {
+                const total = atraccionesTuristicas.length;
+                // estado local del carrusel
+                // useState se declara arriba; definir control aquí mediante closure-prop hack
+                return (
+                  <CarouselCentros
+                    centros={atraccionesTuristicas}
+                    fallbackImage={imagenAtraccionesTuristicas}
+                  />
+                );
+              })()
+            )}
           </div>
-        </div>
 
-        {/* Imagen */}
-        <div className="relative">
-          <div className="overflow-hidden rounded-[2.5rem] shadow-2xl">
-            <img
-              src={imagenAtraccionesTuristicas}
-              alt="Atracciones turísticas"
-              className="w-full h-[350px] md:h-[520px] object-cover hover:scale-115 transition-transform duration-300"
-            />
-          </div>
-          {/* Badge decorativo */}
-          <div className="absolute -bottom-5 -left-5 bg-stone-900 text-white rounded-[1.5rem] px-5 py-3 shadow-xl text-sm font-semibold tracking-wide">
-            {atraccionesTuristicas.length} atracciones
+          {/* Badge de cantidad ahora debajo del carrusel, alineada a la derecha */}
+          <div className="flex justify-end mt-4 lg:mt-8">
+            <div className="bg-[#a07030] text-white rounded-[1.5rem] px-5 py-3 shadow-xl text-sm font-semibold tracking-wide">
+              {atraccionesTuristicas.length} atracciones turísticas
+            </div>
           </div>
         </div>
       </div>
