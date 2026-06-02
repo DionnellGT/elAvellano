@@ -165,7 +165,6 @@ export const Conectividad = ({
               <div className="text-stone-500">No hay destinos cercanos.</div>
             ) : (
               (() => {
-                const total = centrosUrbanosCercanos.length;
                 // estado local del carrusel
                 // useState se declara arriba; definir control aquí mediante closure-prop hack
                 return (
@@ -208,7 +207,6 @@ export const Conectividad = ({
               <div className="text-stone-500">No hay atracciones turísticas.</div>
             ) : (
               (() => {
-                const total = atraccionesTuristicas.length;
                 // estado local del carrusel
                 // useState se declara arriba; definir control aquí mediante closure-prop hack
                 return (
