@@ -1,3 +1,4 @@
+import { ChatBotWsp } from "../components/ChatBot";
 import { Contactenos } from "../components/Contactenos";
 import { Proyectos } from "../components/Proyectos";
 import { QuienesSomos } from "../components/QuienesSomos";
@@ -47,6 +48,7 @@ export const HomePage = () => {
       <QuienesSomos/>
       <Proyectos/>
       <Testimonios/>
+      <ChatBotWsp/>
       <Contactenos/>
     </div>
   );
