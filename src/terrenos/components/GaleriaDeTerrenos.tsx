@@ -89,7 +89,7 @@ export const GaleriaDeTerrenos = ({ imagenesVistasProyecto }: { imagenesVistasPr
               className={`absolute inset-0 w-full h-full object-cover transition-all duration-350 ease-in-out brightness-90 group-hover:brightness-110 ${slideClass}`}
             /> 
           </div>
-          {/* Modal con video */}
+          {/* Modal con imagen */}
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogContent
                 style={{ maxWidth: isMobile ? "90vw" : "60vw", width: isMobile ? "90vw" : "60vw" }} 

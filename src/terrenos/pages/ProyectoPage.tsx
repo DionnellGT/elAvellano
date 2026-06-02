@@ -7,34 +7,8 @@ import { Conectividad } from "../components/Conectividad";
 import { GaleriaDeTerrenos } from "../components/GaleriaDeTerrenos";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useEffect } from "react";
-
-export interface Caracteristica {
-  icono: string;
-  titulo: string;
-}
-
-export const caracteristicas: Caracteristica[] = [
-  {
-    icono: "/choose1-icon1.webp",
-    titulo: "Terrenos desde los 5.000 m2",
-  },
-  {
-    icono: "/choose1-icon3.webp",
-    titulo: "Aprovechando los caminos existentes",
-  },
-  {
-    icono: "/choose1-icon4.webp",
-    titulo: "Apto para Energías Renovables. Cosecha de aguas lluvias",
-  },
-  {
-    icono: "/choose1-icon5.webp",
-    titulo: "Topografía Plana y Semi Plana. Hermosas praderas",
-  },
-  {
-    icono: "/choose1-icon6.webp",
-    titulo: "Terreno con compromiso de sustentabilidad",
-  },
-];
+import { CardsCaracteristicas } from "../components/CardsCaracteristicas";
+import { ChatBotWsp } from "../components/ChatBot";
 
 
 export const ProyectoPage = () => {
@@ -81,50 +55,12 @@ export const ProyectoPage = () => {
       <NuestrasCaracteristicas images={proyecto.imagenesDeCaracteristicas} />
 
       {/* Cards de características */}
-      <div className="py-12 bg-stone-900">
-        <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-center">
-                {caracteristicas.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center text-center gap-4 rounded-2xl px-5 py-8 group transition-all duration-300"
-                    style={{
-                      background: "linear-gradient(145deg, #1c1c1c, #0a0a0a)",
-                      boxShadow: "6px 6px 14px rgba(0,0,0,0.6), -3px -3px 8px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)",
-                    }}
-                    onMouseEnter={e => {
-                      const el = e.currentTarget as HTMLDivElement;
-                      el.style.boxShadow = "8px 8px 20px rgba(0,0,0,0.7), -4px -4px 10px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 1px rgba(160,112,48,0.3)";
-                      el.style.background = "linear-gradient(145deg, #222, #111)";
-                    }}
-                    onMouseLeave={e => {
-                      const el = e.currentTarget as HTMLDivElement;
-                      el.style.boxShadow = "6px 6px 14px rgba(0,0,0,0.6), -3px -3px 8px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)";
-                      el.style.background = "linear-gradient(145deg, #1c1c1c, #0a0a0a)";
-                    }}
-                  >
-                    <div className="w-14 h-14 flex items-center justify-center flex-shrink-0 [perspective:400px]">
-                      <img
-                        src={item.icono}
-                        alt={item.titulo}
-                        className="w-full h-full object-contain transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:scale-115"
-                        style={{
-                          filter: "brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(0deg) brightness(0.65)",
-                        }}
-                      />
-                    </div>
-                    <p className="text-white text-sm md:text-md font-semibold leading-snug">
-                      {item.titulo}
-                    </p>
-                  </div>
-                ))}
-            </div>
-        </div>
-      </div>
+      <CardsCaracteristicas />
 
       {/* Galería de terrenos y entorno */}
       <GaleriaDeTerrenos imagenesVistasProyecto={proyecto.imagenesVistasProyecto} />
 
+      {/* Mapa */}
       <section id="mapa" className="relative py-20 bg-stone-950 text-white">
         <div className="absolute inset-0 opacity-70 bg-black" />
         <div className="relative max-w-6xl mx-auto px-6">
@@ -171,6 +107,8 @@ export const ProyectoPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Banner secundario */}
       <section className="pt-5 pb-10">
         <div className="max-w-full">
           <div className="overflow-hidden shadow-2xl">
@@ -192,7 +130,9 @@ export const ProyectoPage = () => {
       
       />
 
-      
+      {/* Chatbot */}
+      <ChatBotWsp />
+
       <Contactenos />
     </div>
   );

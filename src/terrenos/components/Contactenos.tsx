@@ -33,10 +33,10 @@ export const Contactenos = () => {
 
           {/* Columna izquierda — texto */}
           <div>
-            <h2 className="font-bold text-[#a07030] max-sm:text-xl max-sm:px-3 max-sm:py-1 max-sm:text-center text-4xl md:text-5xl leading-tight mb-6">
+            <h2 className="font-bold text-[#a07030] max-sm:text-2xl max-sm:px-3 max-sm:py-1 max-sm:text-center text-4xl md:text-5xl leading-tight mb-6">
               Estamos<br />aquí para ti
             </h2>
-            <p className="text-stone-600 max-sm:text-[12px] max-sm:px-3 text-[15px] leading-relaxed max-w-sm">
+            <p className="text-stone-600 max-sm:text-[13px] max-sm:px-3 text-[15px] leading-relaxed max-w-sm">
               Queremos ayudarte a hacer realidad tu proyecto.{" "}
               <strong className="text-stone-800">
                 Escríbenos y descubre todo lo que este terreno tiene para
