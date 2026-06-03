@@ -10,11 +10,15 @@ export const cardCaracteristicas: Caracteristica[] = [
     titulo: "Terrenos desde los 5.000 m2",
   },
   {
+    icono: "/choose1-icon4.webp",
+    titulo: "Factibilidad de luz",
+  },
+  {
     icono: "/choose1-icon3.webp",
     titulo: "Aprovechando los caminos existentes",
   },
   {
-    icono: "/choose1-icon4.webp",
+    icono: "/choose1-icon2.webp",
     titulo: "Apto para Energías Renovables. Cosecha de aguas lluvias",
   },
   {
