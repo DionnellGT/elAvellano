@@ -25,7 +25,7 @@ export const ChatBotWsp = () => {
       position: 'bottom-right',
       icon: '/favicon.ico',
     },
-    tooltip: { mode: 'START', text: 'Click to me!' },
+    tooltip: { mode: 'CLOSE', text: 'Click to me!' },
     chatInput: { botDelay: 500 },
   };
 
