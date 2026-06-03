@@ -104,7 +104,7 @@ export const ChatBotWsp = () => {
       borderRadius: '8px',
       padding: '6px 12px',
       fontSize: '15px',
-      marginBottom: '18px',
+      marginBottom: '32px',
       fontWeight: '500',
     },
   };
