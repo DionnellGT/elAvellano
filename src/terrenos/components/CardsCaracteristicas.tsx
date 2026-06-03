@@ -1,4 +1,5 @@
 import { cardCaracteristicas } from "@/data/cardCaracteristicas";
+import { useParams } from "react-router";
 
 const Card = ({ item }: { item: { icono: string; titulo: string } }) => (
   <div
@@ -39,18 +40,32 @@ const Card = ({ item }: { item: { icono: string; titulo: string } }) => (
 );
 
 export const CardsCaracteristicas = () => {
+  const { idSlug } = useParams();
+
   /**
+   * Filtering logic:
+   *   "los-muermos"     → all 6 cards
+   *   "paisajes-del-rio" → 5 cards (excludes "Factibilidad de luz")
+   *
    * Layout logic:
    *
    * DESKTOP (md+):  3 columns
-   *   Row 1: items 0, 1, 2   → full 3-col grid
-   *   Row 2: items 3, 4      → 2 cards centered (each = 1/3 width)
+   *   6 items → Row 1: items 0-2, Row 2: items 3-5  (full 3+3 grid)
+   *   5 items → Row 1: items 0-2, Row 2: items 3-4 centered (each = 1/3 width)
    *
    * MOBILE:         2 columns
-   *   Row 1: items 0, 1      → 2-col grid
-   *   Row 2: items 2, 3      → 2-col grid
-   *   Row 3: item  4         → single card centered (= 1/2 width)
+   *   6 items → Row 1: items 0-1, Row 2: items 2-3, Row 3: items 4-5
+   *   5 items → Row 1: items 0-1, Row 2: items 2-3, Row 3: item 4 centered (= 1/2 width)
    */
+
+  const items =
+    idSlug === "paisajes-del-rio"
+      ? cardCaracteristicas.filter(
+          (c) => c.titulo.toLowerCase() !== "factibilidad de luz"
+        )
+      : cardCaracteristicas;
+
+  const hasLastPair = items.length === 6;
 
   return (
     <div className="py-12 bg-stone-900">
@@ -58,47 +73,67 @@ export const CardsCaracteristicas = () => {
 
         {/* ════ DESKTOP layout (md+) ════ */}
 
-        {/* Desktop Row 1: items 0-2, 3-col grid */}
+        {/* Desktop Row 1: items 0-2, always a full 3-col grid */}
         <div className="hidden md:grid md:grid-cols-3 gap-4">
-          {cardCaracteristicas.slice(0, 3).map((item, i) => (
+          {items.slice(0, 3).map((item, i) => (
             <Card key={i} item={item} />
           ))}
         </div>
 
-        {/* Desktop Row 2: items 3-4 centered, each occupying 1/3 of the container */}
-        <div className="hidden md:flex justify-center gap-4">
-          {cardCaracteristicas.slice(3, 5).map((item, i) => (
-            <div key={i} className="w-[calc((100%-2rem)/3)]">
-              <Card item={item} />
-            </div>
-          ))}
-        </div>
+        {/* Desktop Row 2:
+            6 items → full 3-col grid (items 3-5)
+            5 items → 2 cards centered, each 1/3 wide (items 3-4) */}
+        {hasLastPair ? (
+          <div className="hidden md:grid md:grid-cols-3 gap-4">
+            {items.slice(3, 6).map((item, i) => (
+              <Card key={i} item={item} />
+            ))}
+          </div>
+        ) : (
+          <div className="hidden md:flex justify-center gap-4">
+            {items.slice(3, 5).map((item, i) => (
+              <div key={i} className="w-[calc((100%-2rem)/3)]">
+                <Card item={item} />
+              </div>
+            ))}
+          </div>
+        )}
 
 
         {/* ════ MOBILE layout (< md) ════ */}
 
         {/* Mobile Row 1: items 0-1 */}
         <div className="grid grid-cols-2 gap-4 md:hidden">
-          {cardCaracteristicas.slice(0, 2).map((item, i) => (
+          {items.slice(0, 2).map((item, i) => (
             <Card key={i} item={item} />
           ))}
         </div>
 
         {/* Mobile Row 2: items 2-3 */}
         <div className="grid grid-cols-2 gap-4 md:hidden">
-          {cardCaracteristicas.slice(2, 4).map((item, i) => (
+          {items.slice(2, 4).map((item, i) => (
             <Card key={i} item={item} />
           ))}
         </div>
 
-        {/* Mobile Row 3: item 4 centered, same width as a 2-col cell */}
-        <div className="flex justify-center md:hidden">
-          {cardCaracteristicas[4] && (
-            <div className="w-[calc(50%-0.5rem)]">
-              <Card item={cardCaracteristicas[4]} />
-            </div>
-          )}
-        </div>
+        {/* Mobile Row 3:
+            6 items → items 4-5 as a 2-col grid
+            5 items → item 4 centered, same width as a 2-col cell */}
+        {hasLastPair ? (
+          <div className="grid grid-cols-2 gap-4 md:hidden">
+            {items.slice(4, 6).map((item, i) => (
+              <Card key={i} item={item} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex justify-center md:hidden">
+            {items[4] && (
+              <div className="w-[calc(50%-0.5rem)]">
+                <Card item={items[4]} />
+              </div>
+            )}
+          </div>
+        )}
 
       </div>
     </div>
