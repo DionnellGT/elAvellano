@@ -26,7 +26,7 @@ export const ChatBotWsp = () => {
       position: 'bottom-right',
       icon: '/favicon.ico',
     },
-    tooltip: { mode: 'NEVER' },
+    tooltip: { mode: 'ALWAYS', text: 'Click to me!' },
     chatInput: { botDelay: 500 },
   };
 
@@ -97,6 +97,15 @@ export const ChatBotWsp = () => {
       background: '#ffffff',
       outline: 'none',
       border: 'none',
+    },
+    tooltipStyle: {
+      background: '#a07030',
+      color: '#ffffff',      
+      borderRadius: '8px',
+      padding: '6px 12px',
+      fontSize: '15px',
+      marginBottom: '18px',
+      fontWeight: '500',
     },
   };
 
