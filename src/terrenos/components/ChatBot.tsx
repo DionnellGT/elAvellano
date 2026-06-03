@@ -100,6 +100,9 @@ export const ChatBotWsp = () => {
     },
   };
 
+  const isValidEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+
   const flow: any = {
     start: {
       message: '¡Hola! ¿En qué puedo ayudarte?',
@@ -112,15 +115,38 @@ export const ChatBotWsp = () => {
       function: (params: { userInput: string }) => {
         formRef.current.name = params.userInput;
       },
-      path: 'askEmail',
+      path: async (params: { userInput: string, injectMessage: (message: string) => Promise<void> }) => {
+        if (params.userInput.trim().length < 4) {
+          await params.injectMessage('Por favor, ingresa un nombre válido (más de 4 caracteres).');
+          return ;
+        }
+        return 'askEmail';
+      },
     },
     askEmail: {
       message: () =>
         `Gracias, ${formRef.current.name}. Ahora, ¿cuál es tu correo electrónico?`,
-      function: (params: { userInput: string }) => {
-        formRef.current.email = params.userInput;
+      // path como función: valida el email y decide si avanza o repite
+      path: (params: { userInput: string }) => {
+        const input = params.userInput.trim();
+        if (isValidEmail(input)) {
+          formRef.current.email = input;
+          return 'askTopic';
+        }
+        return 'askEmailInvalid';
       },
-      path: 'askTopic',
+    },
+    // Step intermedio que muestra el error y vuelve a pedir el correo
+    askEmailInvalid: {
+      message: 'El correo ingresado no es válido. Por favor, ingresa un correo con el formato correcto (ej: nombre@google.com).',
+      path: (params: { userInput: string }) => {
+        const input = params.userInput.trim();
+        if (isValidEmail(input)) {
+          formRef.current.email = input;
+          return 'askTopic';
+        }
+        return 'askEmailInvalid';
+      },
     },
     askTopic: {
       message: () =>
