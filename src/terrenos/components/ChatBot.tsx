@@ -139,7 +139,8 @@ export const ChatBotWsp = () => {
       path: async (params: { userInput: string }) => {
         if (params.userInput === 'Sí, es correcta') {
           const { name, email, message } = formRef.current;
-          const wspMessage = `Hola, me gustaría recibir información sobre ${message}. Mi nombre es ${name} y mi correo es ${email}.`;
+          const wspMessage = `Hola, me gustaría recibir información sobre ${message}. \n` + 
+                              `Mi nombre es ${name} y mi correo es ${email}.`;
           const encodedMessage = encodeURIComponent(wspMessage);
           window.open(`https://wa.me/56954081144?text=${encodedMessage}`, '_blank');
           formRef.current = { name: '', email: '', message: '' };
