@@ -42,12 +42,14 @@ export const ChatBotWsp = () => {
       background: '#a07030',
       color: '#ffffff',
       borderRadius: '16px',
+      fontSize: '14px',
     },
     // ✅ Burbuja del usuario — key correcta en v2
     userBubbleStyle: {
       background: '#1a1a1a',
       color: '#ffffff',
       borderRadius: '16px',
+      fontSize: '14px',
     },
     // Fondo del chat
     chatWindowStyle: {
