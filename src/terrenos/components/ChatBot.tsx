@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import ChatBot from 'react-chatbotify';
 
-const SESSION_KEY = Math.random().toString(36).slice(2);
 
 export const ChatBotWsp = () => {
   const formRef = useRef({ name: '', email: '', message: '' });
@@ -26,7 +25,7 @@ export const ChatBotWsp = () => {
       position: 'bottom-right',
       icon: '/favicon.ico',
     },
-    tooltip: { mode: 'ALWAYS', text: 'Click to me!' },
+    tooltip: { mode: 'START', text: 'Click to me!' },
     chatInput: { botDelay: 500 },
   };
 
@@ -201,5 +200,5 @@ export const ChatBotWsp = () => {
     },
   };
 
-  return <ChatBot key={SESSION_KEY} settings={setting} styles={styles} flow={flow} />;
+  return <ChatBot  settings={setting} styles={styles} flow={flow} />;
 };
