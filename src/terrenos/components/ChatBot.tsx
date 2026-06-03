@@ -52,6 +52,8 @@ export const ChatBotWsp = () => {
     // Fondo del chat
     chatWindowStyle: {
       background: '#ffffff',
+      width: '300px',
+      height: '420px',
     },
     // ✅ Botón de enviar con color y rounded
     sendButtonStyle: {
