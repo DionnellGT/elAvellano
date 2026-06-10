@@ -8,7 +8,7 @@ export const Footer = () => {
         {/* Logo */}
         <a href="/" className="flex items-center">
           <img
-            src="/logo.svg"
+            src="/logo1.png"
             alt="El Avellano"
             className="h-12 w-auto brightness-0 invert"
           />
