@@ -4,8 +4,8 @@ import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocation, useNavigate } from "react-router";
 
-const LOGO_WHITE = "/logo.svg";
-const LOGO_STICKY = "/logo_sticky.svg";
+const LOGO_WHITE = "/logo1.png";
+const LOGO_STICKY = "/logo1.png";
 
 const NAV_LINKS = [
   { label: "Somos", href: "#somos" },
