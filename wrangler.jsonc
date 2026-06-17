@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "elavellano",
-  "compatibility_date": "2026-06-05",
+  "compatibility_date": "2026-06-17",
   "observability": {
     "enabled": true
   },
