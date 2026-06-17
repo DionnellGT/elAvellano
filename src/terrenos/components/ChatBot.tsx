@@ -180,7 +180,7 @@ export const ChatBotWsp = () => {
           const wspMessage = `Hola, me gustaría recibir información sobre ${message}. \n` + 
                               `Mi nombre es ${name} y mi correo es ${email}.`;
           const encodedMessage = encodeURIComponent(wspMessage);
-          window.open(`https://wa.me/56912345678?text=${encodedMessage}`, '_blank');
+          window.open(`https://wa.me/56949437974?text=${encodedMessage}`, '_blank');
           formRef.current = { name: '', email: '', message: '' };
           return 'end';
         } else {
