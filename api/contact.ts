@@ -1,5 +1,7 @@
 // api/contact.ts
 import { Resend } from "resend";
+import { buildContactEmailHtml } from "./email-template";
+import { buildAutoresponderHtml } from "./autoresponder-template";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -11,19 +13,47 @@ export default async function handler(req: Request) {
   try {
     const { nombre, apellido, email, telefono, mensaje } = await req.json();
 
-    await resend.emails.send({
+    // Validación mínima de datos requeridos
+    if (!nombre || !email || !telefono || !mensaje) {
+      return new Response(
+        JSON.stringify({ success: false, message: "Faltan campos requeridos" }),
+        { status: 400 }
+      );
+    }
+
+    // 1. Correo interno — notifica al equipo de El Avellano
+    const notificacion = resend.emails.send({
       from: "Contacto El Avellano <contacto@elavellano.cl>",
       to: "contacto@elavellano.cl",
       replyTo: email,
       subject: `Nuevo mensaje de ${nombre} ${apellido}`,
-      html: `
-        <h2>Nuevo mensaje desde el formulario de contacto</h2>
-        <p><strong>Nombre:</strong> ${nombre} ${apellido}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Teléfono:</strong> ${telefono}</p>
-        <p><strong>Mensaje:</strong> ${mensaje}</p>
-      `,
+      html: buildContactEmailHtml({ nombre, apellido, email, telefono, mensaje }),
     });
+
+    // 2. Autoresponder — confirma al cliente que su mensaje llegó
+    const autorespuesta = resend.emails.send({
+      from: "El Avellano <contacto@elavellano.cl>",
+      to: email,
+      subject: "Hemos recibido tu mensaje",
+      html: buildAutoresponderHtml({ nombre }),
+    });
+
+    // Se envían en paralelo para no duplicar tiempo de espera
+    const [resultNotificacion, resultAutorespuesta] = await Promise.allSettled([
+      notificacion,
+      autorespuesta,
+    ]);
+
+    // El correo interno es crítico: si falla, se considera error
+    if (resultNotificacion.status === "rejected") {
+      console.error("Error enviando notificación interna:", resultNotificacion.reason);
+      return new Response(JSON.stringify({ success: false }), { status: 500 });
+    }
+
+    // El autoresponder es deseable pero no crítico: si falla, solo se loguea
+    if (resultAutorespuesta.status === "rejected") {
+      console.error("Error enviando autoresponder al cliente:", resultAutorespuesta.reason);
+    }
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (error) {
