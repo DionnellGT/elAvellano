@@ -26,7 +26,7 @@ export function buildAutoresponderHtml(data: AutoresponderData): string {
           <!-- Header con logo -->
           <tr>
             <td style="background-color:#a07030; padding:28px 32px; text-align:center;">
-              <img src="${LOGO_URL}" alt="El Avellano" width="56" height="56" style="display:block; margin:0 auto 12px; border-radius:10px; background-color:#ffffff; padding:6px;" />
+              <img src="${LOGO_URL}" alt="El Avellano" width="185" height="50" style="display:block; margin:0 auto 12px; border-radius:10px; background-color:#ffffff; padding:6px;" />
               <p style="margin:0; color:#ffffff; font-size:11px; letter-spacing:2px; text-transform:uppercase; opacity:0.85;">
                 El Avellano
               </p>
