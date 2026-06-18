@@ -1,4 +1,6 @@
+// Contactenos.tsx
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 interface ContactForm {
   nombre: string;
@@ -9,29 +11,55 @@ interface ContactForm {
 }
 
 export const Contactenos = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<ContactForm>();
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const onSubmit = (data: ContactForm) => {
-    console.log(data);
-    // aquí conectas tu lógica de envío
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactForm>();
+
+  const onSubmit = async (data: ContactForm) => {
+    setIsSuccess(false);
+    setIsError(false);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setIsSuccess(true);
+        reset();
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        setIsError(true);
+      }
+    } catch {
+      setIsError(true);
+    }
   };
 
   const inputClass = (hasError: boolean) =>
     `border rounded-lg px-4 py-2.5 text-[14px] text-stone-700 placeholder:text-stone-400 focus:outline-none transition-colors ${
-      hasError ? "border-red-400 focus:border-red-500" : "border-stone-200 focus:border-[#a07030]"
+      hasError
+        ? "border-red-400 focus:border-red-500"
+        : "border-stone-200 focus:border-[#a07030]"
     }`;
 
   return (
-    <section
-      id="contactanos"
-      className="relative py-15 px-6 "
-    >
-      <div className="max-w-6xl mx-auto bg-cover bg-center bg-no-repeat rounded-3xl p-10 max-sm:p-3 md:p-16"
+    <section id="contactanos" className="relative py-15 px-6">
+      <div
+        className="max-w-6xl mx-auto bg-cover bg-center bg-no-repeat rounded-3xl p-10 max-sm:p-3 md:p-16"
         style={{ backgroundImage: "url('/fondoContactenos.webp')" }}
       >
         <div className="grid md:grid-cols-2 gap-10 items-center">
 
-          {/* Columna izquierda — texto */}
+          {/* Columna izquierda */}
           <div>
             <h2 className="font-bold text-[#a07030] max-sm:text-2xl max-sm:px-3 max-sm:py-1 max-sm:text-center text-4xl md:text-5xl leading-tight mb-6">
               Estamos<br />aquí para ti
@@ -75,7 +103,10 @@ export const Contactenos = () => {
                 <input
                   {...register("email", {
                     required: true,
-                    pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Email inválido" }
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Email inválido",
+                    },
                   })}
                   placeholder="Email"
                   type="email"
@@ -109,12 +140,24 @@ export const Contactenos = () => {
               {errors.mensaje && <span className="text-red-400 text-[11px]">Requerido</span>}
             </div>
 
+            {isSuccess && (
+              <p className="text-green-600 text-[13px] mb-3 text-center">
+                ✓ Mensaje enviado. ¡Pronto nos pondremos en contacto!
+              </p>
+            )}
+            {isError && (
+              <p className="text-red-400 text-[13px] mb-3 text-center">
+                Ocurrió un error al enviar. Inténtalo de nuevo.
+              </p>
+            )}
+
             <div className="flex justify-end">
               <button
                 onClick={handleSubmit(onSubmit)}
-                className="text-[#a07030] font-bold text-[18px] py-2 px-6 rounded-full hover:bg-[#8a5f28] hover:text-white transition-colors duration-200"
+                disabled={isSubmitting}
+                className="text-[#a07030] font-bold text-[18px] py-2 px-6 rounded-full hover:bg-[#8a5f28] hover:text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Enviar
+                {isSubmitting ? "Enviando..." : "Enviar"}
               </button>
             </div>
           </div>
