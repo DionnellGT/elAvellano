@@ -31,7 +31,7 @@ export function buildContactEmailHtml(data: ContactEmailData): string {
               <table role="presentation" cellpadding="0" cellspacing="0">
                 <tr>
                   <td style="vertical-align:middle;">
-                    <img src="${LOGO_URL}" alt="El Avellano" width="40" height="40" style="display:block; border-radius:8px; background-color:#ffffff; padding:4px;" />
+                    <img src="${LOGO_URL}" alt="El Avellano" width="185" height="50" style="display:block; border-radius:8px; background-color:#ffffff; padding:4px;" />
                   </td>
                   <td style="padding-left:14px; vertical-align:middle;">
                     <p style="margin:0; color:#ffffff; font-size:11px; letter-spacing:2px; text-transform:uppercase; opacity:0.85;">
