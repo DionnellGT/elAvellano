@@ -1,6 +1,6 @@
-// Contactenos.tsx
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 interface ContactForm {
   nombre: string;
@@ -10,9 +10,24 @@ interface ContactForm {
   mensaje: string;
 }
 
+const contactInfo = [
+  {
+    icon: <Phone size={20} />,
+    texto: "+56 9 4943 7974",
+  },
+  {
+    icon: <Mail size={20} />,
+    texto: "contacto@elavellano.cl",
+  },
+  {
+    icon: <MapPin size={20} />,
+    texto: "Bandera 206, Oficina 401, Santiago Centro",
+  },
+];
+
 export const Contactenos = () => {
   const [isSuccess, setIsSuccess] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError]     = useState(false);
 
   const {
     register,
@@ -24,14 +39,12 @@ export const Contactenos = () => {
   const onSubmit = async (data: ContactForm) => {
     setIsSuccess(false);
     setIsError(false);
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
       if (res.ok) {
         setIsSuccess(true);
         reset();
@@ -44,121 +57,158 @@ export const Contactenos = () => {
     }
   };
 
-  const inputClass = (hasError: boolean) =>
-    `border rounded-lg px-4 py-2.5 text-[14px] text-stone-700 placeholder:text-stone-400 focus:outline-none transition-colors ${
-      hasError
-        ? "border-red-400 focus:border-red-500"
-        : "border-stone-200 focus:border-[#a07030]"
-    }`;
-
   return (
-    <section id="contactanos" className="relative py-15 px-6">
-      <div
-        className="max-w-6xl mx-auto bg-cover bg-center bg-no-repeat rounded-3xl p-10 max-sm:p-3 md:p-16"
-        style={{ backgroundImage: "url('/fondoContactenos.webp')" }}
-      >
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+    <section
+      id="contactanos"
+      className="py-20 bg-[#fff8f5] relative overflow-hidden px-5 md:px-16"
+    >
+      <div className="max-w-[1280px] mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-start">
 
-          {/* Columna izquierda */}
-          <div>
-            <h2 className="font-bold text-[#a07030] max-sm:text-2xl max-sm:px-3 max-sm:py-1 max-sm:text-center text-4xl md:text-5xl leading-tight mb-6">
-              Estamos<br />aquí para ti
+          {/* ── Columna izquierda (5/12) ── */}
+          <div className="w-full lg:w-5/12">
+
+            <h2 className="font-libre font-normal text-[32px] leading-[40px] md:text-[48px] md:leading-[56px] text-stone-900 mb-6">
+              Estamos aquí<br />para ti
             </h2>
-            <p className="text-stone-600 max-sm:text-[13px] max-sm:px-3 text-[15px] leading-relaxed max-w-sm">
-              Queremos ayudarte a hacer realidad tu proyecto.{" "}
-              <strong className="text-stone-800">
-                Escríbenos y descubre todo lo que este terreno tiene para
-                ofrecerte, sin compromiso y con atención personalizada.
-              </strong>
+
+            <p className="font-manrope text-[16px] leading-[26px] text-stone-500 mb-10 max-w-sm">
+              Queremos ayudarte a hacer realidad tu proyecto. Escríbenos y
+              descubre todo lo que este terreno tiene para ofrecerte, sin
+              compromiso y con atención personalizada.
             </p>
+
+            {/* Ítems de contacto */}
+            <div className="space-y-6">
+              {contactInfo.map((item, i) => (
+                <div key={i} className="flex items-center gap-4 group cursor-default">
+                  {/* Ícono */}
+                  <div className="flex-shrink-0 text-[#A67C52] transition-transform duration-300 group-hover:scale-110">
+                    {item.icon}
+                  </div>
+                  <span className="font-manrope text-[15px] leading-[24px] text-stone-700">
+                    {item.texto}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Columna derecha — formulario */}
-          <div className="bg-white rounded-2xl p-5 md:p-8 shadow-md">
-            <h3 className="font-bold text-stone-900 text-xl mb-6">
-              Escríbenos{" "}
-              <span className="text-[#a07030]">tu mensaje</span>
-            </h3>
+          {/* ── Columna derecha (7/12): formulario ── */}
+          <div className="w-full lg:w-7/12">
+            <div className="bg-white p-8 md:p-12 rounded-[2rem] border border-[#E5E7E6] shadow-sm transition-all duration-300 hover:shadow-xl">
+              <div className="space-y-8">
 
-            <div className="grid md:grid-cols-2 gap-4 mb-4">
-              <div className="flex flex-col gap-1">
-                <input
-                  {...register("nombre", { required: true })}
-                  placeholder="Nombre"
-                  className={inputClass(!!errors.nombre)}
-                />
-                {errors.nombre && <span className="text-red-400 text-[11px]">Requerido</span>}
-              </div>
+                {/* Nombre + Apellido */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <label className="font-manrope font-semibold text-[11px] leading-[16px] tracking-[0.12em] text-stone-900 uppercase block">
+                      Nombre
+                    </label>
+                    <input
+                      {...register("nombre", { required: true })}
+                      type="text"
+                      placeholder="Tu nombre completo"
+                      className={`contact-input ${errors.nombre ? "contact-input-error" : ""}`}
+                    />
+                    {errors.nombre && (
+                      <span className="text-red-400 text-[11px]">Requerido</span>
+                    )}
+                  </div>
+                  <div className="space-y-3">
+                    <label className="font-manrope font-semibold text-[11px] leading-[16px] tracking-[0.12em] text-stone-900 uppercase block">
+                      Apellido
+                    </label>
+                    <input
+                      {...register("apellido", { required: true })}
+                      type="text"
+                      placeholder="Tu apellido"
+                      className={`contact-input ${errors.apellido ? "contact-input-error" : ""}`}
+                    />
+                    {errors.apellido && (
+                      <span className="text-red-400 text-[11px]">Requerido</span>
+                    )}
+                  </div>
+                </div>
 
-              <div className="flex flex-col gap-1">
-                <input
-                  {...register("apellido", { required: true })}
-                  placeholder="Apellido"
-                  className={inputClass(!!errors.apellido)}
-                />
-                {errors.apellido && <span className="text-red-400 text-[11px]">Requerido</span>}
-              </div>
+                {/* Email + Teléfono */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <label className="font-manrope font-semibold text-[11px] leading-[16px] tracking-[0.12em] text-stone-900 uppercase block">
+                      Email
+                    </label>
+                    <input
+                      {...register("email", {
+                        required: true,
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                          message: "Email inválido",
+                        },
+                      })}
+                      type="email"
+                      placeholder="correo@ejemplo.com"
+                      className={`contact-input ${errors.email ? "contact-input-error" : ""}`}
+                    />
+                    {errors.email && (
+                      <span className="text-red-400 text-[11px]">
+                        {errors.email.message || "Requerido"}
+                      </span>
+                    )}
+                  </div>
+                  <div className="space-y-3">
+                    <label className="font-manrope font-semibold text-[11px] leading-[16px] tracking-[0.12em] text-stone-900 uppercase block">
+                      Teléfono
+                    </label>
+                    <input
+                      {...register("telefono", { required: true })}
+                      type="tel"
+                      placeholder="+56 9 ..."
+                      className={`contact-input ${errors.telefono ? "contact-input-error" : ""}`}
+                    />
+                    {errors.telefono && (
+                      <span className="text-red-400 text-[11px]">Requerido</span>
+                    )}
+                  </div>
+                </div>
 
-              <div className="flex flex-col gap-1">
-                <input
-                  {...register("email", {
-                    required: true,
-                    pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: "Email inválido",
-                    },
-                  })}
-                  placeholder="Email"
-                  type="email"
-                  className={inputClass(!!errors.email)}
-                />
-                {errors.email && (
-                  <span className="text-red-400 text-[11px]">
-                    {errors.email.message || "Requerido"}
-                  </span>
+                {/* Mensaje */}
+                <div className="space-y-3">
+                  <label className="font-manrope font-semibold text-[11px] leading-[16px] tracking-[0.12em] text-stone-900 uppercase block">
+                    Mensaje
+                  </label>
+                  <textarea
+                    {...register("mensaje", { required: true })}
+                    rows={4}
+                    placeholder="¿En qué podemos ayudarte?"
+                    className={`contact-input resize-none ${errors.mensaje ? "contact-input-error" : ""}`}
+                  />
+                  {errors.mensaje && (
+                    <span className="text-red-400 text-[11px]">Requerido</span>
+                  )}
+                </div>
+
+                {/* Feedback */}
+                {isSuccess && (
+                  <p className="text-green-600 font-manrope text-[13px] text-center">
+                    ✓ Mensaje enviado. ¡Pronto nos pondremos en contacto!
+                  </p>
                 )}
+                {isError && (
+                  <p className="text-red-400 font-manrope text-[13px] text-center">
+                    Ocurrió un error al enviar. Inténtalo de nuevo.
+                  </p>
+                )}
+
+                {/* Botón enviar */}
+                <button
+                  onClick={handleSubmit(onSubmit)}
+                  disabled={isSubmitting}
+                  className="w-full bg-[#A67C52] text-white py-5 rounded-lg font-manrope font-semibold text-[13px] leading-[20px] uppercase tracking-[0.2em] hover:bg-[#79542e] transition-all duration-300 shadow-lg hover:shadow-xl active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+                </button>
+
               </div>
-
-              <div className="flex flex-col gap-1">
-                <input
-                  {...register("telefono", { required: true })}
-                  placeholder="Teléfono"
-                  type="tel"
-                  className={inputClass(!!errors.telefono)}
-                />
-                {errors.telefono && <span className="text-red-400 text-[11px]">Requerido</span>}
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-1 mb-4">
-              <textarea
-                {...register("mensaje", { required: true })}
-                placeholder="Mensaje"
-                rows={5}
-                className={`w-full resize-none ${inputClass(!!errors.mensaje)}`}
-              />
-              {errors.mensaje && <span className="text-red-400 text-[11px]">Requerido</span>}
-            </div>
-
-            {isSuccess && (
-              <p className="text-green-600 text-[13px] mb-3 text-center">
-                ✓ Mensaje enviado. ¡Pronto nos pondremos en contacto!
-              </p>
-            )}
-            {isError && (
-              <p className="text-red-400 text-[13px] mb-3 text-center">
-                Ocurrió un error al enviar. Inténtalo de nuevo.
-              </p>
-            )}
-
-            <div className="flex justify-end">
-              <button
-                onClick={handleSubmit(onSubmit)}
-                disabled={isSubmitting}
-                className="text-[#a07030] font-bold text-[18px] py-2 px-6 rounded-full hover:bg-[#8a5f28] hover:text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? "Enviando..." : "Enviar"}
-              </button>
             </div>
           </div>
 
