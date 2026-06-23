@@ -1,12 +1,22 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { useProyectos } from "../hooks/useProyectos";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface ContactForm {
   nombre: string;
   apellido: string;
   email: string;
   telefono: string;
+  proyecto: string;
   mensaje: string;
 }
 
@@ -26,6 +36,7 @@ const contactInfo = [
 ];
 
 export const Contactenos = () => {
+  const proyectos = useProyectos();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError]     = useState(false);
 
@@ -33,6 +44,7 @@ export const Contactenos = () => {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<ContactForm>();
 
@@ -82,7 +94,6 @@ export const Contactenos = () => {
             <div className="space-y-6">
               {contactInfo.map((item, i) => (
                 <div key={i} className="flex items-center gap-4 group cursor-default">
-                  {/* Ícono */}
                   <div className="flex-shrink-0 text-[#A67C52] transition-transform duration-300 group-hover:scale-110">
                     {item.icon}
                   </div>
@@ -160,15 +171,58 @@ export const Contactenos = () => {
                       Teléfono
                     </label>
                     <input
-                      {...register("telefono", { required: true })}
+                      {...register("telefono", {
+                        required: "Requerido",
+                        minLength: {
+                          value: 8,
+                          message: "Mínimo 8 caracteres",
+                        },
+                      })}
                       type="tel"
                       placeholder="+56 9 ..."
                       className={`contact-input ${errors.telefono ? "contact-input-error" : ""}`}
                     />
                     {errors.telefono && (
-                      <span className="text-red-400 text-[11px]">Requerido</span>
+                      <span className="text-red-400 text-[11px]">{errors.telefono.message}</span>
                     )}
                   </div>
+                </div>
+
+                {/* Proyecto de interés */}
+                <div className="space-y-3">
+                  <label className="font-manrope font-semibold text-[11px] leading-[16px] tracking-[0.12em] text-stone-900 uppercase block">
+                    Proyecto de interés
+                  </label>
+                  <Controller
+                    name="proyecto"
+                    control={control}
+                    rules={{
+                      validate: (v) => (v && v !== "") || "Debes seleccionar un proyecto",
+                    }}
+                    render={({ field }) => (
+                      <Select onValueChange={field.onChange} value={field.value ?? ""}>
+                        <SelectTrigger
+                          className={errors.proyecto ? "border-red-400 focus:border-red-400 focus:shadow-[0_0_0_3px_rgba(248,113,113,0.10)]" : ""}
+                        >
+                          <SelectValue placeholder="Selecciona un proyecto" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {proyectos.map((p) => (
+                            <SelectItem key={p.id} value={p.name}>
+                              {p.name}
+                            </SelectItem>
+                          ))}
+                          <SelectSeparator />
+                          <SelectItem value="Sin preferencia">
+                            Sin preferencia / Quiero más información
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                  {errors.proyecto && (
+                    <span className="text-red-400 text-[11px]">{errors.proyecto.message}</span>
+                  )}
                 </div>
 
                 {/* Mensaje */}

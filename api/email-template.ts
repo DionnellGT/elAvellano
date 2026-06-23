@@ -3,13 +3,14 @@ interface ContactEmailData {
   apellido: string;
   email: string;
   telefono: string;
+  proyecto: string;
   mensaje: string;
 }
 
 const LOGO_URL = "https://elavellano.cl/logo1.png";
 
 export function buildContactEmailHtml(data: ContactEmailData): string {
-  const { nombre, apellido, email, telefono, mensaje } = data;
+  const { nombre, apellido, email, telefono, proyecto, mensaje } = data;
 
   return `
 <!DOCTYPE html>
@@ -55,7 +56,7 @@ export function buildContactEmailHtml(data: ContactEmailData): string {
 
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
                 <tr>
-                  <td style="padding:12px 0; border-bottom:1px solid #e7e5e4; width:120px; color:#a8a29e; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; vertical-align:top;">
+                  <td style="padding:12px 0; border-bottom:1px solid #e7e5e4; width:140px; color:#a8a29e; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; vertical-align:top;">
                     Nombre
                   </td>
                   <td style="padding:12px 0; border-bottom:1px solid #e7e5e4; color:#1c1917; font-size:15px; font-weight:600;">
@@ -76,6 +77,16 @@ export function buildContactEmailHtml(data: ContactEmailData): string {
                   </td>
                   <td style="padding:12px 0; border-bottom:1px solid #e7e5e4; color:#1c1917; font-size:15px;">
                     <a href="tel:${escapeHtml(telefono)}" style="color:#1c1917; text-decoration:none;">${escapeHtml(telefono)}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:12px 0; border-bottom:1px solid #e7e5e4; color:#a8a29e; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; vertical-align:top;">
+                    Proyecto
+                  </td>
+                  <td style="padding:12px 0; border-bottom:1px solid #e7e5e4;">
+                    <span style="display:inline-block; background-color:#f5f0eb; color:#a07030; font-size:13px; font-weight:700; padding:4px 12px; border-radius:999px; border:1px solid #e0d0bc;">
+                      ${escapeHtml(proyecto)}
+                    </span>
                   </td>
                 </tr>
                 <tr>

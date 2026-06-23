@@ -326,6 +326,14 @@
   box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.10);
 }
 
+.contact-select {
+  cursor: pointer;
+  color: inherit;
+}
+.contact-select option[value=""] {
+  color: #a8a29e;
+}
+
 }
 
 @theme {
