@@ -182,6 +182,126 @@
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #c2893f;
   }
+
+  .navbar-glass {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(255, 248, 245, 0.88);
+  border-bottom: 1px solid rgba(166, 124, 82, 0.10);
+}
+ 
+/* ── Nav link con subrayado dorado ── */
+.nav-link-avellano {
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav-link-avellano::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #A67C52;
+  transition: width 0.3s ease;
+}
+.nav-link-avellano:hover::after {
+  width: 100%;
+}
+ 
+/* ── Hero: overlay gradiente lateral ── */
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.15) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+ 
+/* ── Ken Burns (zoom lento sobre imagen de fondo) ── */
+@keyframes kenburns {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+.animate-kenburns {
+  animation: kenburns 20s ease-out forwards;
+}
+ 
+/* ── Hero: entrada de texto con fade + slide-up ── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-entrance {
+  opacity: 0;
+  animation: heroFadeUp 1s ease-out forwards;
+}
+.hero-delay-1 { animation-delay: 0.25s; }
+.hero-delay-2 { animation-delay: 0.5s; }
+ 
+/* ── Utilidades de fuente (usadas en navbar y hero) ── */
+.font-libre  { font-family: 'Libre Caslon Text', Georgia, serif; }
+.font-manrope { font-family: 'Manrope', system-ui, sans-serif; }
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quienes-link {
+  position: relative;
+  padding-bottom: 2px;
+}
+.quienes-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: #A67C52;
+  transition: width 0.3s ease;
+}
+.quienes-link:hover::after {
+  width: 100%;
+}
+.testimonial-exit-left {
+  transform: translateX(-6%);
+  opacity: 0 !important;
+}
+ 
+/* Slide saliente → se va a la derecha */
+.testimonial-exit-right {
+  transform: translateX(6%);
+  opacity: 0 !important;
+}
+ 
+/* Slide entrante → viene desde la derecha, llega al centro */
+.testimonial-enter-right {
+  animation: slideInFromRight 0.5s ease-in-out forwards;
+}
+ 
+/* Slide entrante → viene desde la izquierda, llega al centro */
+.testimonial-enter-left {
+  animation: slideInFromLeft 0.5s ease-in-out forwards;
+}
+ 
+@keyframes slideInFromRight {
+  from { transform: translateX(6%); opacity: 0; }
+  to   { transform: translateX(0);  opacity: 1; }
+}
+ 
+@keyframes slideInFromLeft {
+  from { transform: translateX(-6%); opacity: 0; }
+  to   { transform: translateX(0);   opacity: 1; }
+}
+ 
 }
 
 @theme {
