@@ -1,62 +1,38 @@
-import { cardCaracteristicas } from "@/data/cardCaracteristicas";
+import { cardCaracteristicas, type Caracteristica } from "@/data/cardCaracteristicas";
 import { useParams } from "react-router";
+import { Mountain, Route, Zap, Layers, Leaf } from "lucide-react";
 
-const Card = ({ item }: { item: { icono: string; titulo: string } }) => (
-  <div
-    className="flex flex-col items-center text-center gap-4 rounded-2xl px-5 py-8 group transition-all duration-300 w-full h-full"
-    style={{
-      background: "linear-gradient(145deg, #1c1c1c, #0a0a0a)",
-      boxShadow:
-        "6px 6px 14px rgba(0,0,0,0.6), -3px -3px 8px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)",
-    }}
-    onMouseEnter={(e) => {
-      const el = e.currentTarget as HTMLDivElement;
-      el.style.boxShadow =
-        "8px 8px 20px rgba(0,0,0,0.7), -4px -4px 10px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 1px rgba(160,112,48,0.3)";
-      el.style.background = "linear-gradient(145deg, #222, #111)";
-    }}
-    onMouseLeave={(e) => {
-      const el = e.currentTarget as HTMLDivElement;
-      el.style.boxShadow =
-        "6px 6px 14px rgba(0,0,0,0.6), -3px -3px 8px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.06)";
-      el.style.background = "linear-gradient(145deg, #1c1c1c, #0a0a0a)";
-    }}
-  >
-    <div className="w-14 h-14 flex items-center justify-center flex-shrink-0 [perspective:400px]">
-      <img
-        src={item.icono}
-        alt={item.titulo}
-        className="w-full h-full object-contain transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(360deg)] group-hover:scale-115"
-        style={{
-          filter:
-            "brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(0deg) brightness(0.65)",
-        }}
-      />
+function getIcon(titulo: string) {
+  const t = titulo.toLowerCase();
+  if (t.includes("m2") || t.includes("5.000")) return Mountain;
+  if (t.includes("camino")) return Route;
+  if (t.includes("energ") || t.includes("factibilidad")) return Zap;
+  if (t.includes("topograf")) return Layers;
+  if (t.includes("sustent")) return Leaf;
+  return Zap;
+}
+
+const Card = ({ item }: { item: Caracteristica }) => {
+  const Icon = getIcon(item.titulo);
+  return (
+    <div className="group items-center max-w-[340px] bg-white p-8 rounded-xl border border-stone-200 shadow-sm hover:border-[#A67C52] hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+      <div className="mb-4 text-[#2D4636] group-hover:text-[#A67C52] transition-colors duration-300">
+        <Icon size={36} strokeWidth={1.5} />
+      </div>
+      <h4 className="font-bold text-base mb-2 text-stone-900 font-manrope">
+        {item.titulo}
+      </h4>
+      {item.descripcion && (
+        <p className="text-stone-500 text-center text-sm leading-relaxed font-manrope">
+          {item.descripcion}
+        </p>
+      )}
     </div>
-    <p className="text-white text-sm md:text-md font-semibold leading-snug">
-      {item.titulo}
-    </p>
-  </div>
-);
+  );
+};
 
 export const CardsCaracteristicas = () => {
   const { idSlug } = useParams();
-
-  /**
-   * Filtering logic:
-   *   "los-muermos"     → all 6 cards
-   *   "paisajes-del-rio" → 5 cards (excludes "Factibilidad de luz")
-   *
-   * Layout logic:
-   *
-   * DESKTOP (md+):  3 columns
-   *   6 items → Row 1: items 0-2, Row 2: items 3-5  (full 3+3 grid)
-   *   5 items → Row 1: items 0-2, Row 2: items 3-4 centered (each = 1/3 width)
-   *
-   * MOBILE:         2 columns
-   *   6 items → Row 1: items 0-1, Row 2: items 2-3, Row 3: items 4-5
-   *   5 items → Row 1: items 0-1, Row 2: items 2-3, Row 3: item 4 centered (= 1/2 width)
-   */
 
   const items =
     idSlug === "paisajes-del-rio"
@@ -68,74 +44,81 @@ export const CardsCaracteristicas = () => {
   const hasLastPair = items.length === 6;
 
   return (
-    <div className="py-12 bg-stone-900">
-      <div className="max-w-6xl mx-auto px-6 space-y-4">
+    <section className="py-16 md:py-24 px-6 max-w-[1200px] mx-auto">
 
-        {/* ════ DESKTOP layout (md+) ════ */}
-
-        {/* Desktop Row 1: items 0-2, always a full 3-col grid */}
-        <div className="hidden md:grid md:grid-cols-3 gap-4">
-          {items.slice(0, 3).map((item, i) => (
-            <Card key={i} item={item} />
-          ))}
-        </div>
-
-        {/* Desktop Row 2:
-            6 items → full 3-col grid (items 3-5)
-            5 items → 2 cards centered, each 1/3 wide (items 3-4) */}
-        {hasLastPair ? (
-          <div className="hidden md:grid md:grid-cols-3 gap-4">
-            {items.slice(3, 6).map((item, i) => (
-              <Card key={i} item={item} />
-            ))}
-          </div>
-        ) : (
-          <div className="hidden md:flex justify-center gap-4">
-            {items.slice(3, 5).map((item, i) => (
-              <div key={i} className="w-[calc((100%-2rem)/3)]">
-                <Card item={item} />
-              </div>
-            ))}
-          </div>
-        )}
-
-
-        {/* ════ MOBILE layout (< md) ════ */}
-
-        {/* Mobile Row 1: items 0-1 */}
-        <div className="grid grid-cols-2 gap-4 md:hidden">
-          {items.slice(0, 2).map((item, i) => (
-            <Card key={i} item={item} />
-          ))}
-        </div>
-
-        {/* Mobile Row 2: items 2-3 */}
-        <div className="grid grid-cols-2 gap-4 md:hidden">
-          {items.slice(2, 4).map((item, i) => (
-            <Card key={i} item={item} />
-          ))}
-        </div>
-
-        {/* Mobile Row 3:
-            6 items → items 4-5 as a 2-col grid
-            5 items → item 4 centered, same width as a 2-col cell */}
-        {hasLastPair ? (
-          <div className="grid grid-cols-2 gap-4 md:hidden">
-            {items.slice(4, 6).map((item, i) => (
-              <Card key={i} item={item} />
-            ))}
-          </div>
-        ) : (
-          <div className="flex justify-center md:hidden">
-            {items[4] && (
-              <div className="w-[calc(50%-0.5rem)]">
-                <Card item={items[4]} />
-              </div>
-            )}
-          </div>
-        )}
-
+      {/* ── Header ── */}
+      <div className="text-center mb-14">
+        <span className="text-[#A67C52] text-xs font-semibold tracking-[0.2em] uppercase font-manrope">
+          Excelencia Rural
+        </span>
+        <h2 className="font-libre text-3xl md:text-4xl text-[#2D4636] mt-4 mb-5">
+          Tu refugio en el sur de Chile
+        </h2>
+        <p className="max-w-2xl mx-auto text-stone-500 text-base leading-relaxed font-manrope">
+          Ofrecemos terrenos con plusvalía asegurada en entornos naturales privilegiados.
+          Una inversión segura para tu futuro y el de tu familia.
+        </p>
       </div>
-    </div>
+
+      {/* ════ DESKTOP (md+) ════ */}
+
+      {/* Fila 1: items 0-2 */}
+      <div className="hidden md:grid md:grid-cols-3 gap-5">
+        {items.slice(0, 3).map((item, i) => (
+          <Card key={i} item={item} />
+        ))}
+      </div>
+
+      {/* Fila 2: 6 items → 3-col completo | 5 items → 2 cards centradas */}
+      {hasLastPair ? (
+        <div className="hidden md:grid md:grid-cols-3 gap-5 mt-5">
+          {items.slice(3, 6).map((item, i) => (
+            <Card key={i} item={item} />
+          ))}
+        </div>
+      ) : (
+        <div className="hidden md:flex justify-center gap-5 mt-5">
+          {items.slice(3, 5).map((item, i) => (
+            <div key={i} className="w-[calc((100%-2.5rem)/3)]">
+              <Card item={item} />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* ════ MOBILE (< md) ════ */}
+
+      {/* Fila 1: items 0-1 */}
+      <div className="grid grid-cols-2 gap-4 md:hidden">
+        {items.slice(0, 2).map((item, i) => (
+          <Card key={i} item={item} />
+        ))}
+      </div>
+
+      {/* Fila 2: items 2-3 */}
+      <div className="grid grid-cols-2 gap-4 mt-4 md:hidden">
+        {items.slice(2, 4).map((item, i) => (
+          <Card key={i} item={item} />
+        ))}
+      </div>
+
+      {/* Fila 3: 6 items → 2 cards | 5 items → 1 centrada */}
+      {hasLastPair ? (
+        <div className="grid grid-cols-2 gap-4 mt-4 md:hidden">
+          {items.slice(4, 6).map((item, i) => (
+            <Card key={i} item={item} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex justify-center mt-4 md:hidden">
+          {items[4] && (
+            <div className="w-[calc(50%-0.5rem)]">
+              <Card item={items[4]} />
+            </div>
+          )}
+        </div>
+      )}
+
+    </section>
   );
 };
