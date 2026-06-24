@@ -54,7 +54,6 @@ export const proyectos: Proyecto[] = [
     vistaProyecto360: "https://www.lanube360.com/paisajesdelrio-chiloe/",
     imagenesVistasProyecto: [
       "/PaisajesDelRio/1.webp",
-      "/PaisajesDelRio/2.webp",
       "/PaisajesDelRio/3.webp",
       "/PaisajesDelRio/4.webp",
     ],
