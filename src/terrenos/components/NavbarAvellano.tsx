@@ -4,8 +4,7 @@ import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLocation, useNavigate } from "react-router";
 
-const LOGO_WHITE = "/logo1.png";
-const LOGO_STICKY = "/logo1.png";
+const LOGO = "/logo1.png";
 
 const NAV_LINKS = [
   { label: "Somos", href: "#somos" },
@@ -23,17 +22,15 @@ export const NavbarAvellano = () => {
   const isProyectoPage = location.pathname.startsWith("/proyectos/");
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Cuando se navega a home con hash pendiente, hace el scroll al llegar
   useEffect(() => {
     const pending = sessionStorage.getItem("scrollTo");
     if (pending && !isProyectoPage) {
       sessionStorage.removeItem("scrollTo");
-      // Espera a que el DOM del home esté listo
       const timer = setTimeout(() => {
         const el = document.getElementById(pending);
         if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -49,11 +46,8 @@ export const NavbarAvellano = () => {
       const el = document.getElementById(id);
 
       if (el) {
-        // El elemento existe en la página actual → scroll suave directo
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       } else {
-        // El elemento no existe aquí (ej: en proyectos buscando #somos del home)
-        // Guarda el destino y navega a home
         sessionStorage.setItem("scrollTo", id);
         navigate("/");
       }
@@ -61,38 +55,34 @@ export const NavbarAvellano = () => {
     [navigate]
   );
 
+  /* El navbar del stitch siempre tiene fondo glass crema; al hacer scroll
+     se añade sombra. En ProyectoPage se comporta igual. */
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ",
-        isScrolled || isProyectoPage ? "bg-white shadow-md" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 navbar-glass",
+        isScrolled || isProyectoPage ? "py-3 shadow-md" : "py-4"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-16 flex items-center justify-between">
 
         {/* Logo */}
         <a href="/" className="flex items-center">
           <img
-            src={isScrolled || isProyectoPage ? LOGO_STICKY : LOGO_WHITE}
+            src={LOGO}
             alt="El Avellano"
-            className="h-12 w-auto transition-all duration-500"
+            className="h-10 w-auto transition-all duration-300"
           />
         </a>
 
         {/* Desktop links + CTA */}
-        <nav className="hidden md:flex items-center gap-10" aria-label="Navegación principal">
+        <nav className="hidden md:flex items-center space-x-8" aria-label="Navegación principal">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleAnchorClick(e, link.href)}
-              className={cn(
-                "relative text-[13px] tracking-[0.06em] uppercase font-medium transition-colors duration-300 hover:font-semibold",
-                "after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:w-full",
-                isScrolled || isProyectoPage
-                  ? "text-stone-700 hover:text-stone-900 after:bg-stone-900"
-                  : "text-white/90 hover:text-white after:bg-white"
-              )}
+              className="nav-link-avellano font-manrope font-semibold text-[14px] leading-[20px] tracking-[0.05em] text-stone-800 hover:text-[#A67C52] transition-colors duration-300"
             >
               {link.label}
             </a>
@@ -101,10 +91,7 @@ export const NavbarAvellano = () => {
           <a
             href="#contactanos"
             onClick={(e) => handleAnchorClick(e, "#contactanos")}
-            className={cn(
-              "px-5 py-2 rounded-full text-[13px] font-semibold tracking-[0.06em] uppercase transition-all duration-300",
-              "bg-[#a07030] text-white hover:bg-[#8a5f28]"
-            )}
+            className="bg-[#A67C52] text-white px-6 py-2 rounded-lg font-manrope font-semibold text-[14px] leading-[20px] tracking-[0.05em] hover:bg-[#79542e] transition-all duration-300 hover:shadow-lg active:scale-95"
           >
             Contáctanos
           </a>
@@ -116,17 +103,17 @@ export const NavbarAvellano = () => {
             <SheetTrigger asChild>
               <button
                 aria-label="Abrir menú"
-                className={cn(
-                  "p-2 rounded-md transition-colors",
-                  isScrolled || isProyectoPage ? "text-stone-800" : "text-white"
-                )}
+                className="p-2 rounded-md text-[#A67C52] transition-colors"
               >
                 <Menu size={22} />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-stone-900 border-none w-72 [&>button]:text-white [&>button]:hover:text-white/70">
+            <SheetContent
+              side="right"
+              className="bg-[#fff8f5] border-none w-72 [&>button]:text-stone-700 [&>button]:hover:text-stone-900"
+            >
               <div className="px-2 mt-6 mb-10">
-                <img src={LOGO_WHITE} alt="El Avellano" className="h-10 w-auto" />
+                <img src={LOGO} alt="El Avellano" className="h-10 w-auto" />
               </div>
               <nav className="flex flex-col gap-6 px-2" aria-label="Menú móvil">
                 {NAV_LINKS.map((link) => (
@@ -137,7 +124,7 @@ export const NavbarAvellano = () => {
                       setMobileOpen(false);
                       handleAnchorClick(e, link.href);
                     }}
-                    className="text-white/80 hover:text-white text-[15px] tracking-[0.08em] uppercase transition-colors duration-200"
+                    className="font-manrope font-semibold text-[15px] tracking-[0.05em] uppercase text-stone-700 hover:text-[#A67C52] transition-colors duration-200"
                   >
                     {link.label}
                   </a>
@@ -148,7 +135,7 @@ export const NavbarAvellano = () => {
                     setMobileOpen(false);
                     handleAnchorClick(e, "#contactanos");
                   }}
-                  className="mt-2 inline-block px-5 py-2 rounded-full bg-[#a07030] text-white text-[13px] font-semibold tracking-[0.06em] uppercase text-center"
+                  className="mt-2 inline-block px-6 py-3 rounded-lg bg-[#A67C52] text-white font-manrope font-semibold text-[14px] tracking-[0.05em] uppercase text-center hover:bg-[#79542e] transition-colors duration-200"
                 >
                   Contáctanos
                 </a>

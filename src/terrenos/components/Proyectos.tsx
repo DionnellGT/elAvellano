@@ -1,159 +1,95 @@
-import { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useProyectos } from "../hooks/useProyectos";
 import { Link } from "react-router";
 
 export const Proyectos = () => {
   const proyectos = useProyectos();
-  const [current, setCurrent] = useState(0);
-  const total = proyectos.length;
-
-  const prev = () => setCurrent((i) => (i - 1 + total) % total);
-  const next = () => setCurrent((i) => (i + 1) % total);
-
-  const leftIdx  = (current - 1 + total) % total;
-  const rightIdx = (current + 1) % total;
-
-  // --- Drag / Swipe ---
-  const dragStart = useRef<number | null>(null);
-  const isDragging = useRef(false);
-  const THRESHOLD = 50; // px mínimos para considerar swipe
-
-  const onDragStart = (clientX: number) => {
-    dragStart.current = clientX;
-    isDragging.current = false;
-  };
-
-  const onDragMove = (clientX: number) => {
-    if (dragStart.current === null) return;
-    if (Math.abs(clientX - dragStart.current) > 5) {
-      isDragging.current = true;
-    }
-  };
-
-  const onDragEnd = (clientX: number) => {
-    if (dragStart.current === null) return;
-    const delta = clientX - dragStart.current;
-    if (Math.abs(delta) >= THRESHOLD) {
-      delta < 0 ? next() : prev();
-    }
-    dragStart.current = null;
-  };
-
-  // Mouse events
-  const handleMouseDown  = (e: React.MouseEvent) => onDragStart(e.clientX);
-  const handleMouseMove  = (e: React.MouseEvent) => onDragMove(e.clientX);
-  const handleMouseUp    = (e: React.MouseEvent) => onDragEnd(e.clientX);
-  const handleMouseLeave = () => { dragStart.current = null; };
-
-  // Touch events
-  const handleTouchStart = (e: React.TouchEvent) => onDragStart(e.touches[0].clientX);
-  const handleTouchMove  = (e: React.TouchEvent) => onDragMove(e.touches[0].clientX);
-  const handleTouchEnd   = (e: React.TouchEvent) => onDragEnd(e.changedTouches[0].clientX);
-
-  // Evita que el click del Link se dispare si el usuario estaba arrastrando
-  const handleLinkClick = (e: React.MouseEvent) => {
-    if (isDragging.current) e.preventDefault();
-  };
 
   return (
-    <section id="proyectos" className="bg-[#f5f0eb] py-15 overflow-hidden">
-      <div className="max-w-8xl mx-auto px-6">
+    <section
+      id="proyectos"
+      className="py-20 bg-[#fff8f5] px-5 md:px-16"
+    >
+      <div className="max-w-[1280px] mx-auto">
 
-        {/* Header */}
-        <div className="text-center mb-5 md:mb-12">
-          <p className="text-[#a07030] text-[11px] font-semibold tracking-[0.2em] uppercase mb-2">
-            Encuentra tu parcela
-          </p>
-          <h2 className="font-bold text-stone-900 text-3xl max-sm:text-2xl md:text-5xl">
+        {/* ── Header ── */}
+        <div className="text-center mb-16 reveal-section">
+          <span className="font-manrope font-semibold text-[14px] leading-[20px] tracking-[0.2em] text-[#A67C52] uppercase block mb-4">
+            Oportunidades de Inversión
+          </span>
+          <h2 className="font-libre font-normal text-[32px] leading-[40px] md:text-[48px] md:leading-[56px] text-stone-900">
             Nuestros Proyectos
           </h2>
+          {/* línea decorativa dorada */}
+          <div className="w-20 h-[3px] bg-[#A67C52] mx-auto mt-6 rounded-full" />
         </div>
 
-        {/* Carrusel */}
-        <div
-          className="relative flex items-center justify-center gap-4 max-sm:h-[320px] h-[420px] select-none cursor-grab active:cursor-grabbing"
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseLeave}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-
-          {/* Card IZQUIERDA */}
-          <div
-            className="relative w-[220px] md:w-[260px] h-[220px] md:h-[320px] rounded-2xl overflow-hidden flex-shrink-0 cursor-pointer opacity-80 hover:opacity-90 transition-opacity duration-300"
-            onClick={() => { if (!isDragging.current) prev(); }}
-          >
-            <img
-              src={proyectos[leftIdx].imageCarrousel}
-              alt={proyectos[leftIdx].name}
-              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-              draggable={false}
-            />
-            <div className="absolute inset-0 bg-white/30" />
-            <button
-              className="absolute top-1/2 left-3 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center shadow"
-              onClick={(e) => { e.stopPropagation(); prev(); }}
+        {/* ── Cards: flex wrap centrado ──
+            Cada card tiene w-full en mobile, ancho fijo en md+.
+            Con 1 o 2 proyectos quedan centradas; con 3+ forman filas. */}
+        <div className="flex flex-wrap justify-center gap-6">
+          {proyectos.map((proyecto) => (
+            <div
+              key={proyecto.id}
+              className="group bg-[#F9F6F1] overflow-hidden border border-[#E5E7E6] rounded-[2rem] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-[420px]"
             >
-              <ChevronLeft size={18} className="text-stone-700" />
-            </button>
-          </div>
+              {/* ── Imagen con badge ── */}
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={proyecto.imageCarrousel}
+                  alt={proyecto.name}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
 
-          {/* Card CENTRAL */}
-          <Link
-            to={`/proyectos/${proyectos[current].idSlug}`}
-            onClick={(e) => { handleLinkClick(e); window.scrollTo(0, 0); }}  
-          >
-          <div className="relative max-sm:w-[300px] w-[440px] md:w-[620px] h-[280px] md:h-[420px] rounded-2xl overflow-hidden flex-shrink-0 shadow-2xl z-10 group">
-            <img
-              src={proyectos[current].imageCarrousel}
-              alt={proyectos[current].name}
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-500 brightness-90 group-hover:brightness-110 pointer-events-none"
-              draggable={false}
-            />
-            <div className="absolute bottom-5 left-0 right-0 flex justify-center">
-              <div className="px-6 py-2.5 rounded-full bg-[#a07030] text-white font-semibold text-[14px] tracking-wide hover:bg-[#8a5f28] transition-colors duration-200 shadow-lg">
-                Ver Proyecto
+                {/* Badge superior — ocupa todo el ancho, fondo semitransparente */}
+                {proyecto.badgeLabel && (
+                  <div
+                    className={`absolute top-0 left-0 right-0 px-5 py-3 font-manrope font-bold text-[13px] leading-[18px] tracking-[0.08em] uppercase ${
+                      proyecto.badgeColor === "green"
+                        ? "bg-[#2D4636]/90 text-[#F9F6F1]"
+                        : "bg-[#b8975a]/90 text-white"
+                    }`}
+                  >
+                    {proyecto.badgeLabel}
+                  </div>
+                )}
+
+                {/* Precio sobre la imagen — esquina superior derecha cuando NO hay badge */}
+                {!proyecto.badgeLabel && proyecto.precioDesde && (
+                  <div className="absolute top-4 right-4 bg-[#F9F6F1]/90 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+                    <span className="font-manrope font-bold text-[13px] text-stone-900">
+                      DESDE {proyecto.precioDesde}
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* ── Cuerpo ── */}
+              <div className="p-7">
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="font-libre font-normal text-[24px] leading-[32px] text-stone-900">
+                    {proyecto.name}
+                  </h3>
+                  {proyecto.precioDesde && (
+                    <div className="text-right flex-shrink-0 ml-4">
+                      <span className="block font-manrope font-semibold text-[10px] tracking-[0.12em] text-[#A67C52] uppercase mb-0.5">
+                        Desde
+                      </span>
+                      <span className="font-manrope font-bold text-[17px] leading-[24px] text-stone-900">
+                        {proyecto.precioDesde}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <Link
+                  to={`/proyectos/${proyecto.idSlug}`}
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="block w-full text-center bg-[#A67C52] text-white py-4 rounded-lg font-manrope font-semibold text-[13px] tracking-[0.15em] uppercase hover:bg-[#79542e] transition-all duration-300 hover:shadow-md active:scale-[0.98]"
+                >
+                  Ver Detalles
+                </Link>
               </div>
             </div>
-          </div>
-          </Link>
-
-          {/* Card DERECHA */}
-          <div
-            className="relative w-[220px] md:w-[260px] h-[220px] md:h-[320px] rounded-2xl overflow-hidden flex-shrink-0 cursor-pointer opacity-80 hover:opacity-90 transition-opacity duration-300"
-            onClick={() => { if (!isDragging.current) next(); }}
-          >
-            <img
-              src={proyectos[rightIdx].imageCarrousel}
-              alt={proyectos[rightIdx].name}
-              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-              draggable={false}
-            />
-            <div className="absolute inset-0 bg-white/30" />
-            <button
-              className="absolute top-1/2 right-3 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 flex items-center justify-center shadow"
-              onClick={(e) => { e.stopPropagation(); next(); }}
-            >
-              <ChevronRight size={18} className="text-stone-700" />
-            </button>
-          </div>
-
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-5">
-          {proyectos.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                i === current ? "bg-[#a07030] w-6" : "bg-stone-300"
-              }`}
-            />
           ))}
         </div>
 

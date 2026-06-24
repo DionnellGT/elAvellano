@@ -11,10 +11,10 @@ export default async function handler(req: Request) {
   }
 
   try {
-    const { nombre, apellido, email, telefono, mensaje } = await req.json();
+    const { nombre, apellido, email, telefono, proyecto, mensaje } = await req.json();
 
     // Validación mínima de datos requeridos
-    if (!nombre || !email || !telefono || !mensaje) {
+    if (!nombre || !email || !telefono || !proyecto || !mensaje) {
       return new Response(
         JSON.stringify({ success: false, message: "Faltan campos requeridos" }),
         { status: 400 }
@@ -26,8 +26,8 @@ export default async function handler(req: Request) {
       from: "Contacto El Avellano <contacto@elavellano.cl>",
       to: "contacto@elavellano.cl",
       replyTo: email,
-      subject: `Nuevo mensaje de ${nombre} ${apellido}`,
-      html: buildContactEmailHtml({ nombre, apellido, email, telefono, mensaje }),
+      subject: `${nombre} ${apellido} — ${proyecto}`,
+      html: buildContactEmailHtml({ nombre, apellido, email, telefono, proyecto, mensaje }),
     });
 
     // 2. Autoresponder — confirma al cliente que su mensaje llegó

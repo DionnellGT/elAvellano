@@ -2,6 +2,12 @@ export interface Proyecto {
   id: string;
   idSlug: string;
   name: string;
+  /** Etiqueta del badge sobre la imagen (opcional) */
+  badgeLabel?: string;
+  /** Color del badge: "green" → fondo forest-green | "brown" → fondo earth-brown */
+  badgeColor?: "green" | "brown";
+  /** Precio mínimo a mostrar en la card (opcional, ej: "$12.900.000") */
+  precioDesde?: string;
   imageCarrousel: string;
   imagenBannerPrincipal: string;
   imagenBannerPrincipalMobile: string;
@@ -35,6 +41,9 @@ export const proyectos: Proyecto[] = [
     id: "1",
     idSlug: "paisajes-del-rio",
     name: "Paisajes del Río",
+    badgeLabel: "Nuevo Lanzamiento",
+    badgeColor: "green",
+    precioDesde: "$8.900.000",
     imageCarrousel: "/PaisajesDelRio/paisajes.webp",
     imagenBannerPrincipal: "/PaisajesDelRio/Banner-Paisajes-Web.webp",
     imagenBannerPrincipalMobile: "/PaisajesDelRio/Banner-Paisajes-Mobile.webp",
@@ -146,6 +155,9 @@ export const proyectos: Proyecto[] = [
     id: "2",
     idSlug: "los-muermos",
     name: "Los Muermos",
+    badgeLabel: "Últimas Unidades",
+    badgeColor: "brown",
+    precioDesde: "$12.900.000",
     imageCarrousel: "/los_muermos/avellanolm.webp",
     imagenBannerPrincipal: "/los_muermos/avellanolmBanner.webp",
     imagenBannerPrincipalMobile: "/los_muermos/avellanolmBannerMobile.webp",

@@ -1,88 +1,128 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { testimonios } from "@/data/testimonios";
 
 export const Testimonios = () => {
-  const [current, setCurrent] = useState(0);
-  const [flipping, setFlipping] = useState(false);
+  const [current, setCurrent]   = useState(0);
+  const [previous, setPrevious] = useState<number | null>(null);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
+  const total = testimonios.length;
 
-  const goTo = (i: number) => {
-    setFlipping(true);
-    setTimeout(() => {
-      setCurrent(i);
-      setFlipping(false);
-    }, 300);
-  };
+  // Avance automático cada 5 s
+  useEffect(() => {
+    const id = setInterval(() => goTo((current + 1) % total, "next"), 5000);
+    return () => clearInterval(id);
+  }, [current, total]);
+
+  const goTo = useCallback(
+    (idx: number, dir: "next" | "prev" = "next") => {
+      if (idx === current) return;
+      setPrevious(current);
+      setDirection(dir);
+      setCurrent(idx);
+      // Limpia el "anterior" tras la transición
+      setTimeout(() => setPrevious(null), 500);
+    },
+    [current]
+  );
+
+  const handleDot = (idx: number) =>
+    goTo(idx, idx > current ? "next" : "prev");
 
   return (
     <section
       id="testimonios"
-      className="relative py-10 overflow-hidden"
+      className="py-20 bg-[#2D4636] text-white overflow-hidden px-5 md:px-16"
     >
-      {/* Imagen de fondo */}
-      <div
-        className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/testimonials_bg.webp')" }}
-      />
-      {/* Overlay oscuro */}
-      <div className="absolute inset-0 bg-black/10" />
+      {/* ── Header ── */}
+      <div className="max-w-[1280px] mx-auto text-center mb-16">
+        <span className="font-manrope font-semibold text-[13px] leading-[20px] tracking-[0.2em] text-[#ccead3]/80 uppercase block mb-3">
+          Lo que dicen nuestros clientes
+        </span>
+        <h2 className="font-libre font-normal text-[32px] leading-[40px] md:text-[48px] md:leading-[56px] text-white">
+          Testimonios
+        </h2>
+      </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6">
+      {/* ── Slider ── */}
+      <div className="max-w-4xl mx-auto relative">
+        {/* Zona de slides con altura mínima fija */}
+        <div className="relative min-h-[380px] md:min-h-[340px]">
 
-        {/* Header */}
-        <div className="text-center mb-10">
-          <p className="text-[#c8a870] text-[13px] font-bold tracking-[0.2em] uppercase mb-3">
-            Testimonios
-          </p>
-          <h2 className="font-bold text-white text-4xl md:text-5xl">
-            Nuestros Clientes
-          </h2>
+          {testimonios.map((t, i) => {
+            const isActive   = i === current;
+            const isPrevious = i === previous;
+
+            // Slide saliente: se va hacia la izquierda
+            const exitClass = isPrevious
+              ? direction === "next"
+                ? "testimonial-exit-left"
+                : "testimonial-exit-right"
+              : "";
+
+            // Slide entrante: viene desde la derecha
+            const enterClass = isActive
+              ? direction === "next"
+                ? "testimonial-enter-right"
+                : "testimonial-enter-left"
+              : "";
+
+            const visibleClass =
+              isActive || isPrevious ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none";
+
+            return (
+              <div
+                key={t.id}
+                className={`absolute inset-0 transition-all duration-500 ease-in-out ${visibleClass} ${exitClass} ${enterClass}`}
+              >
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 md:p-14 rounded-2xl relative h-full flex flex-col justify-center">
+
+                  {/* Comilla decorativa */}
+                  <span className="absolute -top-5 left-10 text-[80px] leading-none text-[#A67C52] opacity-50 font-serif select-none">
+                    "
+                  </span>
+
+                  {/* Texto testimonio */}
+                  <p className="font-libre  text-[18px] md:text-[22px] leading-[30px] md:leading-[34px] text-white/90 mb-10">
+                    {t.text}
+                  </p>
+
+                  {/* Autor */}
+                  <div className="flex items-center gap-4 mt-auto">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-[#A67C52] flex-shrink-0">
+                      <img
+                        src={t.image}
+                        alt={t.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-manrope font-bold text-[14px] leading-[20px] text-white">
+                        {t.name}
+                      </p>
+                      
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Card testimonio */}
-        <div key={current}
-            className={`md:w-[50vw] mx-auto bg-black/80 rounded-2xl p-8 md:p-10 ${flipping ? "" : "animate-flip"}`}
-            style={{ perspective: "1000px" }}
-        >
-          <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
-
-            {/* Foto + nombre */}
-            <div className="flex flex-col items-center gap-3 flex-shrink-0 max-md:mx-auto">
-              <img
-                src={testimonios[current].image}
-                alt={testimonios[current].name}
-                className="w-20 h-20 rounded-full object-cover"
-              />
-              <p className="text-[#c8a870] font-semibold text-[15px] text-center leading-snug">
-                {testimonios[current].name}
-              </p>
-            </div>
-
-            {/* Divisor vertical */}
-            <div className="hidden md:block w-px self-stretch bg-white/20 mx-2" />
-
-            {/* Texto testimonio */}
-            <p className="text-white/85 text-[15px] leading-relaxed italic">
-              {testimonios[current].text}
-            </p>
-
-          </div>
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-3 mt-8">
+        {/* ── Dots ── */}
+        <div className="flex justify-center mt-10 gap-3">
           {testimonios.map((_, i) => (
             <button
               key={i}
-              onClick={() => goTo(i)}
-              className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
+              onClick={() => handleDot(i)}
+              className={`rounded-full transition-all duration-300 hover:scale-125 ${
                 i === current
-                  ? "border-white bg-white"
-                  : "border-white/60 bg-transparent"
+                  ? "w-6 h-3 bg-[#A67C52]"
+                  : "w-3 h-3 bg-white/20 hover:bg-white/40"
               }`}
             />
           ))}
         </div>
-
       </div>
     </section>
   );

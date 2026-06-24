@@ -2,54 +2,73 @@ import { ChatBotWsp } from "../components/ChatBot";
 import { Contactenos } from "../components/Contactenos";
 import { Proyectos } from "../components/Proyectos";
 import { QuienesSomos } from "../components/QuienesSomos";
+import { Seguridad } from "../components/Seguridad ";
 import { Testimonios } from "../components/Testimonios";
 
 export const HomePage = () => {
   return (
     <div>
-      {/* Hero — pantalla completa, navbar flota encima transparente */}
+      {/* ── Hero ── pantalla completa con Ken Burns + overlay gradiente lateral */}
       <section
-        className="relative min-h-screen max-sm:min-h-[500px] bg-cover bg-center bg-no-repeat flex items-center"
-        style={{ backgroundImage: "url('/banner1v2.webp')" }}
+        id="inicio"
+        className="relative h-screen flex items-center overflow-hidden"
       >
-        {/* Overlay sutil para legibilidad del navbar y texto */}
-        <div className="absolute inset-0 bg-black/15" />
+        {/* Imagen de fondo con efecto Ken Burns */}
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center animate-kenburns"
+          style={{ backgroundImage: "url('/Gemini_Generated_Image.png')" }}
+        />
 
-        {/* Contenido hero — alineado a la izquierda como en el diseño */}
-        <div className="relative z-10 max-w-7xl max-sm:max-w-md: mx-auto px-6 w-full">
-        <div className="flex items-center gap-6">
-    
-            {/* Línea vertical */}
-            <div className="w-[3px] h-48 bg-white/80 shrink-0" />
+        {/* Overlay gradiente: opaco a la izquierda, transparente a la derecha */}
+        <div className="absolute inset-0 z-0 hero-overlay" />
 
-                {/* Contenido pegado a la línea */}
-                <div>
-                    <h1 className="text-white font-bold text-5xl md:text-6xl leading-tight drop-shadow-md">
-                    Expertos<br />en Liquidez
-                    </h1>
+        {/* Contenido */}
+        <div className="relative z-10 px-6 md:px-16 max-w-4xl">
 
-                    <a      
-                    href="#proyectos"
-                    className="mt-5 inline-block px-7 py-3 rounded-full border border-white text-white font-semibold text-[15px] tracking-wide hover:bg-white hover:text-stone-800 transition-colors duration-200"
-                    >
-                    Invierte con Nosotros
-                    </a>
+          <h1 className="hero-entrance font-libre text-[36px] leading-[44px] md:text-[64px] md:leading-[72px] md:-tracking-[0.02em] text-white mb-6 leading-tight">
+            Invierte en la paz<br />
+            del Sur de Chile
+          </h1>
 
-                    <p className="mt-4 text-white font-medium text-[14px] leading-snug drop-shadow-sm">
-                        Somos la mejor opción para ayudarte<br />
-                        en la compra de tu terreno
-                    </p>
-                </div>
+          <p className="hero-entrance hero-delay-1 font-manrope text-[18px] leading-[28px] text-white/90 mb-10 max-w-xl">
+            Terrenos exclusivos con alta plusvalía y entrega inmediata en los
+            parajes más vírgenes de la Patagonia norte.
+          </p>
 
-            </div>
+          <div className="hero-entrance hero-delay-2 flex flex-wrap gap-4">
+            <a
+              href="#proyectos"
+              className="bg-[#A67C52] text-white px-8 py-4 rounded-lg font-manrope font-semibold text-[14px] tracking-[0.05em] uppercase hover:bg-[#79542e] transition-all duration-300 hover:shadow-xl flex items-center gap-2"
+            >
+              Ver Proyectos
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a
+              href="#somos"
+              className="border border-white text-white px-8 py-4 rounded-lg font-manrope font-semibold text-[14px] tracking-[0.05em] uppercase hover:bg-white/10 transition-all duration-300"
+            >
+              Conoce El Avellano
+            </a>
+          </div>
+
         </div>
       </section>
 
-      <QuienesSomos/>
-      <Proyectos/>
-      <Testimonios/>
-      <ChatBotWsp/>
-      <Contactenos/>
+      <Proyectos />
+      <Seguridad/>
+      <QuienesSomos />
+      <Testimonios />
+      <ChatBotWsp />
+      <Contactenos />
     </div>
   );
 };

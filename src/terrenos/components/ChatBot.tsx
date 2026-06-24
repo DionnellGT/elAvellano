@@ -104,6 +104,7 @@ export const ChatBotWsp = () => {
       padding: '6px 12px',
       fontSize: '15px',
       marginBottom: '32px',
+      marginRight: '-15px',
       fontWeight: '500',
     },
   };
