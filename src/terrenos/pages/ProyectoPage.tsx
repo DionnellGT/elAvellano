@@ -24,7 +24,7 @@ export const ProyectoPage = () => {
     }
 
     return () => {
-      document.title = "El Avellano"; // restaura al salir de la página
+      document.title = "El Avellano"; 
     };
   }, [proyecto]);
 
@@ -38,78 +38,75 @@ export const ProyectoPage = () => {
 
   return (
     <div className="bg-white ">
-      <section
-        className="relative overflow-hidden bg-cover bg-center py-18 vanishing-gradient"
-        //style={{ backgroundImage: isMobile ? `url(${proyecto.imagenBannerPrincipalMobile})` : `url(${proyecto.imagenBannerPrincipal})` }}
-      >
-        <div className="relative z-10 mx-auto text-white overflow-hidden max-w-full shadow-2xl">
+      <section className="relative w-full overflow-hidden">
+        <div className="max-w-[1440px] mx-auto md:mt-14">
           <img
-              src={isMobile ? proyecto.imagenBannerPrincipalMobile : proyecto.imagenBannerPrincipal}
-              alt={`${proyecto.name} banner secundario`}
-              className="w-full h-11/12 md:h-full object-cover"
-            />
+            src={isMobile ? proyecto.imagenBannerPrincipalMobile : proyecto.imagenBannerPrincipal}
+            alt={`${proyecto.name} banner principal`}
+            className="w-full h-auto min-h-[400px] object-cover"
+          />
         </div>
       </section>
-
-      {/* Características */}
-      <NuestrasCaracteristicas images={proyecto.imagenesDeCaracteristicas} />
-
+      
       {/* Cards de características */}
       <CardsCaracteristicas />
 
       {/* Galería de terrenos y entorno */}
       <GaleriaDeTerrenos imagenesVistasProyecto={proyecto.imagenesVistasProyecto} />
 
-      {/* Mapa */}
-      <section id="mapa" className="relative py-20 bg-stone-950 text-white">
-        <div className="absolute inset-0 opacity-70 bg-black" />
-        <div className="relative max-w-6xl mx-auto px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-center">
-            <div>
-              <p className="text-[#e5c07b] text-[12px] font-semibold tracking-[0.2em] uppercase mb-2">
-                Ubicación
-              </p>
-              <h2 className="font-bold text-4xl md:text-5xl text-white mb-4">
-                Mapa y acceso directo
-              </h2>
-              <p className="text-stone-300 text-base leading-relaxed mb-8">
-                Revisa el mapa del proyecto y accede directamente a Google Maps para ver la ruta de llegada y las distancias reales desde los principales puntos de interés.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href={proyecto.linkMapa}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-[#a07030] px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-black/20 hover:bg-[#8a5f28] transition-colors duration-200"
-                >
-                  Ver en Google Maps <MapPin className="ml-2" />
-                </a>
-                <a
-                  href={proyecto.vistaProyecto360}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white hover:bg-white/20 transition-colors duration-200"
-                >
-                  Tour virtual 360 <Globe2 className="ml-2" />
-                </a>
-              </div>
-            </div>
-
-            <div className="overflow-hidden rounded-[2rem] border border-white/10 shadow-2xl">
-              <iframe
-                src={proyecto.vistaProyecto360}
-                title={`${proyecto.name} ubicación`}
-                className="w-full h-[420px] border-0"
-                allowFullScreen
-                loading="lazy"
-              />
+      {/* Mapa — Ubicación Estratégica */}
+      <section id="mapa" className="relative bg-[#1A241B] text-white py-24 md:py-32 overflow-hidden">
+        <div className="relative px-6 max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 items-center">
+ 
+          {/* Columna izquierda: texto + botones */}
+          <div>
+            <span className="text-[#ffddb7] text-xs font-semibold tracking-[0.2em] uppercase font-manrope">
+              Ubicación Estratégica
+            </span>
+            <h2 className="font-libre text-3xl md:text-4xl text-white mt-4 mb-8">
+              Conectividad sin renunciar a la paz
+            </h2>
+            <p className="text-[#e6e2dd] text-lg leading-relaxed mb-10 font-manrope">
+              Ubicados en el corazón de la X Región, nuestros proyectos ofrecen el
+              balance perfecto entre la vida silvestre y el acceso a servicios urbanos.
+              Revisa nuestras rutas de llegada y coordina tu visita hoy mismo.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href={proyecto.linkMapa}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-[#A67C52] text-white px-8 py-4 rounded-lg font-bold flex items-center gap-3 hover:bg-[#8a5f28] hover:scale-105 transition-all duration-300 font-manrope"
+              >
+                <MapPin size={20} /> Ver en Google Maps
+              </a>
+              <a
+                href={proyecto.vistaProyecto360}
+                target="_blank"
+                rel="noreferrer"
+                className="border border-white/30 px-8 py-4 rounded-lg font-bold flex items-center gap-3 hover:bg-white/10 hover:border-white/60 transition-all duration-300 font-manrope"
+              >
+                <Globe2 size={20} /> Tour Virtual 360
+              </a>
             </div>
           </div>
+ 
+          {/* Columna derecha: iframe del tour 360 */}
+          <div className="rounded-3xl overflow-hidden shadow-2xl h-[400px] border-4 border-white/10 group">
+            <iframe
+              src={proyecto.vistaProyecto360}
+              title={`${proyecto.name} tour virtual`}
+              className="w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+ 
         </div>
       </section>
-
+ 
       {/* Banner secundario */}
-      <section className="pt-5 pb-10">
+      <section className="pb-10">
         <div className="max-w-full">
           <div className="overflow-hidden shadow-2xl">
             <img

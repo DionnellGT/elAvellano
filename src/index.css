@@ -241,7 +241,7 @@
 .hero-delay-2 { animation-delay: 0.5s; }
  
 /* ── Utilidades de fuente (usadas en navbar y hero) ── */
-.font-libre  { font-family: 'Libre Caslon Text', Georgia, serif; }
+.font-libre  { font-family: 'Arial', Georgia, serif; }
 .font-manrope { font-family: 'Manrope', system-ui, sans-serif; }
 
 
@@ -364,4 +364,9 @@ html {
 .GlassmorphismCarrousel {
   background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.conectividad-expandable {
+  overflow: hidden;
+  transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out;
 }
