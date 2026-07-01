@@ -11,12 +11,12 @@ export const HomePage = () => {
       {/* ── Hero ── pantalla completa con Ken Burns + overlay gradiente lateral */}
       <section
         id="inicio"
-        className="relative h-screen flex items-center overflow-hidden"
+        className="relative h-screen md:h-[508px] mt-8 flex items-center overflow-hidden"
       >
         {/* Imagen de fondo con efecto Ken Burns */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center animate-kenburns"
-          style={{ backgroundImage: "url('/Gemini_Generated_Image.png')" }}
+          style={{ backgroundImage: "url('/bannerPrincipal1.png')" }}
         />
 
         {/* Overlay gradiente: opaco a la izquierda, transparente a la derecha */}
