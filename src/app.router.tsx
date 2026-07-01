@@ -2,6 +2,8 @@ import { createHashRouter, Navigate, RouterProvider } from "react-router";
 import { AvellanoLayout } from "./terrenos/layout/AvellanoLayout";
 import { HomePage } from "./terrenos/pages/HomePage";
 import { ProyectoPage } from "./terrenos/pages/ProyectoPage";
+import { TerminosCondiciones } from "./terrenos/components/TerminosCondiciones";
+import { PoliticaPrivacidad } from "./terrenos/components/PoliticaPrivacidad";
 
 
 const appRouter = createHashRouter([
@@ -17,6 +19,14 @@ const appRouter = createHashRouter([
             {
                 path: 'proyectos/:idSlug',
                 element: <ProyectoPage/>
+            },
+            {
+                path: "terminos-y-condiciones",
+                element: <TerminosCondiciones />
+            },
+            {
+                path: "politica-de-privacidad",
+                element: <PoliticaPrivacidad />
             }
         ]
     },
