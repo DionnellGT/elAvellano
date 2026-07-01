@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const AUTOPLAY_INTERVAL_MS = 4000;
 
@@ -34,12 +35,13 @@ const HeroCtas = () => (
   </div>
 );
 
-const TOTAL_SLIDES = 2;
+const TOTAL_SLIDES = 3;
 
 export const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isPaused) return;
@@ -56,16 +58,72 @@ export const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative h-screen md:h-[508px] mt-17 flex items-center overflow-hidden"
+      className="relative h-[1000px] md:h-[450px] mt-17 flex items-center overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* ── Pantalla 1: contenido original del hero ── */}
+      
+      {/* ── Pantalla 1: imágenes desktop/mobile de paisajes ── */}
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
           activeSlide === 0 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
         }`}
         aria-hidden={activeSlide !== 0}
+      >
+        {/* Imagen de fondo: una versión para desktop y otra para mobile */}
+          <img
+            src={isMobile ? "/banner web Global2_Mobile Avellano 1.jpg" : "/banner web Global2_Banner Avellano 1.jpg"}
+            alt="Paisajes del sur de Chile"
+            className="absolute inset-0 z-0 w-full h-full object-cover"
+          />
+
+        {/* Overlay gradiente: opaco a la izquierda, transparente a la derecha */}
+        <div className="absolute inset-0 z-0 hero-overlay" />
+
+        {/* Contenido */}
+        <div className="relative z-10 h-full flex items-end px-6 md:px-16 pb-15 md:pb-16 ">
+          <div className="max-w-4xl">
+            {
+              isMobile ? null : <HeroCtas />
+            }
+            
+          </div>
+        </div>
+      </div>
+
+      {/* ── Pantalla 2: imágenes desktop/mobile de paisajes ── */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+          activeSlide === 1 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+        }`}
+        aria-hidden={activeSlide !== 1}
+      >
+        {/* Imagen de fondo: una versión para desktop y otra para mobile */}
+          <img
+            src={isMobile ? "/banner web Global2_Mobile Avellano 2.jpg" : "/banner web Global2_Banner Avellano 2.jpg"}
+            alt="Paisajes del sur de Chile"
+            className="absolute inset-0 z-0 w-full h-full object-cover "
+          />
+
+        {/* Overlay gradiente: opaco a la izquierda, transparente a la derecha */}
+        <div className="absolute inset-0 z-0 hero-overlay" />
+
+        {/* Contenido */}
+        <div className="relative z-10 h-full flex items-end px-6 md:px-16 pb-10 md:pb-8 ">
+          <div className="max-w-4xl">
+            {
+              isMobile ? null : <HeroCtas />
+            }
+          </div>
+        </div>
+      </div>
+      
+      {/* ── Pantalla 3: contenido original del hero ── */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+          activeSlide === 2 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+        }`}
+        aria-hidden={activeSlide !== 2}
       >
         {/* Imagen de fondo con efecto Ken Burns */}
         <div
@@ -95,33 +153,6 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* ── Pantalla 2: imágenes desktop/mobile de paisajes ── */}
-      <div
-        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-          activeSlide === 1 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-        }`}
-        aria-hidden={activeSlide !== 1}
-      >
-        {/* Imagen de fondo: una versión para desktop y otra para mobile */}
-        <picture>
-          <source media="(max-width: 767px)" srcSet="/PaisajesDelRio/Banner-Paisajes-Mobile.webp" />
-          <img
-            src="/PaisajesDelRio/Banner-Paisajes-Web.webp"
-            alt="Paisajes del sur de Chile"
-            className="absolute inset-0 z-0 w-full h-full object-cover animate-kenburns"
-          />
-        </picture>
-
-        {/* Overlay gradiente: opaco a la izquierda, transparente a la derecha */}
-        <div className="absolute inset-0 z-0 hero-overlay" />
-
-        {/* Contenido */}
-        <div className="relative z-10 h-full flex items-end px-6 md:px-16 pb-15 md:pb-16 ">
-          <div className="max-w-4xl">
-            <HeroCtas />
-          </div>
-        </div>
-      </div>
 
       {/* ── Indicadores del carrousel ── */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">

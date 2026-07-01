@@ -1,14 +1,14 @@
 
 export const TerminosCondiciones = () => {
   return (
-    <main className="min-h-screen bg-white px-6 py-16 my-10 text-gray-800">
+    <main className="min-h-screen bg-white px-10 py-16 my-10 text-gray-600">
       <div className="mx-auto max-w-4xl">
 
-        <h1 className="mb-8 text-4xl font-bold">
+        <h1 className="mb-3 text-4xl font-bold">
           Términos y Condiciones de Uso
         </h1>
 
-        <p className="mb-6 text-gray-600">
+        <p className="mb-10 text-gray-600">
           Última actualización: Julio 2026
         </p>
 

@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export const Footer = () => {
   return (
     <footer className="bg-[#2D4636] text-[#F9F6F1] pt-10 pb-5 px-5 md:px-16">
@@ -8,17 +10,47 @@ export const Footer = () => {
 
           {/* Logo + tagline */}
           <div className="max-w-xs">
-            <a href="/">
+            <Link 
+              to="/"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               <img
                 src="/logo1.png"
                 alt="El Avellano"
                 className="h-12 w-auto mb-5 brightness-0 invert"
               />
-            </a>
+            </Link>
             <p className="font-manrope text-[15px] leading-[24px] text-[#E5E7E6]/70">
               Comprometidos con el desarrollo sustentable y la seguridad
               patrimonial de las familias chilenas.
             </p>
+          </div>
+
+          {/* Información legal */}
+          <div>
+              <h4 className="font-manrope font-semibold text-[11px] leading-[16px] tracking-[0.15em] uppercase text-[#F9F6F1] mb-6">
+                Información legal
+              </h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    to="/politica-de-privacidad"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="font-manrope text-[14px] text-[#E5E7E6]/70 hover:text-white transition"
+                  >
+                    Política de privacidad
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/terminos-y-condiciones"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="font-manrope text-[14px] text-[#E5E7E6]/70 hover:text-white transition"
+                  >
+                    Términos y condiciones
+                  </Link>
+                </li>
+              </ul>
           </div>
 
           {/* Sección Social */}
