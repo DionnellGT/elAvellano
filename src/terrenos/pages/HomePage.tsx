@@ -11,7 +11,7 @@ export const HomePage = () => {
       {/* ── Hero ── pantalla completa con Ken Burns + overlay gradiente lateral */}
       <section
         id="inicio"
-        className="relative h-screen md:h-[508px] mt-8 flex items-center overflow-hidden"
+        className="relative h-screen md:h-[508px] mt-17 flex items-center overflow-hidden"
       >
         {/* Imagen de fondo con efecto Ken Burns */}
         <div
