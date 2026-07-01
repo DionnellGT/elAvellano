@@ -116,7 +116,7 @@ export const Hero = () => {
         <div className="absolute inset-0 z-0 hero-overlay" />
 
         {/* Contenido */}
-        <div className="relative z-10 h-full flex items-center px-6 md:px-16">
+        <div className="relative z-10 h-full flex items-end px-6 md:px-16 pb-15 md:pb-16 ">
           <div className="max-w-4xl">
             <HeroCtas />
           </div>
