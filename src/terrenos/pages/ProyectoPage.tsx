@@ -8,6 +8,7 @@ import { useIsMobile } from "../hooks/useIsMobile";
 import { useEffect } from "react";
 import { CardsCaracteristicas } from "../components/CardsCaracteristicas";
 import { ChatBotWsp } from "../components/ChatBot";
+import { metaEvents } from "@/lib/metaPixel";
 
 
 export const ProyectoPage = () => {
@@ -18,6 +19,12 @@ export const ProyectoPage = () => {
   useEffect(() => {
     if (proyecto) {
       document.title = `${proyecto.name} | El Avellano`;
+
+      metaEvents.viewProject({
+      id: proyecto.id,
+      nombre: proyecto.name,
+    });
+    
     } else {
       document.title = "Proyecto no encontrado | El Avellano";
     }

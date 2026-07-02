@@ -51,3 +51,46 @@ export function trackPageView() {
 export function trackEvent(event: string, data?: object) {
   window.fbq?.("track", event, data);
 }
+
+
+export const metaEvents = {
+  pageView() {
+    trackPageView();
+  },
+
+  viewProject(proyecto: {
+    id: string;
+    nombre: string;
+  }) {
+    trackEvent("ViewContent", {
+      content_ids: [proyecto.id],
+      content_name: proyecto.nombre,
+      content_category: "Proyecto",
+      content_type: "product",
+    });
+  },
+
+  lead(origen = "Formulario Contacto") {
+    trackEvent("Lead", {
+      source: origen,
+    });
+  },
+
+  contactWhatsapp() {
+    trackEvent("Contact", {
+      method: "WhatsApp",
+    });
+  },
+
+  contactPhone() {
+    trackEvent("Contact", {
+      method: "Phone",
+    });
+  },
+
+  contactEmail() {
+    trackEvent("Contact", {
+      method: "Email",
+    });
+  },
+};
