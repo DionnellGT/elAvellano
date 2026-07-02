@@ -23,7 +23,7 @@ export default async function handler(req: Request) {
 
     // 1. Correo interno — notifica al equipo de El Avellano
     const notificacion = resend.emails.send({
-      from: "Contacto El Avellano <contacto@elavellano.cl>",
+      from: "Pag Web El Avellano <contacto@elavellano.cl>",
       to: "contacto@elavellano.cl",
       replyTo: email,
       subject: `${nombre} ${apellido} — ${proyecto}`,
