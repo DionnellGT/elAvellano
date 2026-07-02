@@ -58,7 +58,7 @@ export const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative max-sm:h-[500px] h-[700px] md:h-[450px] mt-17 flex items-center overflow-hidden"
+      className="relative max-sm:h-[500px] h-[1000px] md:h-[450px] mt-17 flex items-center overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
