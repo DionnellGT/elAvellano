@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { metaEvents } from "@/lib/metaPixel";
 
 interface ContactForm {
   nombre: string;
@@ -24,6 +25,8 @@ const contactInfo = [
   {
     icon: <Phone size={20} />,
     texto: "+56 9 4943 7974",
+    ref: "https://wa.me/56949437974",
+    onclick: () => metaEvents.contactWhatsapp(),
   },
   {
     icon: <Mail size={20} />,
@@ -58,6 +61,7 @@ export const Contactenos = () => {
         body: JSON.stringify(data),
       });
       if (res.ok) {
+        metaEvents.lead()
         setIsSuccess(true);
         reset();
         setTimeout(() => setIsSuccess(false), 5000);
@@ -98,7 +102,9 @@ export const Contactenos = () => {
                     {item.icon}
                   </div>
                   <span className="font-manrope text-[15px] leading-[24px] text-stone-700">
-                    {item.texto}
+                    <a href={item.ref} target="_blank" rel="noopener noreferrer" onClick={item.onclick}>
+                      {item.texto}
+                    </a>
                   </span>
                 </div>
               ))}

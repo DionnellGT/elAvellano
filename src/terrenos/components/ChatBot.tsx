@@ -1,3 +1,4 @@
+import { metaEvents } from '@/lib/metaPixel';
 import { useRef } from 'react';
 import ChatBot from 'react-chatbotify';
 
@@ -179,6 +180,7 @@ export const ChatBotWsp = () => {
       options: ['Sí, es correcta', 'No, quiero corregirla'],
       path: async (params: { userInput: string }) => {
         if (params.userInput === 'Sí, es correcta') {
+          metaEvents.contactWhatsapp()
           const { name, email, message } = formRef.current;
           const wspMessage = `Hola, me gustaría recibir información sobre ${message}. \n` + 
                               `Mi nombre es ${name} y mi correo es ${email}.`;
