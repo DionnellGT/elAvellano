@@ -99,10 +99,10 @@ export const Hero = () => {
         aria-hidden={activeSlide !== 1}
       >
         {/* Imagen de fondo: una versión para desktop y otra para mobile */}
-          <img
+          <img 
             src={isMobile ? "/banner web Global2_Mobile Avellano 2.jpg" : "/banner web Global2_Banner Avellano 2.jpg"}
             alt="Paisajes del sur de Chile"
-            className="absolute inset-0 z-0 w-full h-full object-cover "
+            className="absolute inset-0 z-0 w-full h-auto min-h-[450px] object-cover "
           />
 
         {/* Overlay gradiente: opaco a la izquierda, transparente a la derecha */}
