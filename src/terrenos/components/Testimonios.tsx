@@ -82,7 +82,7 @@ export const Testimonios = () => {
                   </span>
 
                   {/* Texto testimonio */}
-                  <p className="font-libre  text-[18px] md:text-[22px] leading-[30px] md:leading-[34px] text-white/90 mb-10">
+                  <p className="font-libre max-sm:text-[14px] text-[18px] md:text-[22px] leading-[30px] md:leading-[34px] text-white/90 mb-10">
                     {t.text}
                   </p>
 
