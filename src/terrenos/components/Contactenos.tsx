@@ -31,6 +31,8 @@ const contactInfo = [
   {
     icon: <Mail size={20} />,
     texto: "contacto@elavellano.cl",
+    ref: "https://mail.google.com/mail/?view=cm&fs=1&to=contacto@elavellano.cl&su=Consulta&body=Hola,%20me%20interesa...",
+    onClick: () => metaEvents.contactEmail()
   },
   {
     icon: <MapPin size={20} />,
