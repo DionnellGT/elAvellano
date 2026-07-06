@@ -1,6 +1,12 @@
+import { useEffect } from "react";
 
 
 export const PoliticaPrivacidad = () => {
+
+  useEffect(() => {
+    document.title = "Política de Privacidad | El Avellano";
+  }, []);
+
   return (
     <main className="min-h-screen bg-white px-6 py-16 my-10 text-gray-600">
       <div className="mx-auto max-w-4xl">
