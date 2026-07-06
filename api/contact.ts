@@ -23,7 +23,7 @@ export default async function handler(req: Request) {
 
     // 1. Correo interno — notifica al equipo de El Avellano
     const notificacion = resend.emails.send({
-      from: "Pag Web El Avellano <contacto@elavellano.cl>",
+      from: "Pag Web El Avellano <noreply@elavellano.cl>",
       to: "contacto@elavellano.cl",
       replyTo: email,
       subject: `${nombre} ${apellido} — ${proyecto}`,
@@ -32,7 +32,7 @@ export default async function handler(req: Request) {
 
     // 2. Autoresponder — confirma al cliente que su mensaje llegó
     const autorespuesta = resend.emails.send({
-      from: "El Avellano <contacto@elavellano.cl>",
+      from: "El Avellano <noreply@elavellano.cl>",
       to: email,
       subject: "Hemos recibido tu mensaje",
       html: buildAutoresponderHtml({ nombre }),
