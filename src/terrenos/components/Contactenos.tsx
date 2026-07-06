@@ -6,7 +6,6 @@ import {
   Select,
   SelectContent,
   SelectItem,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -220,10 +219,6 @@ export const Contactenos = () => {
                               {p.name}
                             </SelectItem>
                           ))}
-                          <SelectSeparator />
-                          <SelectItem value="Sin preferencia">
-                            Sin preferencia / Quiero más información
-                          </SelectItem>
                         </SelectContent>
                       </Select>
                     )}
