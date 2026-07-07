@@ -37,7 +37,7 @@ export const Proyectos = () => {
                 <img
                   src={proyecto.imageCarrousel}
                   alt={proyecto.name}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
 
                 {/* Badge superior — ocupa todo el ancho, fondo semitransparente */}
