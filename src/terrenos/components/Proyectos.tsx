@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export const Proyectos = () => {
   const proyectos = useProyectos();
-
+ 
   return (
     <section
       id="proyectos"
@@ -41,17 +41,20 @@ export const Proyectos = () => {
                 />
 
                 {/* Badge superior — ocupa todo el ancho, fondo semitransparente */}
-                {proyecto.badgeLabel && (
-                  <div
-                    className={`absolute top-0 left-0 right-0 px-5 py-3 font-manrope font-bold text-[13px] leading-[18px] tracking-[0.08em] uppercase ${
-                      proyecto.badgeColor === "green"
-                        ? "bg-[#2D4636]/90 text-[#F9F6F1]"
-                        : "bg-[#b8975a]/90 text-white"
-                    }`}
-                  >
-                    {proyecto.badgeLabel}
-                  </div>
-                )}
+                {
+                  proyecto.isActive && (
+                    proyecto.badgeLabel && (
+                      <div
+                        className={`absolute top-0 left-0 right-0 px-5 py-3 font-manrope font-bold text-[13px] leading-[18px] tracking-[0.08em] uppercase ${
+                          proyecto.badgeColor === "green"
+                            ? "bg-[#2D4636]/90 text-[#F9F6F1]"
+                            : "bg-[#b8975a]/90 text-white"
+                        }`}
+                      >
+                        {proyecto.badgeLabel}
+                      </div>
+                  ))
+                }
 
                 {/* Precio sobre la imagen — esquina superior derecha cuando NO hay badge */}
                 {!proyecto.badgeLabel && proyecto.precioDesde && (
@@ -81,13 +84,22 @@ export const Proyectos = () => {
                   )}
                 </div>
 
-                <Link
-                  to={`/proyectos/${proyecto.idSlug}`}
-                  onClick={() => window.scrollTo(0, 0)}
-                  className="block w-full text-center bg-[#A67C52] text-white py-4 rounded-lg font-manrope font-semibold text-[13px] tracking-[0.15em] uppercase hover:bg-[#79542e] transition-all duration-300 hover:shadow-md active:scale-[0.98]"
-                >
-                  Ver Detalles
-                </Link>
+                {
+                  proyecto.isActive ? (
+                    <Link
+                      to={`/proyectos/${proyecto.idSlug}`}
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="block w-full text-center bg-[#A67C52] text-white py-4 rounded-lg font-manrope font-semibold text-[13px] tracking-[0.15em] uppercase hover:bg-[#79542e] transition-all duration-300 hover:shadow-md active:scale-[0.98]"
+                    >
+                      Ver Detalles
+                    </Link>
+                  ) : (
+                    <div className="block w-full text-center bg-[#7c7c7c] text-white py-4 rounded-lg font-manrope font-semibold text-[13px] tracking-[0.15em] uppercase hover:bg-[#727272] transition-all duration-300 hover:shadow-md active:scale-[0.98] cursor-not-allowed select-none">
+                       <span>Ver Detalles</span>
+                    </div>
+                  )
+                }
+                
               </div>
             </div>
           ))}

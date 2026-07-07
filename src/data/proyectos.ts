@@ -2,37 +2,38 @@ export interface Proyecto {
   id: string;
   idSlug: string;
   name: string;
+  isActive: boolean
   /** Etiqueta del badge sobre la imagen (opcional) */
   badgeLabel?: string;
   /** Color del badge: "green" → fondo forest-green | "brown" → fondo earth-brown */
-  badgeColor?: "green" | "brown";
+  badgeColor?: "green" | "brown" | "red";
   /** Precio mínimo a mostrar en la card (opcional, ej: "$12.900.000") */
   precioDesde?: string;
   imageCarrousel: string;
-  imagenBannerPrincipal: string;
-  imagenBannerPrincipalMobile: string;
-  imagenesDeCaracteristicas: string[];
-  vistaProyecto360: string;
-  imagenesVistasProyecto: string[];
-  imagenMapaFondo: string;
-  linkMapa: string;
-  imagenBaner2: string;
-  centrosUrbanosCercanos: {
+  imagenBannerPrincipal?: string;
+  imagenBannerPrincipalMobile?: string;
+  imagenesDeCaracteristicas?: string[];
+  vistaProyecto360?: string;
+  imagenesVistasProyecto?: string[];
+  imagenMapaFondo?: string;
+  linkMapa?: string;
+  imagenBaner2?: string;
+  centrosUrbanosCercanos?: {
     nombre: string;
     distancia: string;
     tiempo: string;
     linkMaps?: string;
     imgCentroUrbano?: string;
   }[];
-  imagenCentrosUrbanos: string;
-  atraccionesTuristicas: {
+  imagenCentrosUrbanos?: string;
+  atraccionesTuristicas?: {
     nombre: string;
     tiempo: string;
     distancia: string;
     linkMaps?: string;
     imgAtraccionTuristica?: string;
   }[];
-  imagenAtraccionesTuristicas: string;
+  imagenAtraccionesTuristicas?: string;
 }
 
 
@@ -41,6 +42,7 @@ export const proyectos: Proyecto[] = [
     id: "1",
     idSlug: "paisajes-del-rio",
     name: "Paisajes del Río",
+    isActive: true,
     badgeLabel: "Nuevo Lanzamiento",
     badgeColor: "green",
     precioDesde: "$8.900.000",
@@ -154,6 +156,7 @@ export const proyectos: Proyecto[] = [
     id: "2",
     idSlug: "los-muermos",
     name: "Los Muermos",
+    isActive: true,
     badgeLabel: "Últimas Unidades",
     badgeColor: "brown",
     precioDesde: "$12.900.000",
@@ -242,5 +245,25 @@ export const proyectos: Proyecto[] = [
       }
     ],
     imagenAtraccionesTuristicas: "/los_muermos/AtraccionHornopiren.webp",
+  },
+  {
+    id: "3",
+    idSlug: "hacienda_rio_frio",
+    name: "Hacienda Rio Frio",
+    isActive: false,
+    badgeLabel: "Vendido",
+    badgeColor: "red",
+    precioDesde: "$12.900.000",
+    imageCarrousel: "/rio_frio/Caluga-RioFrio.webp",
+  },
+  {
+    id: "4",
+    idSlug: "fundo_bellavista",
+    name: "Fundo Bellavista",
+    isActive: false,
+    badgeLabel: "Vendido",
+    badgeColor: "red",
+    precioDesde: "$18.900.000",
+    imageCarrousel: "/fundo_bellavista/Caluga-Bellavista.webp",
   }
 ]
