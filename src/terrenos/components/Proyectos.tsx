@@ -42,18 +42,19 @@ export const Proyectos = () => {
 
                 {/* Badge superior — ocupa todo el ancho, fondo semitransparente */}
                 {
-                  proyecto.isActive && (
                     proyecto.badgeLabel && (
                       <div
-                        className={`absolute top-0 left-0 right-0 px-5 py-3 font-manrope font-bold text-[13px] leading-[18px] tracking-[0.08em] uppercase ${
+                        className={`absolute top-0 left-0 right-0 px-5 py-3 font-manrope font-bold text-[14px] leading-[18px] tracking-[0.08em] uppercase ${
                           proyecto.badgeColor === "green"
                             ? "bg-[#2D4636]/90 text-[#F9F6F1]"
-                            : "bg-[#b8975a]/90 text-white"
+                            : proyecto.badgeColor === "brown"
+                              ? "bg-[#b8975a]/90 text-white"
+                              : "bg-[#eb242e]/90 text-white"
                         }`}
                       >
                         {proyecto.badgeLabel}
                       </div>
-                  ))
+                  )
                 }
 
                 {/* Precio sobre la imagen — esquina superior derecha cuando NO hay badge */}
