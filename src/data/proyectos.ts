@@ -46,7 +46,7 @@ export const proyectos: Proyecto[] = [
     badgeLabel: "Nuevo Lanzamiento",
     badgeColor: "green",
     precioDesde: "$8.900.000",
-    imageCarrousel: "/PaisajesDelRio/paisajes.webp",
+    imageCarrousel: "/PaisajesDelRio/caluga-paisajes.webp",
     imagenBannerPrincipal: "/PaisajesDelRio/Banner-Paisajes-Web.webp",
     imagenBannerPrincipalMobile: "/PaisajesDelRio/Banner-Paisajes-Mobile.webp",
     imagenesDeCaracteristicas: [
@@ -160,7 +160,7 @@ export const proyectos: Proyecto[] = [
     badgeLabel: "Últimas Unidades",
     badgeColor: "brown",
     precioDesde: "$12.900.000",
-    imageCarrousel: "/los_muermos/avellanolm.webp",
+    imageCarrousel: "/los_muermos/caluga-muermos.webp",
     imagenBannerPrincipal: "/los_muermos/avellanolmBanner.webp",
     imagenBannerPrincipalMobile: "/los_muermos/avellanolmBannerMobile.webp",
     imagenesDeCaracteristicas: [
@@ -254,7 +254,7 @@ export const proyectos: Proyecto[] = [
     badgeLabel: "Vendido",
     badgeColor: "red",
     precioDesde: "$12.900.000",
-    imageCarrousel: "/rio_frio/Caluga-RioFrio.webp",
+    imageCarrousel: "/rio_frio/calugas-riofrio.webp",
   },
   {
     id: "4",
@@ -264,6 +264,16 @@ export const proyectos: Proyecto[] = [
     badgeLabel: "Vendido",
     badgeColor: "red",
     precioDesde: "$18.900.000",
-    imageCarrousel: "/fundo_bellavista/Caluga-Bellavista.webp",
+    imageCarrousel: "/fundo_bellavista/caluga-bellavista1.webp",
+  },
+  {
+    id: "5",
+    idSlug: "eucaliptus",
+    name: "Eucaliptus",
+    isActive: false,
+    badgeLabel: "Vendido",
+    badgeColor: "red",
+    precioDesde: "$16.900.000",
+    imageCarrousel: "/eucaliptus/caluga-eucaliptus.webp",
   }
 ]

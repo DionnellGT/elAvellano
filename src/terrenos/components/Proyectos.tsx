@@ -44,7 +44,7 @@ export const Proyectos = () => {
                 {
                     proyecto.badgeLabel && (
                       <div
-                        className={`absolute top-0 left-0 right-0 px-5 py-3 font-manrope font-bold text-[14px] leading-[18px] tracking-[0.08em] uppercase ${
+                        className={`absolute top-0 left-0 right-0 px-5 py-3 font-manrope font-bold text-[15px] text-center leading-[18px] tracking-[0.08em] uppercase ${
                           proyecto.badgeColor === "green"
                             ? "bg-[#2D4636]/90 text-[#F9F6F1]"
                             : proyecto.badgeColor === "brown"
