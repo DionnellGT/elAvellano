@@ -8,13 +8,12 @@ interface Props {
 export const BlockRenderer = ({ block }: Props) => {
 
   switch (block.type) {
-
+ 
     case "paragraph":
       return (
         <p
           className={clsx(
             "leading-8 text-gray-700",
-            block.className
           )}
         >
           {block.text}
@@ -35,13 +34,6 @@ export const BlockRenderer = ({ block }: Props) => {
             <li key={index}>{item}</li>
           ))}
         </ul>
-      );
-
-    case "note":
-      return (
-        <div className="rounded-lg border-l-4 border-amber-400 bg-amber-50 p-4 text-sm leading-7 text-amber-900">
-          {block.text}
-        </div>
       );
 
     case "divider":
