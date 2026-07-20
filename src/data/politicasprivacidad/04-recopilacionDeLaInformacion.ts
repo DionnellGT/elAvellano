@@ -33,15 +33,12 @@ export const recopilacionDeLaInformacion: TermsSection = {
 
     list([
       "Nombre completo.",
-      "RUT/pasaporte.",
-      "Fecha de nacimiento.",
     ]),
 
     subtitle("Datos de contacto"),
 
     list([
       "Número de teléfono particular y móvil.",
-      "Dirección.",
       "Correo electrónico.",
     ]),
 
