@@ -22,8 +22,6 @@ export const definiciones: TermsSection = {
 
       "Dato o Dato Personal: Es cualquier información respecto de personas naturales, identificadas o identificables. Por ejemplo, datos de contacto, geolocalización, visita y navegación en el Sitio, etc.",
 
-      "Datos Sensibles: Aquellos datos personales que se refieren a las características físicas o morales de las personas o a hechos o circunstancias de su vida privada o intimidad, tales como los hábitos personales, el origen racial, las ideologías y opiniones políticas, las creencias o convicciones religiosas, los estados de salud físicos o psíquicos y la vida sexual.",
-
       "Consentimiento: Toda manifestación de voluntad, específica, inequívoca e informada, mediante la cual el titular de datos, su representante legal o mandatario, según corresponda, autoriza expresamente el tratamiento de los datos personales que le conciernen.",
 
       "Responsable del Registro o Banco de Datos: Es la persona natural o jurídica privada a quien le competen las decisiones relacionadas con el tratamiento de los datos de carácter personal. El Responsable del Registro o Banco de Datos Personales del Usuario en el uso del Sitio Web del El Avellano SpA.",
