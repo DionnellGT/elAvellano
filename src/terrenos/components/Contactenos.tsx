@@ -214,8 +214,8 @@ export const Contactenos = () => {
                           <SelectValue placeholder="Selecciona un proyecto" />
                         </SelectTrigger>
                         <SelectContent>
-                          {proyectos.map((p) => (
-                            <SelectItem key={p.id} value={p.name}>
+                          {proyectos.filter((p) => p.isActive === true).map((p) => (
+                            <SelectItem key={p.id} value={p.name} >
                               {p.name}
                             </SelectItem>
                           ))}

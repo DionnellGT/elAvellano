@@ -1,7 +1,5 @@
 import { MapPin, Globe2 } from "lucide-react";
 import { useParams } from "react-router";
-import { Contactenos } from "../components/Contactenos";
-import { useProyectoPorSlug } from "../hooks/useProyectos";
 import { Conectividad } from "../components/Conectividad";
 import { GaleriaDeTerrenos } from "../components/GaleriaDeTerrenos";
 import { useIsMobile } from "../hooks/useIsMobile";
@@ -9,11 +7,13 @@ import { useEffect } from "react";
 import { CardsCaracteristicas } from "../components/CardsCaracteristicas";
 import { ChatBotWsp } from "../components/ChatBot";
 import { metaEvents } from "@/lib/metaPixel";
+import { useProject } from "../hooks/useProject";
+import { LoadingSpinner } from "../components/LoadingSpinner";
 
 
 export const ProyectoPage = () => {
   const { idSlug } = useParams();
-  const proyecto = useProyectoPorSlug(idSlug);
+  const { proyecto, loading, error } = useProject(idSlug);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -34,7 +34,13 @@ export const ProyectoPage = () => {
     };
   }, [proyecto]);
 
-  if (!proyecto) {
+  if (loading) {
+    return (
+      <LoadingSpinner/>
+    );
+  }
+
+  if (error || !proyecto) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-stone-100 px-6">
         <h1 className="text-3xl font-bold text-stone-800">Proyecto no encontrado</h1>
@@ -136,7 +142,6 @@ export const ProyectoPage = () => {
       {/* Chatbot */}
       <ChatBotWsp />
 
-      <Contactenos />
     </div>
   );
 };

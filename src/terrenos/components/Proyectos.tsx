@@ -78,10 +78,10 @@ export const Proyectos = () => {
                 }
 
                 {/* Precio sobre la imagen — esquina superior derecha cuando NO hay badge */}
-                {!proyecto.badgeLabel && proyecto.precioDesde && (
+                {!proyecto.badgeLabel && proyecto.preciosDesde && (
                   <div className="absolute top-4 right-4 bg-[#F9F6F1]/90 backdrop-blur-sm px-3 py-1.5 rounded-lg">
                     <span className="font-manrope font-bold text-[13px] text-stone-900">
-                      DESDE {proyecto.precioDesde}
+                      DESDE {proyecto.preciosDesde}
                     </span>
                   </div>
                 )}
@@ -93,13 +93,13 @@ export const Proyectos = () => {
                   <h3 className="font-libre font-normal text-[24px] leading-[32px] text-stone-900">
                     {proyecto.name}
                   </h3>
-                  {proyecto.precioDesde && (
+                  {proyecto.preciosDesde && (
                     <div className="text-right flex-shrink-0 ml-4">
                       <span className="block font-manrope font-semibold text-[10px] tracking-[0.12em] text-[#A67C52] uppercase mb-0.5">
                         Desde
                       </span>
                       <span className="font-manrope font-bold text-[17px] leading-[24px] text-stone-900">
-                        {proyecto.precioDesde}
+                        {proyecto.preciosDesde}
                       </span>
                     </div>
                   )}

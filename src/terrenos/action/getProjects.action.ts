@@ -9,7 +9,7 @@ export interface ProjectsResponse {
   imageCarrousel: string
   badgeColor: string
   badgeLabel: string
-  precioDesde: string
+  preciosDesde: string
 }
 
 export const getProjectsAction = async (): Promise<ProjectsResponse[]> => {
