@@ -1,9 +1,17 @@
-import { useProyectos } from "../hooks/useProyectos";
 import { Link } from "react-router";
+import { useRef } from "react";
+import { useProyectos } from "../hooks/useProyectos";
 
 export const Proyectos = () => {
-  const proyectos = useProyectos();
- 
+  const { proyectos, loading } = useProyectos();
+  const isDragging = useRef(false);
+
+
+  // Evita que el click del Link se dispare si el usuario estaba arrastrando
+  const handleLinkClick = (e: React.MouseEvent) => {
+    if (isDragging.current) e.preventDefault();
+  };
+
   return (
     <section
       id="proyectos"
@@ -23,15 +31,27 @@ export const Proyectos = () => {
           <div className="w-20 h-[3px] bg-[#A67C52] mx-auto mt-6 rounded-full" />
         </div>
 
-        {/* ── Cards: flex wrap centrado ──
-            Cada card tiene w-full en mobile, ancho fijo en md+.
-            Con 1 o 2 proyectos quedan centradas; con 3+ forman filas. */}
-        <div className="flex flex-wrap justify-center gap-6">
-          {proyectos.map((proyecto) => (
-            <div
+        {loading ? (
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 lg:grid-cols-4 animate-pulse">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <div key={index} className="h-72 rounded-2xl sm:rounded-4xl bg-stone-200" />
+            ))}
+          </div>
+        ) : proyectos.length === 0 ? (
+          <div className="rounded-[1.5rem] border border-stone-200 bg-white p-8 text-center shadow-sm">
+            <p className="text-stone-700">No hay proyectos disponibles en este momento.</p>
+          </div>
+        ) : (
+          <>
+            {/* ── Cards: flex wrap centrado ──
+              Cada card tiene w-full en mobile, ancho fijo en md+.
+              Con 1 o 2 proyectos quedan centradas; con 3+ forman filas. */}
+            <div className="flex flex-wrap justify-center gap-6">
+            { proyectos.map((proyecto) => 
+              <div
               key={proyecto.id}
               className="group bg-[#F9F6F1] overflow-hidden border border-[#E5E7E6] rounded-[2rem] transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-[420px]"
-            >
+              >
               {/* ── Imagen con badge ── */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -58,10 +78,10 @@ export const Proyectos = () => {
                 }
 
                 {/* Precio sobre la imagen — esquina superior derecha cuando NO hay badge */}
-                {!proyecto.badgeLabel && proyecto.precioDesde && (
+                {!proyecto.badgeLabel && proyecto.preciosDesde && (
                   <div className="absolute top-4 right-4 bg-[#F9F6F1]/90 backdrop-blur-sm px-3 py-1.5 rounded-lg">
                     <span className="font-manrope font-bold text-[13px] text-stone-900">
-                      DESDE {proyecto.precioDesde}
+                      DESDE {proyecto.preciosDesde}
                     </span>
                   </div>
                 )}
@@ -73,13 +93,13 @@ export const Proyectos = () => {
                   <h3 className="font-libre font-normal text-[24px] leading-[32px] text-stone-900">
                     {proyecto.name}
                   </h3>
-                  {proyecto.precioDesde && (
+                  {proyecto.preciosDesde && (
                     <div className="text-right flex-shrink-0 ml-4">
                       <span className="block font-manrope font-semibold text-[10px] tracking-[0.12em] text-[#A67C52] uppercase mb-0.5">
                         Desde
                       </span>
                       <span className="font-manrope font-bold text-[17px] leading-[24px] text-stone-900">
-                        {proyecto.precioDesde}
+                        {proyecto.preciosDesde}
                       </span>
                     </div>
                   )}
@@ -89,7 +109,7 @@ export const Proyectos = () => {
                   proyecto.isActive ? (
                     <Link
                       to={`/proyectos/${proyecto.idSlug}`}
-                      onClick={() => window.scrollTo(0, 0)}
+                      onClick={(e) => { handleLinkClick(e); window.scrollTo(0, 0); }}
                       className="block w-full text-center bg-[#A67C52] text-white py-4 rounded-lg font-manrope font-semibold text-[13px] tracking-[0.15em] uppercase hover:bg-[#79542e] transition-all duration-300 hover:shadow-md active:scale-[0.98]"
                     >
                       Ver Detalles
@@ -102,9 +122,11 @@ export const Proyectos = () => {
                 }
                 
               </div>
+              </div>
+            )}
             </div>
-          ))}
-        </div>
+          </>
+        )}
 
       </div>
     </section>

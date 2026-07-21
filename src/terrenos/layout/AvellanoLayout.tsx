@@ -1,3 +1,4 @@
+import { Contactenos } from "../components/Contactenos"
 import { Footer } from "../components/Footer"
 import { MetaPixelTracker } from "../components/MetaPixelTracker"
 import {NavbarAvellano} from "../components/NavbarAvellano"
@@ -12,6 +13,7 @@ export const AvellanoLayout = () => {
         <div className="min-h-screen">
             <NavbarAvellano />
             <Outlet/>
+            <Contactenos/>
             <Footer />
 
         </div>
