@@ -40,7 +40,7 @@ const contactInfo = [
 ];
 
 export const Contactenos = () => {
-  const proyectos = useProyectos();
+  const {proyectos} = useProyectos();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError]     = useState(false);
 
