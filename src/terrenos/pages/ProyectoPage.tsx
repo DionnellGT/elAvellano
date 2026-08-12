@@ -55,7 +55,7 @@ export const ProyectoPage = () => {
           <img
             src={isMobile ? proyecto.imagenBannerPrincipalMobile : proyecto.imagenBannerPrincipal}
             alt={`${proyecto.name} banner principal`}
-            className="w-full h-auto min-h-[400px] object-cover"
+            className="w-full h-auto min-h-[200px] object-cover"
           />
         </div>
       </section>
