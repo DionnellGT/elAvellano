@@ -21,14 +21,14 @@ const HeroCtas = () => (
   <div className="hero-entrance hero-delay-2 flex flex-wrap gap-4">
     <a
       href="#proyectos"
-      className="bg-[#A67C52] text-white px-8 py-4 rounded-lg font-manrope font-semibold text-[14px] tracking-[0.05em] uppercase hover:bg-[#79542e] transition-all duration-300 hover:shadow-xl flex items-center gap-2"
+      className="bg-[#A67C52] text-white px-8 py-4 rounded-lg font-manrope font-semibold text-[14px]  tracking-[0.05em] uppercase hover:bg-[#79542e] transition-all duration-300 hover:shadow-xl flex items-center gap-2"
     >
       Ver Proyectos
       <ArrowIcon />
     </a>
     <a
       href="#somos"
-      className="border border-white text-white px-8 py-4 rounded-lg font-manrope font-semibold text-[14px] tracking-[0.05em] uppercase hover:bg-white/10 transition-all duration-300"
+      className="border border-white text-white px-8 py-4 rounded-lg font-manrope font-semibold text-[14px]  tracking-[0.05em] uppercase hover:bg-white/10 transition-all duration-300"
     >
       Conoce El Avellano
     </a>
@@ -58,7 +58,7 @@ export const Hero = () => {
   return (
     <section
       id="inicio"
-      className="relative max-sm:h-[500px] h-[1000px] md:h-[450px] mt-17 flex items-center overflow-hidden"
+      className="relative aspect-[1328/1949] md:aspect-[384/125] mt-18 flex items-center overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -74,14 +74,14 @@ export const Hero = () => {
           <img
             src={isMobile ? "/banner web Global2_Mobile Avellano 1.jpg" : "/banner web Global2_Banner Avellano 1.jpg"}
             alt="Paisajes del sur de Chile"
-            className="absolute inset-0 z-0 w-full h-auto min-h-[450px] object-cover"
+            className="absolute inset-0 z-0 w-full h-full object-cover"
           />
 
         {/* Overlay gradiente: opaco a la izquierda, transparente a la derecha */}
         <div className="absolute inset-0 z-0 hero-overlay" />
 
         {/* Contenido */}
-        <div className="relative z-10 h-full flex items-end px-6 md:px-16 pb-15 md:pb-16 ">
+        <div className="relative z-10 h-full flex items-end  px-6 md:px-16 pb-10 md:pb-8 ">
           <div className="max-w-4xl">
             {
               isMobile ? null : <HeroCtas />
@@ -102,7 +102,7 @@ export const Hero = () => {
           <img 
             src={isMobile ? "/banner web Global2_Mobile Avellano 2.jpg" : "/banner web Global2_Banner Avellano 2.jpg"}
             alt="Paisajes del sur de Chile"
-            className="absolute inset-0 z-0 w-full h-auto min-h-[450px] object-cover "
+            className="absolute inset-0 z-0 w-full h-full object-cover"
           />
 
         {/* Overlay gradiente: opaco a la izquierda, transparente a la derecha */}
@@ -137,13 +137,13 @@ export const Hero = () => {
         {/* Contenido */}
         <div className="relative z-10 h-full flex items-center px-6 md:px-16">
           <div className="max-w-4xl">
-            <h1 className="hero-entrance font-libre text-[36px] leading-[44px] md:text-[64px] md:leading-[72px] md:-tracking-[0.02em] text-white mb-6 leading-tight">
+            <h1 className="hero-entrance font-libre text-[36px] leading-[44px] md:text-[44px] lg:text-[64px] md:leading-[42px] lg:leading-[72px] md:-tracking-[0.02em] text-white mb-6 leading-tight">
               Invierte en la paz
               <br />
               del Sur de Chile
             </h1>
 
-            <p className="hero-entrance hero-delay-1 font-manrope text-[18px] leading-[28px] text-white/90 mb-10 max-w-xl">
+            <p className="hero-entrance hero-delay-1 font-manrope text-[16px] md:text-[18px] leading-[20px] md:leading-[22px] text-white/90 mb-10 max-w-xl">
               Terrenos exclusivos con alta plusvalía y entrega inmediata en los
               parajes más vírgenes de la Patagonia norte.
             </p>
