@@ -35,7 +35,7 @@ const HeroCtas = () => (
   </div>
 );
 
-const TOTAL_SLIDES = 3;
+const TOTAL_SLIDES = 4;
 
 export const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -72,6 +72,25 @@ export const Hero = () => {
       >
         {/* Imagen de fondo: una versión para desktop y otra para mobile */}
           <img
+            src={isMobile ? "/banner web Global2_Mobile Avellano 3.png" : "/banner web Global2_Banner Avellano 3.png"}
+            alt="Paisajes del sur de Chile"
+            className="absolute inset-0 z-0 w-full h-full object-cover"
+          />
+
+        {/* Overlay gradiente: opaco a la izquierda, transparente a la derecha */}
+        <div className="absolute inset-0 z-0 hero-overlay" />
+
+      </div>
+
+      {/* ── Pantalla 2: imágenes desktop/mobile de paisajes ── */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+          activeSlide === 1 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+        }`}
+        aria-hidden={activeSlide !== 1}
+      >
+        {/* Imagen de fondo: una versión para desktop y otra para mobile */}
+          <img
             src={isMobile ? "/banner web Global2_Mobile Avellano 1.jpg" : "/banner web Global2_Banner Avellano 1.jpg"}
             alt="Paisajes del sur de Chile"
             className="absolute inset-0 z-0 w-full h-full object-cover"
@@ -91,12 +110,12 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* ── Pantalla 2: imágenes desktop/mobile de paisajes ── */}
+      {/* ── Pantalla 3: imágenes desktop/mobile de paisajes ── */}
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-          activeSlide === 1 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+          activeSlide === 2 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
         }`}
-        aria-hidden={activeSlide !== 1}
+        aria-hidden={activeSlide !== 2}
       >
         {/* Imagen de fondo: una versión para desktop y otra para mobile */}
           <img 
@@ -118,12 +137,12 @@ export const Hero = () => {
         </div>
       </div>
       
-      {/* ── Pantalla 3: contenido original del hero ── */}
+      {/* ── Pantalla 4: contenido original del hero ── */}
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-          activeSlide === 2 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+          activeSlide === 3 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
         }`}
-        aria-hidden={activeSlide !== 2}
+        aria-hidden={activeSlide !== 3}
       >
         {/* Imagen de fondo con efecto Ken Burns */}
         <div
