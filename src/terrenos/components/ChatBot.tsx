@@ -163,7 +163,7 @@ export const ChatBotWsp = () => {
     askTopic: {
       message: () =>
         `Perfecto, ${formRef.current.name}. ¿Sobre qué terreno te gustaría recibir información?`,
-      options: ['El Avellano Los Muermos', 'Pasajes del Rio', 'Refugio del Arrayan', 'Los Tepues'],
+      options: ['Entre bosques y praderas', 'Mi Rincon Los Muermos', 'Fundo Los Muermos', 'El Avellano Los Muermos', 'Pasajes del Rio', 'Refugio del Arrayan', 'Los Tepues'],
       chatDisabled: true,
       function: (params: { userInput: string }) => {
         formRef.current.message = params.userInput;
