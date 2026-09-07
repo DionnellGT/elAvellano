@@ -1,7 +1,7 @@
 import { introduccion } from "./01-introduccion";
 import { definiciones } from "./02-definiciones";
 import { autorizacionDelUsuario } from "./03-autorizacionDelUsuario";
-import { responsableTratamientoDatos } from "./04-Responsable-tratamiento-datos";
+import { responsableTratamientoDatos } from "./04-responsable-tratamiento-datos";
 import { recopilacionDeLaInformacion } from "./05-recopilacionDeLaInformacion";
 import { usoDeLaInformacion } from "./06-uso-de-la-informacion";
 import { usoDeCookies } from "./07-uso-de-cookies";
