@@ -12,7 +12,7 @@ export const precios: TermsSection = {
     ),
 
     p(
-      "La empresa se reserva el derecho de modificar, actualizar o reajustar los precios de venta, promociones, descuentos y demás condiciones comerciales en cualquier momento y sin necesidad de aviso previo, especialmente cuando dichas modificaciones obedezcan a circunstancias tales como, entre otras:"
+      "La empresa se reserva el derecho de modificar, actualizar o reajustar los precios de venta, promociones, descuentos y demás condiciones comerciales en cualquier momento y sin necesidad de aviso previo, especialmente cuando dichas modificaciones obedezcan a circunstancias tales como, entre otras: "
     ),
 
     list([

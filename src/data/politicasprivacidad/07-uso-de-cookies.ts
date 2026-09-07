@@ -4,7 +4,7 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const usoDeCookies: TermsSection = {
   id: "uso-de-cookies",
 
-  title: "6. USO DE COOKIES",
+  title: "7. USO DE COOKIES",
 
   blocks: [
     p("Nuestro sitio utiliza cookies para:"),

@@ -12,7 +12,7 @@ export const introduccion: TermsSection = {
     ),
 
     p(
-      "Las presentes Políticas de Privacidad son parte integrante de los Términos y Condiciones que rigen el Sitio Web https://globalterrenos.cl/ . Prestar consentimiento voluntario, expreso e informado a estas Políticas de Privacidad es un requisito esencial para hacer uso y/o contratar en el Sitio."
+      "Las presentes Políticas de Privacidad son parte integrante de los Términos y Condiciones que rigen el Sitio Web https://www.elavellano.cl/ . Prestar consentimiento voluntario, expreso e informado a estas Políticas de Privacidad es un requisito esencial para hacer uso y/o contratar en el Sitio."
     ),
 
     p(

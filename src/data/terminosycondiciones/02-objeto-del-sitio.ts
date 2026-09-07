@@ -8,7 +8,7 @@ export const objetoDelSitio: TermsSection = {
 
   blocks: [
     p(
-      "El presente sitio web tiene por objeto proporcionar a los usuarios, clientes y público en general información clara, oportuna y actualizada sobre los proyectos inmobiliarios, parcelas y servicios ofrecidos por Global Terrenos SpA, facilitando el acceso a antecedentes comerciales, técnicos y de contacto que permitan a los interesados conocer las alternativas disponibles y tomar decisiones informadas respecto de una eventual adquisición."
+      "El presente sitio web tiene por objeto proporcionar a los usuarios, clientes y público en general información clara, oportuna y actualizada sobre los proyectos inmobiliarios, parcelas y servicios ofrecidos por El Avellano SpA, facilitando el acceso a antecedentes comerciales, técnicos y de contacto que permitan a los interesados conocer las alternativas disponibles y tomar decisiones informadas respecto de una eventual adquisición."
     ),
 
     p(
@@ -16,7 +16,7 @@ export const objetoDelSitio: TermsSection = {
     ),
 
     list([
-      "Información general de los proyectos comercializados por Global Terrenos SpA.",
+      "Información general de los proyectos comercializados por El Avellano SpA.",
       "Catálogo de parcelas disponibles para la venta.",
       "Características, ubicación, superficies, deslindes y demás antecedentes generales de cada proyecto.",
       "Estado de avance de los proyectos, cuando corresponda.",
@@ -30,11 +30,11 @@ export const objetoDelSitio: TermsSection = {
     ]),
 
     p(
-      "La información contenida en este sitio web tiene un carácter exclusivamente informativo, descriptivo y comercial, y su finalidad es orientar a los usuarios respecto de los proyectos y servicios ofrecidos por Global Terrenos SpA. En consecuencia, dicha información no constituye una oferta irrevocable, una promesa de compraventa, un contrato ni genera obligación alguna para la Empresa mientras no se suscriban los instrumentos legales correspondientes."
+      "La información contenida en este sitio web tiene un carácter exclusivamente informativo, descriptivo y comercial, y su finalidad es orientar a los usuarios respecto de los proyectos y servicios ofrecidos por El Avellano SpA. En consecuencia, dicha información no constituye una oferta irrevocable, una promesa de compraventa, un contrato ni genera obligación alguna para la Empresa mientras no se suscriban los instrumentos legales correspondientes."
     ),
 
     p(
-      "Global Terrenos SpA procura mantener la información publicada permanentemente actualizada; sin embargo, determinadas características de los proyectos, disponibilidad de parcelas, precios, promociones, condiciones comerciales, especificaciones técnicas, plazos de ejecución, factibilidades y demás antecedentes podrán modificarse sin previo aviso, de acuerdo con las necesidades operacionales, comerciales o regulatorias de la Empresa."
+      "El Avellano SpA procura mantener la información publicada permanentemente actualizada; sin embargo, determinadas características de los proyectos, disponibilidad de parcelas, precios, promociones, condiciones comerciales, especificaciones técnicas, plazos de ejecución, factibilidades y demás antecedentes podrán modificarse sin previo aviso, de acuerdo con las necesidades operacionales, comerciales o regulatorias de la Empresa."
     ),
 
     p(

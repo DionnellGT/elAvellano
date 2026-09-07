@@ -4,7 +4,7 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const enlacesExternos: TermsSection = {
   id: "enlaces-externos",
 
-  title: "16. ENLACES EXTERNOS",
+  title: "17. ENLACES EXTERNOS",
 
   blocks: [
     p(

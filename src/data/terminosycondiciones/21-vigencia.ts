@@ -8,7 +8,7 @@ export const vigencia: TermsSection = {
 
   blocks: [
     p(
-      "Los presentes Términos y Condiciones entrarán en vigor desde la fecha de su publicación en el sitio web oficial de Global Terrenos SpA y permanecerán plenamente vigentes hasta que sean modificados, actualizados o reemplazados por una versión posterior, la cual será publicada por los mismos medios."
+      "Los presentes Términos y Condiciones entrarán en vigor desde la fecha de su publicación en el sitio web oficial de El Avellano SpA SpA y permanecerán plenamente vigentes hasta que sean modificados, actualizados o reemplazados por una versión posterior, la cual será publicada por los mismos medios."
     ),
 
     p(
@@ -20,7 +20,7 @@ export const vigencia: TermsSection = {
     ),
 
     p(
-      "Los contratos, promesas de compraventa y demás instrumentos jurídicos suscritos entre Global Terrenos SpA y sus clientes continuarán rigiéndose por las condiciones contractuales vigentes al momento de su celebración, sin perjuicio de las modificaciones que las partes acuerden posteriormente y de aquellas que resulten obligatorias conforme a la legislación aplicable."
+      "Los contratos, promesas de compraventa y demás instrumentos jurídicos suscritos entre El Avellano SpA SpA y sus clientes continuarán rigiéndose por las condiciones contractuales vigentes al momento de su celebración, sin perjuicio de las modificaciones que las partes acuerden posteriormente y de aquellas que resulten obligatorias conforme a la legislación aplicable."
     ),
 
     p(

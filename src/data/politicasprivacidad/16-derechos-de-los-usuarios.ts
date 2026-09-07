@@ -4,7 +4,7 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const derechosDeLosUsuarios15: TermsSection = {
   id: "derechos-de-los-usuarios",
 
-  title: "15. DERECHOS DE LOS USUARIOS",
+  title: "16. DERECHOS DE LOS USUARIOS",
 
   blocks: [
     p("Los usuarios pueden en cualquier momento ejercer sus derechos de:"),

@@ -8,7 +8,7 @@ export const factibilidadesYServicios: TermsSection = {
 
   blocks: [
     p(
-      "Cada proyecto desarrollado o comercializado por Global Terrenos posee características, especificaciones técnicas y condiciones particulares que pueden diferir entre sí, así como entre las distintas parcelas o unidades que lo integran."
+      "Cada proyecto desarrollado o comercializado por El Avellano SpA posee características, especificaciones técnicas y condiciones particulares que pueden diferir entre sí, así como entre las distintas parcelas o unidades que lo integran."
     ),
 
     p(

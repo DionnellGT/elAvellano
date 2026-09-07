@@ -4,7 +4,7 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const responsabilidades: TermsSection = {
   id: "responsabilidades",
 
-  title: "14. RESPONSABILIDADES",
+  title: "15. RESPONSABILIDADES",
 
   blocks: [
     p(
@@ -12,7 +12,7 @@ export const responsabilidades: TermsSection = {
     ),
 
     p(
-      "El Avellano SpA no se hará responsable del uso que puedan dar terceras personas a los Datos Personales entregados por sus titulares en espacios abiertos al público, como redes sociales o foros."
+      "El Avellano SpA no se hará responsable del uso que puedan dar terceras personas a los Datos Personales entregados por sus titulares en espacios abiertos al público, como redes sociales o foros. "
     ),
   ],
 };

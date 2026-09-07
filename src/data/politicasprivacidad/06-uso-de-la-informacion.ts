@@ -4,11 +4,11 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const usoDeLaInformacion: TermsSection = {
   id: "uso-de-la-informacion",
 
-  title: "5. USO DE LA INFORMACIÓN",
+  title: "6. USO DE LA INFORMACIÓN",
 
   blocks: [
     p(
-      "La información recopilada según lo previamente descrito es utilizada para proveer a los Usuarios de los servicios ofrecidos por medio del Sitio, así como para analizar, mejorar y personalizar dichos servicios e implementar iniciativas de publicidad. Por ejemplo, El Avellano SpA utiliza dicha información para:"
+      "La información recopilada según lo previamente descrito es utilizada para proveer a los Usuarios de los servicios ofrecidos por medio del Sitio, así como para analizar, mejorar y personalizar dichos servicios e implementar iniciativas de publicidad. Por ejemplo, El Avellano SpA utiliza dicha información para: "
     ),
 
     list([
@@ -29,7 +29,7 @@ export const usoDeLaInformacion: TermsSection = {
     ]),
 
     p(
-      "Para efectos del envío de material publicitario, el Usuario de El Avellano SpA en cualquier caso, podrá solicitar la suspensión del envío de publicidades, conforme lo dispone el artículo 28 B de la Ley N° 19.496 sobre Protección de los Derechos de los Consumidores."
+      "Para efectos del envío de material publicitario, el Usuario tendrá la opción de suscribirse al newsletter de El Avellano SpA y, en cualquier caso, solicitar la suspensión del envío de publicidades, conforme lo dispone el artículo 28 B de la Ley N° 19.496 sobre Protección de los Derechos de los Consumidores. "
     ),
   ],
 };

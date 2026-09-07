@@ -4,7 +4,7 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const contacto: TermsSection = {
   id: "contacto",
 
-  title: "18. CONTACTO",
+  title: "19. CONTACTO",
 
   blocks: [
     p(
