@@ -8,7 +8,7 @@ export const informacionPublicada: TermsSection = {
 
   blocks: [
     p(
-      "Global Terrenos SpA procura que toda la información contenida en este sitio web sea veraz, clara, precisa y se mantenga permanentemente actualizada. No obstante, debido a la naturaleza dinámica de los proyectos inmobiliarios y de los procesos de comercialización, algunos antecedentes podrán modificarse sin previo aviso."
+      "El Avellano SpA procura que toda la información contenida en este sitio web sea veraz, clara, precisa y se mantenga permanentemente actualizada. No obstante, debido a la naturaleza dinámica de los proyectos inmobiliarios y de los procesos de comercialización, algunos antecedentes podrán modificarse sin previo aviso."
     ),
 
     p(
@@ -16,7 +16,7 @@ export const informacionPublicada: TermsSection = {
     ),
 
     p(
-      "Asimismo, la información relativa a precios, disponibilidad, características, plazos de ejecución, etapas de desarrollo, beneficios comerciales, promociones y demás antecedentes podrá ser modificada por Global Terrenos SpA cuando existan razones técnicas, comerciales, administrativas, legales o de fuerza mayor que así lo justifiquen."
+      "Asimismo, la información relativa a precios, disponibilidad, características, plazos de ejecución, etapas de desarrollo, beneficios comerciales, promociones y demás antecedentes podrá ser modificada por El Avellano SpA cuando existan razones técnicas, comerciales, administrativas, legales o de fuerza mayor que así lo justifiquen."
     ),
 
     p(
@@ -34,7 +34,7 @@ export const informacionPublicada: TermsSection = {
     ]),
 
     p(
-      "La información publicada en este sitio no constituye una oferta vinculante, una promesa de compraventa ni un contrato, y no genera obligación alguna para Global Terrenos SpA mientras no se suscriban los instrumentos legales correspondientes."
+      "La información publicada en este sitio no constituye una oferta vinculante, una promesa de compraventa ni un contrato, y no genera obligación alguna para El Avellano SpA mientras no se suscriban los instrumentos legales correspondientes."
     ),
 
     p(
@@ -42,7 +42,7 @@ export const informacionPublicada: TermsSection = {
     ),
 
     p(
-      "Global Terrenos SpA se reserva el derecho de actualizar, complementar, corregir, modificar o eliminar, en cualquier momento y sin previo aviso, la información, imágenes, documentos, precios, promociones, disponibilidad o cualquier otro contenido publicado en el sitio web, con el propósito de mantener la información vigente y reflejar adecuadamente el estado de sus proyectos."
+      "El Avellano SpA se reserva el derecho de actualizar, complementar, corregir, modificar o eliminar, en cualquier momento y sin previo aviso, la información, imágenes, documentos, precios, promociones, disponibilidad o cualquier otro contenido publicado en el sitio web, con el propósito de mantener la información vigente y reflejar adecuadamente el estado de sus proyectos."
     ),
   ],
 };

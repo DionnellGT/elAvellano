@@ -8,7 +8,7 @@ export const promocionesDescuentosYBeneficiosComerciales: TermsSection = {
 
   blocks: [
     p(
-      "Las promociones, descuentos, campañas comerciales, bonos y demás beneficios ofrecidos por Global Terrenos tendrán exclusivamente la vigencia, condiciones y alcance expresamente indicados en la respectiva publicación, cotización, campaña publicitaria o comunicación oficial."
+      "Las promociones, descuentos, campañas comerciales, bonos y demás beneficios ofrecidos por El Avellano SpA tendrán exclusivamente la vigencia, condiciones y alcance expresamente indicados en la respectiva publicación, cotización, campaña publicitaria o comunicación oficial."
     ),
 
     p(

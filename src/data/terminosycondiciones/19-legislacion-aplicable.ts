@@ -20,7 +20,7 @@ export const legislacionAplicable: TermsSection = {
     ),
 
     p(
-      "Los contratos que Global Terrenos celebre con sus clientes podrán contener disposiciones particulares sobre ley aplicable, resolución de controversias o mecanismos alternativos de solución de conflictos, las que prevalecerán respecto de la relación contractual específica, siempre que sean compatibles con la legislación vigente y no impliquen renuncia a derechos irrenunciables."
+      "Los contratos que El Avellano SpA celebre con sus clientes podrán contener disposiciones particulares sobre ley aplicable, resolución de controversias o mecanismos alternativos de solución de conflictos, las que prevalecerán respecto de la relación contractual específica, siempre que sean compatibles con la legislación vigente y no impliquen renuncia a derechos irrenunciables."
     ),
   ],
 };

@@ -4,7 +4,7 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const cambiosEnLaPolitica: TermsSection = {
   id: "cambios-en-la-politica",
 
-  title: "17. CAMBIOS EN LA POLÍTICA",
+  title: "18. CAMBIOS EN LA POLÍTICA",
 
   blocks: [
     p(

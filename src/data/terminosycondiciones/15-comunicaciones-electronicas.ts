@@ -8,7 +8,7 @@ export const comunicacionesElectronicas: TermsSection = {
 
   blocks: [
     p(
-      "El usuario acepta y autoriza que Global Terrenos pueda efectuar las comunicaciones, notificaciones, avisos e intercambio de información relacionados con las consultas, cotizaciones, reservas, procesos de compraventa, ejecución de contratos, atención postventa y demás gestiones vinculadas a la relación comercial, mediante medios electrónicos, siempre que ello sea permitido por la legislación vigente."
+      "El usuario acepta y autoriza que El Avellano SpA pueda efectuar las comunicaciones, notificaciones, avisos e intercambio de información relacionados con las consultas, cotizaciones, reservas, procesos de compraventa, ejecución de contratos, atención postventa y demás gestiones vinculadas a la relación comercial, mediante medios electrónicos, siempre que ello sea permitido por la legislación vigente."
     ),
 
     p(
@@ -25,15 +25,15 @@ export const comunicacionesElectronicas: TermsSection = {
     ]),
 
     p(
-      "El usuario declara que los datos de contacto proporcionados son veraces, completos y se encuentran vigentes, comprometiéndose a informar oportunamente cualquier modificación de los mismos. Mientras no se comunique un cambio por los canales habilitados para ello, Global Terrenos podrá considerar válidos los datos registrados por el usuario para efectos de todas las comunicaciones relacionadas con la relación comercial."
+      "El usuario declara que los datos de contacto proporcionados son veraces, completos y se encuentran vigentes, comprometiéndose a informar oportunamente cualquier modificación de los mismos. Mientras no se comunique un cambio por los canales habilitados para ello, El Avellano SpA podrá considerar válidos los datos registrados por el usuario para efectos de todas las comunicaciones relacionadas con la relación comercial."
     ),
 
     p(
-      "Las comunicaciones enviadas por Global Terrenos a la dirección de correo electrónico, número telefónico o demás medios de contacto proporcionados por el usuario se entenderán válidamente efectuadas desde el momento de su envío, sin perjuicio de las formalidades especiales que la ley exija para determinados actos jurídicos."
+      "Las comunicaciones enviadas por El Avellano SpA a la dirección de correo electrónico, número telefónico o demás medios de contacto proporcionados por el usuario se entenderán válidamente efectuadas desde el momento de su envío, sin perjuicio de las formalidades especiales que la ley exija para determinados actos jurídicos."
     ),
 
     p(
-      "La autorización conferida en la presente cláusula no reemplaza el consentimiento que la legislación aplicable pueda exigir para el envío de comunicaciones publicitarias o de marketing directo. En consecuencia, las comunicaciones de carácter promocional o comercial serán remitidas únicamente cuando exista una base de licitud que las habilite, especialmente el consentimiento del usuario o cualquier otra contemplada en la legislación vigente, pudiendo éste solicitar en cualquier momento el cese de dichas comunicaciones mediante los mecanismos de exclusión o revocación que Global Terrenos ponga a su disposición."
+      "La autorización conferida en la presente cláusula no reemplaza el consentimiento que la legislación aplicable pueda exigir para el envío de comunicaciones publicitarias o de marketing directo. En consecuencia, las comunicaciones de carácter promocional o comercial serán remitidas únicamente cuando exista una base de licitud que las habilite, especialmente el consentimiento del usuario o cualquier otra contemplada en la legislación vigente, pudiendo éste solicitar en cualquier momento el cese de dichas comunicaciones mediante los mecanismos de exclusión o revocación que El Avellano SpA ponga a su disposición."
     ),
 
     p(

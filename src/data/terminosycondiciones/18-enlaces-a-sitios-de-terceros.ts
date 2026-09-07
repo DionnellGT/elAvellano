@@ -8,11 +8,11 @@ export const enlacesASitiosDeTerceros: TermsSection = {
 
   blocks: [
     p(
-      "El sitio web de Global Terrenos podrá contener enlaces, hipervínculos, accesos o referencias a sitios web, plataformas, aplicaciones o servicios administrados por terceros, cuya incorporación tendrá únicamente fines informativos, referenciales o de conveniencia para el usuario."
+      "El sitio web de El Avellano SpA podrá contener enlaces, hipervínculos, accesos o referencias a sitios web, plataformas, aplicaciones o servicios administrados por terceros, cuya incorporación tendrá únicamente fines informativos, referenciales o de conveniencia para el usuario."
     ),
 
     p(
-      "La inclusión de dichos enlaces no implicará, en caso alguno, que Global Terrenos apruebe, recomiende, respalde, garantice o mantenga una relación comercial con los titulares de tales sitios, ni constituirá una declaración respecto de la calidad, exactitud, legalidad, disponibilidad o idoneidad de los contenidos, productos o servicios ofrecidos por éstos."
+      "La inclusión de dichos enlaces no implicará, en caso alguno, que El Avellano SpA apruebe, recomiende, respalde, garantice o mantenga una relación comercial con los titulares de tales sitios, ni constituirá una declaración respecto de la calidad, exactitud, legalidad, disponibilidad o idoneidad de los contenidos, productos o servicios ofrecidos por éstos."
     ),
 
     p(
@@ -20,7 +20,7 @@ export const enlacesASitiosDeTerceros: TermsSection = {
     ),
 
     p(
-      "En consecuencia, Global Terrenos no será responsable por los daños o perjuicios que puedan derivarse del acceso, utilización o imposibilidad de utilizar dichos sitios de terceros, ni por la información, productos, servicios o contenidos publicados en ellos, salvo en aquellos casos en que la responsabilidad sea legalmente imputable a la Empresa conforme a la legislación vigente."
+      "En consecuencia, El Avellano SpA no será responsable por los daños o perjuicios que puedan derivarse del acceso, utilización o imposibilidad de utilizar dichos sitios de terceros, ni por la información, productos, servicios o contenidos publicados en ellos, salvo en aquellos casos en que la responsabilidad sea legalmente imputable a la Empresa conforme a la legislación vigente."
     ),
 
     p(

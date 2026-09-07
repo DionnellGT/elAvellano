@@ -8,7 +8,7 @@ export const modificaciones: TermsSection = {
 
   blocks: [
     p(
-      "Global Terrenos se reserva el derecho de modificar, actualizar, complementar o eliminar, en cualquier momento y sin necesidad de aviso previo, el contenido, diseño, funcionalidades y demás elementos del sitio web, cuando ello resulte necesario para mejorar sus servicios, adecuarse a cambios normativos, comerciales, tecnológicos u operacionales, o por cualquier otra causa legítima."
+      "El Avellano SpA se reserva el derecho de modificar, actualizar, complementar o eliminar, en cualquier momento y sin necesidad de aviso previo, el contenido, diseño, funcionalidades y demás elementos del sitio web, cuando ello resulte necesario para mejorar sus servicios, adecuarse a cambios normativos, comerciales, tecnológicos u operacionales, o por cualquier otra causa legítima."
     ),
 
     p(

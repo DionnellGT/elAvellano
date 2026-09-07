@@ -4,11 +4,11 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const recopilacionDeLaInformacion: TermsSection = {
   id: "recopilacion-de-la-informacion",
 
-  title: "4. RECOPILACIÓN DE LA INFORMACIÓN",
+  title: "5. RECOPILACIÓN DE LA INFORMACIÓN",
 
   blocks: [
     p(
-      "La información recabada en el Sitio es obtenida, en algunos casos, a través de los mismos Usuarios, quienes hacen entrega de ella al proveer la información necesaria para acceder a los productos que ofrece El Avellano SpA. Adicionalmente, la información es recolectada de forma automática por medio de la navegación del Usuario en el Sitio."
+      "La información recabada en el Sitio es obtenida, en algunos casos, a través de los mismos Usuarios, quienes hacen entrega de ella al proveer la información necesaria para acceder a los productos que ofrece El Avellano SpA. Adicionalmente, la información es recolectada de forma automática por medio de la navegación del Usuario en el Sitio.  "
     ),
 
     p(
@@ -16,17 +16,17 @@ export const recopilacionDeLaInformacion: TermsSection = {
     ),
 
     p(
-      "Los Usuarios no tienen la obligación de proporcionar la información personal que se especifica a continuación. Sin embargo, la entrega de esta información es un requisito para acceder a los servicios y productos ofrecidos en el Sitio. Por ello, si el Usuario decide no proporcionar la información, no le será posible contratar a través del Sitio."
+      "Los Usuarios no tienen la obligación de proporcionar la información personal que se especifica a continuación. Sin embargo, la entrega de esta información es un requisito para acceder a los servicios y productos ofrecidos en el Sitio. Por ello, si el Usuario decide no proporcionar la información, no le será posible contratar a través del Sitio. "
     ),
 
     p(
-      "La información que es recabada por El Avellano SpA a través del Sitio es la siguiente:"
+      "La información que es recabada por El Avellano SpA a través del Sitio es la siguiente: "
     ),
 
-    subtitle("4.1 Información proporcionada por los Usuarios"),
+    subtitle("5.1 Información proporcionada por los Usuarios"),
 
     p(
-      "Esta información es recolectada directamente de los Usuarios al acceder a los servicios ofrecidos en el Sitio. Esta incluye:"
+      "Esta información es recolectada directamente de los Usuarios al acceder a los servicios ofrecidos en el Sitio. Esta incluye: "
     ),
 
     subtitle("Datos de identificación"),
@@ -60,10 +60,10 @@ export const recopilacionDeLaInformacion: TermsSection = {
       "En caso de que sea necesario solicitar otros Datos Personales o Sensibles adicionales para la debida prestación de los servicios, El Avellano SpA solicitará la debida autorización al Usuario."
     ),
 
-    subtitle("4.2 Información recopilada de forma automática"),
+    subtitle("5.2 Información recopilada de forma automática"),
 
     p(
-      "El Avellano SpA recopila información con relación a los Usuarios y visitantes del Sitio, el uso de los servicios, la interacción de los Usuarios con ellos y la publicidad."
+      "El Avellano SpA recopila información con relación a los Usuarios y visitantes del Sitio, el uso de los servicios, la interacción de los Usuarios con ellos y la publicidad. "
     ),
 
     p("Esta información incluye:"),

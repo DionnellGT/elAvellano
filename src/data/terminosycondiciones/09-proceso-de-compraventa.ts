@@ -8,7 +8,7 @@ export const procesoDeCompraventa: TermsSection = {
 
   blocks: [
     p(
-      "La adquisición de una parcela o unidad ofrecida por Global Terrenos se perfeccionará únicamente mediante el cumplimiento de todas las etapas legales y contractuales que correspondan a la operación y la suscripción de los instrumentos respectivos por las partes."
+      "La adquisición de una parcela o unidad ofrecida por El Avellano SpA se perfeccionará únicamente mediante el cumplimiento de todas las etapas legales y contractuales que correspondan a la operación y la suscripción de los instrumentos respectivos por las partes."
     ),
 
     p(
@@ -31,7 +31,7 @@ export const procesoDeCompraventa: TermsSection = {
     ]),
 
     p(
-      "Global Terrenos podrá abstenerse de celebrar la compraventa o suspender su tramitación cuando no se cumplan las condiciones legales, comerciales, financieras o contractuales exigidas para la operación, o cuando exista un impedimento jurídico o material que imposibilite su perfeccionamiento."
+      "El Avellano SpA podrá abstenerse de celebrar la compraventa o suspender su tramitación cuando no se cumplan las condiciones legales, comerciales, financieras o contractuales exigidas para la operación, o cuando exista un impedimento jurídico o material que imposibilite su perfeccionamiento."
     ),
 
     p(

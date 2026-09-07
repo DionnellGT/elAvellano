@@ -8,11 +8,11 @@ export const limitacionDeResponsabilidad: TermsSection = {
 
   blocks: [
     p(
-      "Global Terrenos procurará mantener el sitio web operativo, seguro y con información actualizada, adoptando las medidas que resulten procedentes de acuerdo con los estándares técnicos y comerciales aplicables. Sin perjuicio de ello, el usuario reconoce que el funcionamiento de plataformas digitales depende de factores tecnológicos y de servicios prestados por terceros, respecto de los cuales la Empresa no tiene un control absoluto."
+      "El Avellano SpA procurará mantener el sitio web operativo, seguro y con información actualizada, adoptando las medidas que resulten procedentes de acuerdo con los estándares técnicos y comerciales aplicables. Sin perjuicio de ello, el usuario reconoce que el funcionamiento de plataformas digitales depende de factores tecnológicos y de servicios prestados por terceros, respecto de los cuales la Empresa no tiene un control absoluto."
     ),
 
     p(
-      "En consecuencia, salvo en los casos en que la ley disponga expresamente lo contrario, Global Terrenos no garantiza:"
+      "En consecuencia, salvo en los casos en que la ley disponga expresamente lo contrario, El Avellano SpA no garantiza:"
     ),
 
     list([
@@ -24,11 +24,11 @@ export const limitacionDeResponsabilidad: TermsSection = {
     ]),
 
     p(
-      "La información contenida en el sitio web tiene carácter esencialmente informativo y referencial. Si bien Global Terrenos adopta medidas razonables para procurar su exactitud y actualización, el usuario reconoce que dicha información puede ser modificada, actualizada o corregida en cualquier momento, especialmente respecto de precios, disponibilidad, características de los proyectos, promociones, plazos, especificaciones técnicas y demás antecedentes comerciales."
+      "La información contenida en el sitio web tiene carácter esencialmente informativo y referencial. Si bien El Avellano SpA adopta medidas razonables para procurar su exactitud y actualización, el usuario reconoce que dicha información puede ser modificada, actualizada o corregida en cualquier momento, especialmente respecto de precios, disponibilidad, características de los proyectos, promociones, plazos, especificaciones técnicas y demás antecedentes comerciales."
     ),
 
     p(
-      "En consecuencia, Global Terrenos no será responsable por los perjuicios que deriven exclusivamente de:"
+      "En consecuencia, El Avellano SpA no será responsable por los perjuicios que deriven exclusivamente de:"
     ),
 
     list([
@@ -36,7 +36,7 @@ export const limitacionDeResponsabilidad: TermsSection = {
       "Fallas en redes de telecomunicaciones, servicios de internet, plataformas tecnológicas o sistemas operados por terceros.",
       "Ataques informáticos, accesos no autorizados, virus u otros eventos de ciberseguridad que no sean imputables a la falta de diligencia exigible a la Empresa.",
       "Casos fortuitos o de fuerza mayor, conforme a la legislación vigente.",
-      "Actos u omisiones de terceros ajenos a Global Terrenos que afecten el funcionamiento del sitio o el desarrollo de una operación.",
+      "Actos u omisiones de terceros ajenos a El Avellano SpA que afecten el funcionamiento del sitio o el desarrollo de una operación.",
       "Decisiones adoptadas por el usuario exclusivamente sobre la base de información preliminar, referencial o publicitaria contenida en el sitio web, sin verificar las condiciones específicas de la operación ni suscribir los instrumentos contractuales correspondientes.",
     ]),
 
@@ -45,7 +45,7 @@ export const limitacionDeResponsabilidad: TermsSection = {
     ),
 
     p(
-      "Asimismo, ninguna disposición de estos Términos y Condiciones limitará las obligaciones legales que correspondan a Global Terrenos en la ejecución de los contratos que celebre con sus clientes, las cuales se regirán por la legislación vigente y por los respectivos instrumentos contractuales."
+      "Asimismo, ninguna disposición de estos Términos y Condiciones limitará las obligaciones legales que correspondan a El Avellano SpA en la ejecución de los contratos que celebre con sus clientes, las cuales se regirán por la legislación vigente y por los respectivos instrumentos contractuales."
     ),
   ],
 };

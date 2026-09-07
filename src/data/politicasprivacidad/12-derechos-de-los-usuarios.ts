@@ -4,11 +4,11 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const derechosDeLosUsuarios: TermsSection = {
   id: "derechos-de-los-usuarios",
 
-  title: "11. DERECHOS DE LOS USUARIOS",
+  title: "12. DERECHOS DE LOS USUARIOS",
 
   blocks: [
     p(
-      "Los Usuarios pueden revocar en cualquier momento la autorización que entregan para tratar sus Datos Personales, en cuyo caso es posible que no puedan utilizar alguno o todos los servicios que ofrece El Avellano SpA."
+      "Los Usuarios pueden revocar en cualquier momento la autorización que entregan para tratar sus Datos Personales, en cuyo caso es posible que no puedan utilizar alguno o todos los servicios que ofrece El Avellano SpA. "
     ),
 
     p(
@@ -16,11 +16,11 @@ export const derechosDeLosUsuarios: TermsSection = {
     ),
 
     p(
-      "Para ello, deberán contactar a El Avellano SpA a través de la casilla contacto@elavellano.cl."
+      "Para ello, deberán contactar a El Avellano SpA a través de la casilla XX contacto@elavellano.cl"
     ),
 
     p(
-      "Además, los Usuarios tienen el derecho a solicitar información sobre sus Datos Personales que El Avellano SpA haya recolectado y ejercer los derechos de acceso, rectificación, cancelación, oposición y todos los derechos que confiere la Ley N° 21.719 sobre Protección de datos personales. Para ejercer estos derechos, los Usuarios podrán dirigirse a alguno de los siguientes canales de comunicación:"
+      "Además, los Usuarios tienen el derecho a solicitar información sobre sus Datos Personales que El Avellano SpA haya recolectado y ejercer los derechos de acceso, rectificación, cancelación, oposición y todos los derechos que confiere la Ley N° 21.719 sobre Protección de datos personales. Para ejercer estos derechos, los Usuarios podrán dirigirse a alguno de los siguientes canales de comunicación: "
     ),
 
     list([

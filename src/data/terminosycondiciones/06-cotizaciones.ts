@@ -8,11 +8,11 @@ export const cotizaciones: TermsSection = {
 
   blocks: [
     p(
-      "Las cotizaciones emitidas por Global Terrenos tendrán la vigencia expresamente indicada en el documento respectivo. Durante dicho período, las condiciones comerciales contenidas en la cotización se mantendrán vigentes, salvo que se produzcan circunstancias extraordinarias o de fuerza mayor que imposibiliten su cumplimiento."
+      "Las cotizaciones emitidas por El Avellano SpA tendrán la vigencia expresamente indicada en el documento respectivo. Durante dicho período, las condiciones comerciales contenidas en la cotización se mantendrán vigentes, salvo que se produzcan circunstancias extraordinarias o de fuerza mayor que imposibiliten su cumplimiento."
     ),
 
     p(
-      "Vencido el plazo de vigencia de la cotización, esta caducará de pleno derecho, sin necesidad de comunicación previa, quedando Global Terrenos facultada para revisar, modificar o actualizar las condiciones comerciales inicialmente informadas, incluyendo, entre otras:"
+      "Vencido el plazo de vigencia de la cotización, esta caducará de pleno derecho, sin necesidad de comunicación previa, quedando El Avellano SpA facultada para revisar, modificar o actualizar las condiciones comerciales inicialmente informadas, incluyendo, entre otras:"
     ),
 
     list([
@@ -25,7 +25,7 @@ export const cotizaciones: TermsSection = {
     ]),
 
     p(
-      "La emisión de una cotización no constituye una oferta irrevocable ni genera obligación alguna para Global Terrenos de mantener las condiciones comerciales una vez expirado su período de vigencia. En consecuencia, cualquier negociación posterior quedará sujeta a la disponibilidad de la unidad y a las condiciones comerciales vigentes al momento de la suscripción del respectivo instrumento contractual."
+      "La emisión de una cotización no constituye una oferta irrevocable ni genera obligación alguna para El Avellano SpA de mantener las condiciones comerciales una vez expirado su período de vigencia. En consecuencia, cualquier negociación posterior quedará sujeta a la disponibilidad de la unidad y a las condiciones comerciales vigentes al momento de la suscripción del respectivo instrumento contractual."
     ),
 
     p(

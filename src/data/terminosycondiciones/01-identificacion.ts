@@ -8,7 +8,7 @@ export const identificacion: TermsSection = {
 
   blocks: [
     p(
-      "El presente sitio web es operado por Global Terrenos SpA, sociedad constituida conforme a las leyes de la República de Chile (en adelante, “Global Terrenos” o la “Empresa”), cuyo objeto es la comercialización y gestión de proyectos inmobiliarios, parcelas, lotes y servicios relacionados."
+      "El presente sitio web es operado por El Avellano SpA, sociedad constituida conforme a las leyes de la República de Chile (en adelante,  'El Avellano SpA'  o 'la Empresa'), cuyo objeto es la comercialización y gestión de proyectos inmobiliarios, parcelas, lotes y servicios relacionados."
     ),
 
     p(

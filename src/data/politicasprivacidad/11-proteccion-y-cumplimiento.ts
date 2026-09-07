@@ -4,11 +4,11 @@ import type { TermsSection } from "../terminosycondiciones/types";
 export const proteccionYCumplimiento: TermsSection = {
   id: "proteccion-y-cumplimiento",
 
-  title: "10. PROTECCIÓN DE EL AVELLANO SpA Y CUMPLIMIENTO DE LA NORMATIVA APLICABLE",
+  title: "11. PROTECCIÓN DE EL AVELLANO SpA Y CUMPLIMIENTO DE LA NORMATIVA APLICABLE",
 
   blocks: [
     p(
-      "El Avellano SpA y sus proveedores de servicios podrán divulgar información personal y/o confidencial cuando dicha divulgación sea necesaria para:"
+      "El Avellano SpA y sus proveedores de servicios podrán divulgar información personal y/o confidencial cuando dicha divulgación sea necesaria para: "
     ),
 
     list([

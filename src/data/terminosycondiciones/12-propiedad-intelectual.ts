@@ -8,7 +8,7 @@ export const propiedadIntelectual: TermsSection = {
 
   blocks: [
     p(
-      "Todo el contenido disponible en el sitio web de Global Terrenos, incluyendo, entre otros, textos, fotografías, imágenes, videos, renders, planos, croquis, diseños, logotipos, marcas, nombres comerciales, gráficos, iconos, software, bases de datos, material audiovisual, documentos, fichas técnicas, elementos gráficos, código fuente, estructura, diseño, organización, compilación de contenidos y cualquier otro material susceptible de protección por las normas sobre propiedad intelectual e industrial, es de propiedad de Global Terrenos o de terceros que han autorizado su utilización, encontrándose protegido por la Constitución Política de la República, la Ley N° 17.336 sobre Propiedad Intelectual, la Ley N° 19.039 sobre Propiedad Industrial, los tratados internacionales ratificados por Chile y las demás normas aplicables."
+      "Todo el contenido disponible en el sitio web de El Avellano SpA, incluyendo, entre otros, textos, fotografías, imágenes, videos, renders, planos, croquis, diseños, logotipos, marcas, nombres comerciales, gráficos, iconos, software, bases de datos, material audiovisual, documentos, fichas técnicas, elementos gráficos, código fuente, estructura, diseño, organización, compilación de contenidos y cualquier otro material susceptible de protección por las normas sobre propiedad intelectual e industrial, es de propiedad de El Avellano SpA o de terceros que han autorizado su utilización, encontrándose protegido por la Constitución Política de la República, la Ley N° 17.336 sobre Propiedad Intelectual, la Ley N° 19.039 sobre Propiedad Industrial, los tratados internacionales ratificados por Chile y las demás normas aplicables."
     ),
 
     p(
@@ -16,7 +16,7 @@ export const propiedadIntelectual: TermsSection = {
     ),
 
     p(
-      "Queda estrictamente prohibido, sin la autorización previa, expresa y por escrito de Global Terrenos o del respectivo titular de los derechos, realizar cualquiera de las siguientes acciones:"
+      "Queda estrictamente prohibido, sin la autorización previa, expresa y por escrito de El Avellano SpA o del respectivo titular de los derechos, realizar cualquiera de las siguientes acciones:"
     ),
 
     list([
@@ -29,11 +29,11 @@ export const propiedadIntelectual: TermsSection = {
     ]),
 
     p(
-      "El uso no autorizado de los contenidos del sitio constituirá una infracción a la normativa vigente sobre propiedad intelectual e industrial y facultará a Global Terrenos para ejercer todas las acciones civiles, penales y administrativas que correspondan para la protección de sus derechos y la indemnización de los perjuicios ocasionados."
+      "El uso no autorizado de los contenidos del sitio constituirá una infracción a la normativa vigente sobre propiedad intelectual e industrial y facultará a El Avellano SpA para ejercer todas las acciones civiles, penales y administrativas que correspondan para la protección de sus derechos y la indemnización de los perjuicios ocasionados."
     ),
 
     p(
-      "Las marcas, nombres comerciales, logotipos y demás signos distintivos exhibidos en el sitio son de propiedad de Global Terrenos o de sus respectivos titulares, encontrándose protegidos por la legislación vigente. Su utilización por terceros requerirá siempre autorización previa y por escrito de su titular."
+      "Las marcas, nombres comerciales, logotipos y demás signos distintivos exhibidos en el sitio son de propiedad de El Avellano SpA o de sus respectivos titulares, encontrándose protegidos por la legislación vigente. Su utilización por terceros requerirá siempre autorización previa y por escrito de su titular."
     ),
   ],
 };

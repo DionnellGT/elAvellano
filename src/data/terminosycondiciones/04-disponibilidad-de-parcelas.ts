@@ -16,7 +16,7 @@ export const disponibilidadDeParcelas: TermsSection = {
     ),
 
     p(
-      "Global Terrenos SpA realizará sus mejores esfuerzos para mantener actualizada la información sobre disponibilidad; sin embargo, ésta podrá variar sin previo aviso, especialmente cuando existan procesos de negociación, reservas pendientes, operaciones simultáneas o cualquier otra circunstancia que afecte el stock disponible."
+      "El Avellano SpA realizará sus mejores esfuerzos para mantener actualizada la información sobre disponibilidad; sin embargo, ésta podrá variar sin previo aviso, especialmente cuando existan procesos de negociación, reservas pendientes, operaciones simultáneas o cualquier otra circunstancia que afecte el stock disponible."
     ),
 
     p(
@@ -35,7 +35,7 @@ export const disponibilidadDeParcelas: TermsSection = {
     ]),
 
     p(
-      "La disponibilidad definitiva de una parcela sólo se entenderá confirmada una vez que las partes hayan suscrito los instrumentos contractuales correspondientes y se hayan cumplido las condiciones comerciales establecidas por Global Terrenos SpA."
+      "La disponibilidad definitiva de una parcela sólo se entenderá confirmada una vez que las partes hayan suscrito los instrumentos contractuales correspondientes y se hayan cumplido las condiciones comerciales establecidas por El Avellano SpA."
     ),
   ],
 };
